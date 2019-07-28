@@ -1,0 +1,39 @@
+body {
+  background-color: #fef;
+  background-image:
+    linear-gradient(30deg, #eff 12%, transparent 12.5%, transparent 87%, #eff 87.5%, #eff),
+    linear-gradient(150deg, #eff 12%, transparent 12.5%, transparent 87%, #eff 87.5%, #eff),
+    linear-gradient(30deg, #eff 12%, transparent 12.5%, transparent 87%, #eff 87.5%, #eff),
+    linear-gradient(150deg, #eff 12%, transparent 12.5%, transparent 87%, #eff 87.5%, #eff),
+    linear-gradient(60deg, #eef 25%, transparent 25.5%, transparent 75%, #eef 75%, #eef),
+    linear-gradient(60deg, #eef 25%, transparent 25.5%, transparent 75%, #eef 75%, #eef);
+  background-position: 0 0, 0 0, 25px 50px, 25px 50px, 0 0, 25px 50px;
+  background-size: 50px 100px;
+  color: transparent;
+  text-shadow: 0px 0px 1px #555;
+}
+
+h1 {
+  color: transparent;
+  text-shadow: 4px 4px 1px #f8f, 0px 0px 1px #88f;
+  font-style: italic;
+}
+
+h2 {
+  font-style: italic;
+}
+
+a, a:visited {
+  color: #55f;
+  border: 1px solid transparent;
+}
+
+a:focus {
+  outline: none; /* cancel chrome outline */
+  color: #f5f;
+  border: 1px dotted #555;
+}
+
+a:active {
+  color: #f55;
+}
