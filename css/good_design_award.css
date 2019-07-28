@@ -24,16 +24,24 @@ h2 {
 }
 
 a, a:visited {
-  color: #55f;
+  color: transparent;
+  text-shadow: 0px 0px 1px #55f;
   border: 1px solid transparent;
 }
 
+a:hover {
+  color: transparent;
+  text-shadow: 0px 0px 1px #f5f;
+}
+
 a:focus {
+  color: transparent;
   outline: none; /* cancel chrome outline */
-  color: #f5f;
+  text-shadow: 0px 0px 1px #f5f;
   border: 1px dotted #555;
 }
 
 a:active {
-  color: #f55;
+  color: transparent;
+  text-shadow: 0px 0px 1px #f55;
 }
