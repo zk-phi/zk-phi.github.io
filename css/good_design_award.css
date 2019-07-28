@@ -23,6 +23,11 @@ h2 {
   font-style: italic;
 }
 
+strong {
+  color: transparent;
+  text-shadow: 0px 0px 1px #f55;
+}
+
 a, a:visited {
   color: transparent;
   text-shadow: 0px 0px 1px #55f;
