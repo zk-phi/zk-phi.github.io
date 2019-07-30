@@ -6,7 +6,8 @@ gtag('config', 'UA-144855098-1');
 
 function clap () {
     var btn = document.getElementById("clap");
-    btn.disabled = true;
-    btn.innerHTML = "ありがとうございます！";
+    btn.className += " disabled";
+    btn.href = "javascript: void 0;";
     gtag('event', 'clap');
+    window.alert("応援ありがとうございます！");
 }
