@@ -28,25 +28,63 @@ strong {
   text-shadow: 0px 0px 1px #f55;
 }
 
+/* normal links */
+
 a, a:visited {
   color: transparent;
   text-shadow: 0px 0px 1px #55f;
   border: 1px solid transparent;
 }
 
-a:hover {
+a:hover, a:focus {
   color: transparent;
   text-shadow: 0px 0px 1px #f5f;
 }
 
-a:focus {
-  color: transparent;
-  outline: none; /* cancel chrome outline */
-  text-shadow: 0px 0px 1px #f5f;
-  border: 1px dotted #555;
+a:focus, a:active {
+  outline: dotted 1px #555; /* replace chrome outline with win95-ish dotted line */
 }
 
 a:active {
   color: transparent;
   text-shadow: 0px 0px 1px #f55;
+}
+
+/* buttons */
+
+button {
+  font-size: 0.9em;
+  padding: 6px 8px;
+  text-shadow: 0px 0px 1px #000;
+  text-decoration: none;
+  background-color: #c0c0c0;
+  box-shadow:
+    -2px 0 1px 0 #eaeaea,
+    0 -2px 1px 0 #eaeaea,
+    -2px -2px 1px 0 #eaeaea,
+    0 0 1px 2px #717171;
+  user-select: none;
+}
+
+button:hover, button:focus {
+  text-shadow: 0px 0px 1px #000;
+}
+
+button:focus, button:active {
+  outline: dotted 1px #555; /* replace chrome outline with win95-ish dotted line */
+  outline-offset: -4px;
+}
+
+button:active {
+  text-shadow: 0px 0px 1px #000;
+  box-shadow:
+    -2px 0 1px 0 #717171,
+    0 -2px 1px 0 #717171,
+    -2px -2px 1px 0 #717171,
+    0 0 1px 2px #eaeaea;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  text-shadow: 0px 0px 1px #555;
 }
