@@ -54,7 +54,7 @@ a:active {
 
 button {
   font-size: 0.9em;
-  padding: 6px 8px;
+  padding: 8px;
   text-shadow: 0px 0px 1px #000;
   text-decoration: none;
   background-color: #c0c0c0;
@@ -64,6 +64,7 @@ button {
     -2px -2px 1px 0 #eaeaea,
     0 0 1px 2px #717171;
   user-select: none;
+  line-height: 1;
 }
 
 button:hover, button:focus {
