@@ -46,7 +46,7 @@ body {
     linear-gradient(60deg, #eef 25%, transparent 25.1%, transparent 75%, #eef 75%, #eef),
     linear-gradient(60deg, #eef 25%, transparent 25.1%, transparent 75%, #eef 75%, #eef);
   background-size: 50px 100px;
-  animation: background 1s linear infinite;
+  animation: background 7s linear infinite;
 }
 
 h1 {
