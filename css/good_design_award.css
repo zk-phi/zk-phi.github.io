@@ -62,6 +62,8 @@ h2 {
 
 strong {
   animation: blink 1s linear infinite;
+  font-style: italic;
+  background-color: #fff;
 }
 
 /* normal links */
