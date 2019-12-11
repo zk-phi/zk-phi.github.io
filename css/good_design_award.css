@@ -49,11 +49,16 @@ body {
   animation: background 7s linear infinite;
 }
 
+.right {
+  text-align: right;
+}
+
 h1 {
   color: #f8f;
   padding: 4px 4px 0px 0px;
   text-shadow: -4px -4px 0px #88f;
   font-style: italic;
+  text-align: center;
 }
 
 h2 {
