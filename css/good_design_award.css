@@ -47,6 +47,8 @@ body {
     linear-gradient(60deg, #eef 25%, transparent 25.1%, transparent 75%, #eef 75%, #eef);
   background-size: 50px 100px;
   animation: background 7s linear infinite;
+  font-size: 16px;
+  line-height: 1.3;
 }
 
 h1 {
@@ -54,6 +56,7 @@ h1 {
   padding: 4px 4px 0px 0px;
   text-shadow: -4px -4px 0px #88f;
   font-style: italic;
+  text-align: center;
 }
 
 h2 {
@@ -64,6 +67,10 @@ strong {
   animation: blink 1s linear infinite;
   font-style: italic;
   background-color: #fff;
+}
+
+.right {
+  text-align: right;
 }
 
 /* normal links */
