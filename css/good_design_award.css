@@ -73,6 +73,10 @@ strong {
   text-align: right;
 }
 
+.unavailable {
+  background-color: yellow;
+}
+
 /* normal links */
 
 a, a:visited {
