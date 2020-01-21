@@ -19,3 +19,10 @@ getUpdatedDatetime(function (datetime) {
 }, function (e) {
     document.getElementById("lastUpdated").innerHTML = "N/A";
 });
+
+function padWithZero (str) {
+    while (str.length < 4) str = "0" + str;
+    return str;
+}
+
+document.getElementById("randomNumber").innerHTML = padWithZero(Math.floor(Math.random()*10000)+"");

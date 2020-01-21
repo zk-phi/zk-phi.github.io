@@ -15,6 +15,24 @@ body {
   line-height: 1.3;
 }
 
+/* ---- random number */
+
+#randomNumber {
+  color: #0f0;
+  background-color: #000;
+  margin: 6px;
+  font-size: 16px;
+  padding: 2px;
+  box-shadow:
+    0px 0px 0px 1px #888,
+    0px 0px 0px 2px #aaa,
+    0px 0px 0px 3px #ccc,
+    0px 0px 0px 4px #eee,
+    0px 0px 0px 5px #ccc,
+    0px 0px 0px 6px #aaa,
+    0px 0px 0px 7px #888;
+}
+
 /* ---- icons */
 
 i.title:before {
