@@ -5,7 +5,7 @@
 
 (dotimes (n num-stars)
   (insert
-   (format "%.2fvw %.2fvh 0px %.2fpx silver,\n"
+   (format "%.2fvw %.2fvh 0px %.2fpx lightgrey,\n"
            (- (/ (random 10000) 100.0) 50)
            (- (/ (random 10000) 100.0) 50)
            (/ (random 10) 10.0)
