@@ -21,7 +21,7 @@ getUpdatedDatetime(function (datetime) {
 });
 
 function padWithZero (str) {
-    while (str.length < 4) str = "0" + str;
+    while (str.length < 6) str = "0" + str;
     return str;
 }
 
