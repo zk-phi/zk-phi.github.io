@@ -1,3 +1,5 @@
+/* ---- global styles  */
+
 @font-face {
   /*
    * Taken from https://shkspr.mobi/blog/2019/04/banish-the-%EF%BF%BD-with-unifont/
@@ -6,6 +8,44 @@
   font-family: "unifont";
   src: url("unifont-12.0.01.woff2");
 }
+
+body {
+  font-family: "unifont", serif;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+/* ---- icons */
+
+i.title:before {
+  content: var(--titleicon);
+}
+
+i.menu:before {
+  content: var(--menuicon);
+}
+
+/* ---- headings */
+
+h1 {
+  color: var(--accent2);
+  padding: 4px 4px 0px 0px;
+  text-shadow: -4px -4px 0px var(--accent1);
+  font-style: italic;
+  text-align: center;
+}
+
+h2 {
+  font-style: italic;
+}
+
+/* ---- paragraphs */
+
+.right {
+  text-align: right;
+}
+
+/* ---- strong texts */
 
 @keyframes blink {
   0% {
@@ -22,70 +62,26 @@
   }
 }
 
-@keyframes background {
-  0% {
-    background-position: 0    0,     0    0,     25px 50px,  25px 50px,  0    0,     25px 50px;
-  }
-  50% {
-    background-position: 25px 50px,  25px 50px,  50px 100px, 50px 100px, 25px 50px,  50px 100px;
-  }
-  100% {
-    background-position: 50px 100px, 50px 100px, 75px 150px, 75px 150px, 50px 100px, 75px 150px;
-  }
-}
-
-body {
-  font-family: "unifont";
-  color: #555;
-  background-color: #fef;
-  background-image:
-    linear-gradient(30deg, #eff 12%, transparent 12.1%, transparent 87%, #eff 87.1%, #eff),
-    linear-gradient(150deg, #eff 12%, transparent 12.1%, transparent 87%, #eff 87.1%, #eff),
-    linear-gradient(30deg, #eff 12%, transparent 12.1%, transparent 87%, #eff 87.1%, #eff),
-    linear-gradient(150deg, #eff 12%, transparent 12.1%, transparent 87%, #eff 87.1%, #eff),
-    linear-gradient(60deg, #eef 25%, transparent 25.1%, transparent 75%, #eef 75%, #eef),
-    linear-gradient(60deg, #eef 25%, transparent 25.1%, transparent 75%, #eef 75%, #eef);
-  background-size: 50px 100px;
-  animation: background 6.5s linear infinite;
-  font-size: 16px;
-  line-height: 1.3;
-}
-
-h1 {
-  color: #f8f;
-  padding: 4px 4px 0px 0px;
-  text-shadow: -4px -4px 0px #88f;
-  font-style: italic;
-  text-align: center;
-}
-
-h2 {
-  font-style: italic;
-}
-
 strong {
   animation: blink 1s linear infinite;
   font-style: italic;
   background-color: #fff;
 }
 
-.right {
-  text-align: right;
-}
-
 .unavailable {
-  background-color: yellow;
+  background-color: #ff0;
+  color: #000;
 }
 
-/* normal links */
+/* ---- hyperlinks */
 
 a, a:visited {
-  color: #55f;
+  color: var(--link);
   border: 1px solid transparent;
 }
 
 a:hover, a:focus {
-  color: #f5f;
+  color: var(--focus);
 }
 
 a:focus, a:active {
@@ -93,10 +89,10 @@ a:focus, a:active {
 }
 
 a:active {
-  color: #f55;
+  color: var(--active);
 }
 
-/* buttons */
+/* ---- buttons */
 
 a.btn {
   font-size: 0.9em;
