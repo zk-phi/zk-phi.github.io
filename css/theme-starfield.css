@@ -8,17 +8,6 @@
   --menuicon: "💫";
 }
 
-@keyframes background {
-  0% {
-    height: 1px;
-    width: 0;
-  }
-  50% {
-    height: 0px;
-    width: 1px;
-  }
-}
-
 body {
   color: white;
   background-color: #020b29;
@@ -29,7 +18,8 @@ body:before {
   position: fixed;
   top: 50vh;
   left: 50vw;
-  animation: background 0.13s linear infinite;
+  height: 1px;
+  width: 1px;
   /* generated with utils/stars.el */
   box-shadow:
     -35.12vw 37.33vh 0px 0.50px white,
