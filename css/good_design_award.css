@@ -63,12 +63,15 @@ h2 {
 }
 
 strong {
-  animation: blink 1s linear infinite;
   font-style: italic;
+}
+
+strong.new {
+  animation: blink 1s linear infinite;
   background-color: #fff;
 }
 
-.unavailable {
+strong.unavailable {
   background-color: #ff0;
   color: #000;
 }
