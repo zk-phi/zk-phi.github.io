@@ -11,7 +11,7 @@ body {
   font-family: "unifont", serif;
   margin: 32px;
   font-size: 14px;
-  width: 512px;
+  max-width: 512px;
 }
 
 hr, p, h1, ul {
