@@ -129,6 +129,9 @@ a:active {
 /* ---- buttons */
 
 a.btn {
+  display: inline-block;
+  position: relative;
+  left: 2px;
   font-size: 0.9em;
   padding: 8px;
   color: #333;
