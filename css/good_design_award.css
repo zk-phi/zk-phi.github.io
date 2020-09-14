@@ -19,6 +19,16 @@ body {
   margin: var(--margin);
 }
 
+img {
+  display: inline;
+}
+
+/* ---- layout */
+
+h1, h2, p, ul, hr {
+  margin: var(--margin) 0;
+}
+
 /* ---- footer */
 
 footer {
@@ -47,33 +57,22 @@ i.menu:before {
 
 h1 {
   color: var(--accent2);
-  padding: 4px 4px 0px 0px;
   text-shadow: -4px -4px 0px var(--accent1);
   font-style: italic;
   text-align: center;
-  margin: var(--margin) 0;
 }
 
 h2 {
   font-style: italic;
-  margin: var(--margin) 0;
 }
 
-hr {
-  margin: var(--margin) 0;
-}
-
-/* ---- paragraphs */
-
-p, ul {
-  margin: var(--margin) 0;
-}
+/* ---- utilities */
 
 p.right {
   text-align: right;
 }
 
-/* ---- strong texts */
+/* ---- strong */
 
 @keyframes blink {
   0% {
