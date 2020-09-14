@@ -144,7 +144,6 @@ a.btn {
     0 0 0 2px #000;
   user-select: none;
   line-height: 1;
-  cursor: default;
 }
 
 a.btn:hover, a.btn:focus {
