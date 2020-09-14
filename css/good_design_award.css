@@ -29,10 +29,9 @@ footer {
 
 footer:not(.hidden) {
   position: sticky;
-  bottom: 8px;
+  bottom: var(--margin);
   background-color: white;
   color: black;
-  opacity: 0.8;
 }
 
 /* ---- icons */
