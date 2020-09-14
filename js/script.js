@@ -21,7 +21,7 @@ getUpdatedDatetime(function (datetime) {
 });
 
 window.onscroll = function () {
-    if (window.scrollY > 32) {
+    if (window.scrollY > 256) {
         document.getElementsByTagName("footer")[0].classList.add("hidden");
     }
 };
