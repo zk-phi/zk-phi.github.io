@@ -14,11 +14,11 @@ body {
   max-width: 512px;
 }
 
-hr, p, h1, ul {
+hr, p, h2, ul {
   margin: 16px 0;
 }
 
-h1 {
+h2 {
   font-weight: normal;
 }
 
@@ -27,5 +27,6 @@ a {
 }
 
 span.info {
+  font-weight: bold;
   color: #00f;
 }
