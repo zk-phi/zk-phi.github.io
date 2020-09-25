@@ -27,6 +27,12 @@ a {
 }
 
 span.info {
+  display: inline-block;
+
   font-weight: bold;
   color: #00f;
+
+  width: 32px;
+  line-height: 48px;
+  text-align: center;
 }
