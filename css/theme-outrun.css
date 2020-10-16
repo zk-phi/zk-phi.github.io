@@ -22,7 +22,7 @@
 
 body {
   color: #444;
-  background-color: #fef;
+  background-color: #fff;
   background-image:
     linear-gradient(30deg, #eff 12%, transparent 12.1%, transparent 87%, #eff 87.1%, #eff),
     linear-gradient(150deg, #eff 12%, transparent 12.1%, transparent 87%, #eff 87.1%, #eff),
