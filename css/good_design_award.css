@@ -48,6 +48,7 @@ h1 {
 }
 
 h2 {
+  text-decoration: underline;
   font-style: italic;
 }
 
@@ -93,10 +94,12 @@ strong.unavailable {
 a, a:visited {
   color: var(--link);
   border: 1px solid transparent;
+  text-decoration: none;
 }
 
 a:hover, a:focus {
   color: var(--focus);
+  text-decoration: underline;
 }
 
 a:focus, a:active {
