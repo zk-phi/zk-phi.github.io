@@ -1,0 +1,12 @@
+@font-face {
+  /*
+   * Taken from https://shkspr.mobi/blog/2019/04/banish-the-%EF%BF%BD-with-unifont/
+   * Licensed under the GPLv2 + FontException
+   */
+  font-family: "unifont";
+  src: url("unifont-12.0.01.woff2");
+}
+
+body {
+  font-family: "unifont", serif;
+}
