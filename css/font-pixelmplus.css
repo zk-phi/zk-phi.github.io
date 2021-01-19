@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "pixelmplus";
+  src: url("PixelMplus12-Regular.woff");
+  font-weight: normal;
+}
+
+body {
+  font-family: "pixelmplus", sans-serif;
+}
