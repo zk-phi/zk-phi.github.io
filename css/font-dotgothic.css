@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "dotgothic";
+  src: url("DotGothic16-Regular.woff");
+  font-weight: normal;
+}
+
+body {
+  font-family: "dotgothic", sans-serif;
+}
