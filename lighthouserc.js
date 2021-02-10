@@ -9,7 +9,7 @@ module.exports = {
             preset: "lighthouse:no-pwa",
             assertions: {
                 "uses-long-cache-ttl": "off",
-                "render-blocking-resources": ["warn", { maxNumericValue: 1 }],
+                "render-blocking-resources": ["error", { maxNumericValue: 1 }],
             },
         },
         upload: {
