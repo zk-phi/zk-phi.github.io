@@ -1,0 +1,13 @@
+name: Lighthouse
+
+on:
+  push:
+
+jobs:
+  lhci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - run: npm install
+      - run: npx lhci autorun
