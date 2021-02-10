@@ -20,13 +20,5 @@ getUpdatedDatetime(function (datetime) {
     document.getElementById("lastUpdated").innerHTML = "N/A";
 });
 
-function handleScroll () {
-    if (window.scrollY > 128) {
-        document.getElementsByTagName("footer")[0].classList.add("hidden");
-        document.removeEventListener('scroll', handleScroll);
-    }
-}
-document.addEventListener('scroll', handleScroll, { passive: true });
-
 // apply 'hover' to touched elements in mobile devices
 document.addEventListener('touchstart', function () {}, { passive: true });
