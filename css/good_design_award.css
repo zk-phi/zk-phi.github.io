@@ -19,20 +19,6 @@ li + li {
   margin-top: 8px;
 }
 
-/* ---- footer */
-
-footer {
-  padding: 4px;
-  font-size: 0.9em;
-}
-
-footer:not(.hidden) {
-  position: sticky;
-  bottom: var(--margin);
-  background-color: white;
-  color: black;
-}
-
 /* ---- icons */
 
 i.title:before {
