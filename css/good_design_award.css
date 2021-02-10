@@ -15,6 +15,10 @@ h1, h2, p, ul, hr {
   margin: var(--margin) 0;
 }
 
+li + li {
+  margin-top: 8px;
+}
+
 /* ---- footer */
 
 footer {
@@ -63,16 +67,16 @@ p.right {
 
 @keyframes blink {
   0% {
-    color: #f00;
+    opacity: 1;
   }
   49% {
-    color: #f00;
+    opacity: 1;
   }
   50% {
-    color: #0c0;
+    opacity: 0;
   }
   100% {
-    color: #0c0;
+    opacity: 0;
   }
 }
 
@@ -82,7 +86,7 @@ strong {
 
 strong.new {
   animation: blink 1s linear infinite;
-  background-color: #fff;
+  color: #f00;
 }
 
 strong.unavailable {
@@ -160,6 +164,6 @@ a.btn.disabled, a.btn.disabled:hover, a.btn.disabled:focus, a.btn.disabled:activ
 
 /* ---- union banners */
 
-img.union_banner {
-  display: inline;
+.union_banner {
+  line-height: 33px; // height of largest banner
 }
