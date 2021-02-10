@@ -164,6 +164,6 @@ a.btn.disabled, a.btn.disabled:hover, a.btn.disabled:focus, a.btn.disabled:activ
 
 /* ---- union banners */
 
-img.union_banner {
-  display: inline;
+.union_banner {
+  line-height: 33px; // height of largest banner
 }
