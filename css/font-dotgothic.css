@@ -6,6 +6,7 @@
   font-family: "dotgothic";
   src: url("DotGothic16-Regular.woff");
   font-weight: normal;
+  font-display: swap;
 }
 
 body {
