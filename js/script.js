@@ -20,8 +20,10 @@ getUpdatedDatetime(function (datetime) {
     document.getElementById("lastUpdated").innerHTML = "N/A";
 });
 
-window.onscroll = function () {
+function handleScroll () {
     if (window.scrollY > 128) {
         document.getElementsByTagName("footer")[0].classList.add("hidden");
+        document.removeEventListener('scroll', handleScroll);
     }
-};
+}
+document.addEventListener('scroll', handleScroll, { passive: true });
