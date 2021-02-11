@@ -7,6 +7,20 @@
 (dolist (file '("index.html" "index_en.html"))
   (with-temp-buffer
     (insert-file-contents file)
-    (search-forward-regexp "<span id=\"lastUpdated\">\\([^<]*\\)</span>")
-    (replace-match timestamp t t nil 1)
+    ;; embed lastUpdated date
+    (save-excursion
+      (search-forward-regexp "<span id=\"lastUpdated\">\\([^<]*\\)</span>")
+      (replace-match timestamp t t nil 1))
+    ;; inline core CSSs
+    (save-excursion
+      (while (search-forward-regexp
+              "<link rel=\"stylesheet\" href=\"\\([^\"]+\\)\" type=\"text/css\">" nil t)
+        (let* ((filename (match-string 1))
+               (minified-css (save-match-data
+                               (with-temp-buffer
+                                 (insert-file-contents filename)
+                                 (save-excursion (replace-regexp "\n" ""))
+                                 (save-excursion (replace-regexp " *\\([,:;{}+<]\\) *" "\\1"))
+                                 (buffer-string)))))
+          (replace-match (concat "<style>" minified-css "</style>") t t))))
     (write-file file)))
