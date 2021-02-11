@@ -76,5 +76,15 @@ module.exports = {
                 graphQLQuery: githubQuery,
             }
         },
+        {
+            resolve: `gatsby-source-apiserver`,
+            options: {
+                url: "https://connpass.com/api/v1/event/?nickname=zk-phi",
+                method: "get",
+                headers: { "Content-Type": "application/json" },
+                payloadKey: "events",
+                name: "ConnpassEvents",
+            }
+        },
     ],
 };

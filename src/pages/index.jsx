@@ -20,7 +20,14 @@ const formatFeedItem = (source) => ({ node: item }) => ({
     source: source,
     title: item.title,
     link: item.link,
-    pubDate: new Date(item.pubDate)
+    pubDate: new Date(item.pubDate),
+});
+
+const formatConnpassEvent = (item) => ({
+    source: "connpass",
+    title: item.title,
+    link: item.event_url,
+    pubDate: new Date(item.started_at),
 });
 
 const IndexPage = ({ data }) => {
@@ -36,6 +43,7 @@ const IndexPage = ({ data }) => {
         ...data.allFeedZenn.edges.map(formatFeedItem("Zenn")),
         ...data.allFeedScrapbox.edges.map(formatFeedItem("Scrapbox")),
         ...data.allFeedYouTube.edges.map(formatFeedItem("YouTube")),
+        ...data.allConnpassEvents.nodes.map(formatConnpassEvent),
     ].filter((item) => item.pubDate >= lim);
 
     return (
@@ -140,6 +148,13 @@ export const query = graphql`
                     link
                     pubDate
                 }
+            }
+        }
+        allConnpassEvents {
+            nodes {
+                title
+                event_url
+                started_at
             }
         }
     }
