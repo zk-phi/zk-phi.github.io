@@ -12,6 +12,6 @@ jobs:
       - uses: purcell/setup-emacs@master
         with:
           version: 24.5
-      - run: npm install
+      - run: npm ci
       - run: emacs --script build.el
       - run: npx lhci autorun
