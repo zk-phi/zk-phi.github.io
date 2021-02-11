@@ -14,10 +14,11 @@ jobs:
         with:
           version: 24.5
       - run: emacs --script build.el
-      - run: |
+      - name: Commit and push
+        run: |
           git config --local user.email "_"
           git config --local user.name "Github Actions"
-          git add .
+          git add index.html index_en.html
           git commit -m "Build"
           git branch gh-pages
           git push -f origin gh-pages
