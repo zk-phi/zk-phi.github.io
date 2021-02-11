@@ -31,6 +31,8 @@ const formatConnpassEvent = (item) => ({
 });
 
 const IndexPage = ({ data }) => {
+    const [filter, setFilter] = React.useState("");
+
     const lim = new Date();
     lim.setMonth(lim.getMonth() - 12);
 
@@ -44,13 +46,28 @@ const IndexPage = ({ data }) => {
         ...data.allFeedScrapbox.edges.map(formatFeedItem("Scrapbox")),
         ...data.allFeedYouTube.edges.map(formatFeedItem("YouTube")),
         ...data.allConnpassEvents.nodes.map(formatConnpassEvent),
-    ].filter((item) => item.pubDate >= lim);
+    ].filter((item) => item.pubDate >= lim && (!filter || filter === item.source));
 
     return (
         <main>
           <title>GatsbyJS すごい</title>
           <h1>最近の活動</h1>
           <p>ここ一年の活動をいろんなサイトから収集します</p>
+
+          <select value={ filter } onChange={ (e) => setFilter(e.target.value) }>
+            <option value="">全て</option>
+            <option value="GitHub">GitHub</option>
+            <option value="Qiita">Qiita</option>
+            <option value="note">note</option>
+            <option value="note">note</option>
+            <option value="Speakerdeck">Speakerdeck</option>
+            <option value="Soundcloud">Soundcloud</option>
+            <option value="Zenn">Zenn</option>
+            <option value="Scrapbox">Scrapbox</option>
+            <option value="YouTube">YouTube</option>
+            <option value="connpass">connpass</option>
+          </select>
+
           <ul>
             { items.sort((a, b) => a.pubDate <  b.pubDate ? 1 : -1).map((item) => (
                 <li key={ item.link }>
