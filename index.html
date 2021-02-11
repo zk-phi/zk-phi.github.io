@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="zk-phi のホームページへようこそ！">
-    <script defer src="js/script.js"></script>
     <link rel="stylesheet" href="css/font-dotgothic.css" type="text/css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/layout.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css" media="print" onload="this.media='all'">
@@ -94,7 +93,9 @@
     <hr />
 
     <p>
-      <a id="clap" class="btn" href="javascript: clap();">拍手を贈る</a>
+      <button class="btn" onclick="alert('応援ありがとうございます！');this.disabled = true">
+        拍手を送る
+      </button>
     </p>
 
     <p class="union_banner">
@@ -103,5 +104,7 @@
       <a href="https://sites.google.com/site/happybusy/"><img loading="lazy" width=88 height=31 alt="時間ねぇー" src="img/happybusy.gif"></a>
       <a href="http://id47.fm-p.jp/36/yawnlife/"><img loading="lazy" width=118 height=15 alt="寄り道して帰ろっか。" src="img/yawnlife.gif"></a>
     </p>
+
+    <script>document.addEventListener('touchstart', function () {}, { passive: true });</script>
   </body>
 </html>
