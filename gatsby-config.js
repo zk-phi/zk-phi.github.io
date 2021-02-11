@@ -15,6 +15,7 @@ const githubQuery = `{
 }`;
 
 module.exports = {
+    pathPrefix: '/gatsby-otameshi'
     siteMetadata: {
     },
     plugins: [
