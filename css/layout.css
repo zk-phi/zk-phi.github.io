@@ -30,3 +30,11 @@ h2 {
 p.right {
   text-align: right;
 }
+
+i.title:before {
+  content: var(--titleicon);
+}
+
+i.menu:before {
+  content: var(--menuicon);
+}
