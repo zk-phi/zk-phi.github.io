@@ -29,12 +29,12 @@ strong {
   font-style: italic;
 }
 
-strong.new {
+.new {
   animation: blink 1s linear infinite;
   color: #f00;
 }
 
-strong.unavailable {
+.unavailable {
   background-color: #ff0;
   color: #000;
 }
@@ -62,7 +62,7 @@ a:active {
 
 /* ---- buttons */
 
-a.btn {
+.btn {
   display: inline-block;
   position: relative;
   left: 2px;
@@ -81,21 +81,21 @@ a.btn {
   line-height: 1;
 }
 
-a.btn:hover, a.btn:focus {
+.btn:hover, .btn:focus {
   color: #333;
 }
 
-a.btn:focus, a.btn:active {
+.btn:focus, .btn:active {
   outline: dotted 1px #555; /* replace chrome outline with win95-ish dotted line */
   outline-offset: -4px;
 }
 
-a.btn:active {
+.btn:active {
   color: #333;
   box-shadow: 0 0 0 1px #000;
 }
 
-a.btn.disabled, a.btn.disabled:hover, a.btn.disabled:focus, a.btn.disabled:active {
+.btn.disabled, .btn.disabled:hover, .btn.disabled:focus, .btn.disabled:active {
   cursor: not-allowed;
   outline: none;
   color: #eee;
