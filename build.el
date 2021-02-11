@@ -1,4 +1,4 @@
-#!emacs --script
+#!/usr/bin/emacs --script
 
 (defconst timestamp (format-time-string "%Y/%m/%d"))
 
@@ -10,5 +10,3 @@
     (search-forward-regexp "<span id=\"lastUpdated\">\\([^<]*\\)</span>")
     (replace-match timestamp t t nil 1)
     (write-file file)))
-
-(shell-command "git add index.html index_en.html")
