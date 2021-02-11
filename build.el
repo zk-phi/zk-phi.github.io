@@ -19,8 +19,12 @@
                (minified-css (save-match-data
                                (with-temp-buffer
                                  (insert-file-contents filename)
-                                 (save-excursion (replace-regexp "\n" ""))
-                                 (save-excursion (replace-regexp " *\\([,:;{}+<]\\) *" "\\1"))
+                                 (save-excursion
+                                   ;; comments and newlines
+                                   (replace-regexp "\\(?://[^\n]+\\)?\n\\|/\\*[^*]*\\*/" ""))
+                                 (save-excursion
+                                   ;; redundant spaces
+                                   (replace-regexp " *\\([,:;{}+<]\\) *" "\\1"))
                                  (buffer-string)))))
           (replace-match (concat "<style>" minified-css "</style>") t t))))
     (write-file file)))
