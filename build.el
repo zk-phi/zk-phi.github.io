@@ -4,7 +4,19 @@
 
 (setq default-directory (or (getenv "GIT_ROOT") default-directory))
 
-(dolist (file '("index.html" "index_en.html" "etc.html"))
+(defun get-css-minified (css)
+  (save-match-data
+    (with-temp-buffer
+      (insert-file-contents css)
+      (save-excursion
+        ;; comments and newlines
+        (replace-regexp "\\(?://[^\n]+\\)?\n\\|/\\*\\(?:.\\|\n\\)*?\\*/" ""))
+      (save-excursion
+        ;; redundant spaces
+        (replace-regexp " *\\([,:;{}+<]\\) *" "\\1"))
+      (buffer-string))))
+
+(dolist (file (directory-files default-directory nil "\\.html$"))
   (with-temp-buffer
     (insert-file-contents file)
     ;; embed lastUpdated date
@@ -15,16 +27,6 @@
     (save-excursion
       (while (search-forward-regexp
               "<link rel=\"stylesheet\" href=\"\\([^\"]+\\)\" type=\"text/css\">" nil t)
-        (let* ((filename (match-string 1))
-               (minified-css (save-match-data
-                               (with-temp-buffer
-                                 (insert-file-contents filename)
-                                 (save-excursion
-                                   ;; comments and newlines
-                                   (replace-regexp "\\(?://[^\n]+\\)?\n\\|/\\*[^*]*\\*/" ""))
-                                 (save-excursion
-                                   ;; redundant spaces
-                                   (replace-regexp " *\\([,:;{}+<]\\) *" "\\1"))
-                                 (buffer-string)))))
+        (let* ((minified-css (get-css-minified (match-string 1))))
           (replace-match (concat "<style>" minified-css "</style>") t t))))
     (write-file file)))
