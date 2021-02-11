@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
+      - uses: actions/setup-emacs@master
       - run: npm install
       - run: ./build.el
       - run: npx lhci autorun
