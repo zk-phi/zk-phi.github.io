@@ -25,7 +25,7 @@ const formatFeedItem = (source) => ({ node: item }) => ({
 
 const IndexPage = ({ data }) => {
     const lim = new Date();
-    lim.setMonth(lim.getMonth() - 6);
+    lim.setMonth(lim.getMonth() - 12);
 
     const items = [
         ...data.allGithubData.edges[0].node.data.repositoryOwner.repositories.edges.map(formatRepo),
@@ -39,7 +39,7 @@ const IndexPage = ({ data }) => {
         <main>
           <title>GatsbyJS すごい</title>
           <h1>最近の活動</h1>
-          <p>ここ半年の活動をいろんなサイトから収集します</p>
+          <p>ここ一年の活動をいろんなサイトから収集します</p>
           <ul>
             { items.sort((a, b) => a.pubDate <  b.pubDate ? 1 : -1).map((item) => (
                 <li key={ item.link }>

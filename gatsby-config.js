@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const githubQuery = `{
   repositoryOwner(login: "zk-phi") {
-    repositories(isFork: false, first: 20, ownerAffiliations: OWNER, orderBy: {field: CREATED_AT, direction: DESC}, privacy: PUBLIC) {
+    repositories(isFork: false, first: 50, ownerAffiliations: OWNER, orderBy: {field: CREATED_AT, direction: DESC}, privacy: PUBLIC) {
       edges {
         node {
           name
