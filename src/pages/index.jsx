@@ -59,7 +59,6 @@ const IndexPage = ({ data }) => {
             <option value="GitHub">GitHub</option>
             <option value="Qiita">Qiita</option>
             <option value="note">note</option>
-            <option value="note">note</option>
             <option value="Speakerdeck">Speakerdeck</option>
             <option value="Soundcloud">Soundcloud</option>
             <option value="Zenn">Zenn</option>
