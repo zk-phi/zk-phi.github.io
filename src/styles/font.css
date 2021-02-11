@@ -1,0 +1,13 @@
+@font-face {
+  /*
+   * Licensed under the OFL
+   */
+  font-family: "DotGothic";
+  src: url("../fonts/DotGothic16-Regular.woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "DotGothic", sans-serif;
+}

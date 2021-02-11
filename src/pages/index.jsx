@@ -1,5 +1,6 @@
 import * as React from "react";
 import { graphql } from "gatsby";
+import "../styles/font.css";
 
 const IndexPage = ({ data }) => {
     const githubRepos = data.allGithubData.edges[0].node.data.repositoryOwner.repositories;
