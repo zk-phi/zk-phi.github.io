@@ -19,5 +19,4 @@ jobs:
           git config --local user.name "Github Actions"
           git add .
           git commit -m "Build"
-          git pull gh-pages
-          git push origin gh-pages
+          git push -f origin gh-pages
