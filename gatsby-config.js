@@ -42,6 +42,13 @@ module.exports = {
             }
         },
         {
+            resolve: `gatsby-source-rss-feed`,
+            options: {
+                url: "https://feeds.soundcloud.com/users/soundcloud:users:6471748/sounds.rss",
+                name: `Soundcloud`,
+            }
+        },
+        {
             resolve: `gatsby-source-github-api`,
             options: {
                 token: process.env.GITHUB_API_TOKEN,
