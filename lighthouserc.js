@@ -9,7 +9,6 @@ module.exports = {
             preset: "lighthouse:no-pwa",
             assertions: {
                 "uses-long-cache-ttl": "off",
-                "render-blocking-resources": ["error", { maxLength: 1 }],
             },
         },
         upload: {
