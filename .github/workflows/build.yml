@@ -18,7 +18,7 @@ jobs:
         run: |
           git config --local user.email "_"
           git config --local user.name "Github Actions"
-          git add index.html index_en.html
+          git add *.html
           git commit -m "Build"
           git branch gh-pages
           git push -f origin gh-pages
