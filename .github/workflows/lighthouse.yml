@@ -13,5 +13,5 @@ jobs:
         with:
           version: 24.5
       - run: npm install
-      - run: ./build.el
+      - run: emacs --script build.el
       - run: npx lhci autorun
