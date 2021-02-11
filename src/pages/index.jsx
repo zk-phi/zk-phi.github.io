@@ -33,6 +33,9 @@ const IndexPage = ({ data }) => {
         ...data.allFeedNote.edges.map(formatFeedItem("note")),
         ...data.allFeedSpeakerdeck.edges.map(formatFeedItem("Speakerdeck")),
         ...data.allFeedSoundcloud.edges.map(formatFeedItem("Soundcloud")),
+        ...data.allFeedZenn.edges.map(formatFeedItem("Zenn")),
+        ...data.allFeedScrapbox.edges.map(formatFeedItem("Scrapbox")),
+        ...data.allFeedYouTube.edges.map(formatFeedItem("YouTube")),
     ].filter((item) => item.pubDate >= lim);
 
     return (
@@ -104,6 +107,33 @@ export const query = graphql`
             }
         }
         allFeedSoundcloud {
+            edges {
+                node {
+                    title
+                    link
+                    pubDate
+                }
+            }
+        }
+        allFeedZenn {
+            edges {
+                node {
+                    title
+                    link
+                    pubDate
+                }
+            }
+        }
+        allFeedScrapbox {
+            edges {
+                node {
+                    title
+                    link
+                    pubDate
+                }
+            }
+        }
+        allFeedYouTube {
             edges {
                 node {
                     title

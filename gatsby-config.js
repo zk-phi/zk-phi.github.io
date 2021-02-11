@@ -49,6 +49,27 @@ module.exports = {
             }
         },
         {
+            resolve: `gatsby-source-rss-feed`,
+            options: {
+                url: "https://zenn.dev/zk_phi/feed",
+                name: `Zenn`,
+            }
+        },
+        {
+            resolve: `gatsby-source-rss-feed`,
+            options: {
+                url: "https://scrapbox.io/api/feed/zkphi",
+                name: `Scrapbox`,
+            }
+        },
+        {
+            resolve: `gatsby-source-rss-feed`,
+            options: {
+                url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC9_g5OIOEDXQsaqV3BkRWcQ",
+                name: `YouTube`,
+            }
+        },
+        {
             resolve: `gatsby-source-github-api`,
             options: {
                 token: process.env.GITHUB_API_TOKEN,
