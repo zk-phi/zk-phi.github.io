@@ -15,3 +15,10 @@ window.onload = function () {
     xhr.open("GET", "https://api.github.com/repos/zk-phi/zk-phi.github.io/branches/master");
     xhr.send();
 };
+
+function clap () {
+    var btn = document.getElementById("clap");
+    btn.className += " disabled";
+    btn.href = "javascript: void 0;";
+    window.alert("応援ありがとうございます！");
+}
