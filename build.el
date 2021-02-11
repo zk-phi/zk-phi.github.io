@@ -16,7 +16,7 @@
         (replace-regexp " *\\([,:;{}+<]\\) *" "\\1"))
       (buffer-string))))
 
-(dolist (file '("index.html" "index_en.html" "etc.html"))
+(dolist (file (directory-files default-directory nil "\\.html$"))
   (with-temp-buffer
     (insert-file-contents file)
     ;; embed lastUpdated date
