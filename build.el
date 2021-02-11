@@ -1,4 +1,4 @@
-#!/usr/bin/emacs --script
+#!emacs --script
 
 (defconst timestamp (format-time-string "%Y/%m/%d"))
 
