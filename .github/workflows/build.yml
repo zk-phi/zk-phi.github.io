@@ -1,0 +1,22 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  lhci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: purcell/setup-emacs@master
+        with:
+          version: 24.5
+      - run: emacs --script build.el"
+      - run: |
+          git config --local user.email "_"
+          git config --local user.name "Github Actions"
+          git add .
+          git commit -m "Build"
+          git push -f origin gh-pages
