@@ -34,14 +34,6 @@ h2 {
   font-style: italic;
 }
 
-.title:before {
-  content: var(--titleicon);
-}
-
-.menu:before {
-  content: var(--menuicon);
-}
-
 .right {
   text-align: right;
 }

@@ -1,3 +1,13 @@
+/* ---- header icons */
+
+.title:before {
+  content: var(--titleicon);
+}
+
+.menu:before {
+  content: var(--menuicon);
+}
+
 /* ---- strong */
 
 @keyframes blink {
