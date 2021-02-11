@@ -5,7 +5,7 @@ https://zk-phi.github.io
 `build.el` で静的ページに最適化がかかる
 
 - 「最終更新日」の埋め込み
-- 最低限の CSS のインライン化 (TODO)
+- 最低限の CSS のインライン化
 - and more ... ?
 
 GitHub Actions で
