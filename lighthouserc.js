@@ -2,8 +2,8 @@ module.exports = {
     ci: {
         collect: {
             numberOfRuns: 4,
-            staticDistDir: "./",
-            url: ['index.html'],
+            url: ["http://localhost:9000/gatsby-otameshi"],
+            stratServerCommand: "npm run serve",
         },
         assert: {
             preset: "lighthouse:no-pwa",
