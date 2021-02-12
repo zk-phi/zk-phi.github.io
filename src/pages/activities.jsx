@@ -1,7 +1,10 @@
 import * as React from "react";
-import { Link } from "gatsby";
 import { graphql } from "gatsby";
 import Layout from '../components/Layout.jsx';
+import Link from '../components/Link.jsx';
+import Emoji from "../components/Emoji.jsx";
+import PageTitle from '../components/PageTitle.jsx';
+import DateFormat from '../utils/DateFormat.jsx';
 
 const formatRepo = ({ node: repo }) => ({
     source: "GitHub",
@@ -38,7 +41,7 @@ const formatConnpassEvent = (item) => ({
 const Activities = ({ data }) => {
     const [filter, setFilter] = React.useState("");
 
-    const handleFilterChange = (e) => {
+    const handleFilter = (e) => {
         setFilter(e.target.value);
     };
 
@@ -58,27 +61,44 @@ const Activities = ({ data }) => {
 
     return (
         <Layout>
-          <title>GatsbyJS すごい</title>
-          <h1>最近の活動</h1>
-          <p>ここ半年の活動をいろんなサイトから収集します</p>
-          <p><Link to="/">&lt; 戻る</Link></p>
+          <title>zk-phi の部屋 :: 最近の活動</title>
 
-          <select value={ filter } onChange={ handleFilterChange } onBlur={ handleFilterChange }>
+          <PageTitle><Emoji ji="💻"/> 最近の活動 <Emoji ji="💻"/></PageTitle>
+
+          <p>
+            直近半年の間に公開したフリーソフト・文書などをまとめました。
+          </p>
+
+          <p>
+            <Link to="/">&lt; 戻る</Link>
+          </p>
+
+          <hr />
+
+          <p>
+            絞り込む: <select value={ filter } onChange={ handleFilter } onBlur={ handleFilter }>
             <option value="">全て</option>
             <option value="tech">テック</option>
             <option value="hobby">趣味</option>
             <option value="event">イベント参加</option>
-          </select>
+            </select>
+          </p>
 
           <ul>
             { items.sort((a, b) => a.pubDate <  b.pubDate ? 1 : -1).map((item) => (
                 <li key={ item.link }>
                   [{ item.source }]
-                  <a target="_blank" rel="noreferrer" href={ item.link }>{ item.title }</a>
-                  ({ item.pubDate.toLocaleString() })
+                  <Link href={ item.link }>{ item.title }</Link>
+                  ({ DateFormat.format(item.pubDate) })
                 </li>
             )) }
           </ul>
+
+          <hr />
+
+          <p>
+            <Link to="/">&lt; 戻る</Link>
+          </p>
         </Layout>
     );
 }

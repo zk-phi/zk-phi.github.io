@@ -1,0 +1,18 @@
+.link, .link:visited {
+  color: var(--link);
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.link:hover, .link:focus {
+  color: var(--focus);
+  text-decoration: underline;
+}
+
+.link:focus, .link:active {
+  outline: dotted 1px #555; /* replace chrome outline with win95-ish dotted line */
+}
+
+.link:active {
+  color: var(--active);
+}

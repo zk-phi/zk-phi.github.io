@@ -1,0 +1,35 @@
+.body {
+  text-align: center;
+  color: var(--fg);
+  background-color: var(--bg);
+  font-size: 16px;
+  line-height: 24px;
+  margin: 16px;
+  background-image:
+    linear-gradient(30deg, #eff 12%, transparent 12.1%, transparent 87%, #eff 87.1%, #eff),
+    linear-gradient(150deg, #eff 12%, transparent 12.1%, transparent 87%, #eff 87.1%, #eff),
+    linear-gradient(30deg, #eff 12%, transparent 12.1%, transparent 87%, #eff 87.1%, #eff),
+    linear-gradient(150deg, #eff 12%, transparent 12.1%, transparent 87%, #eff 87.1%, #eff),
+    linear-gradient(60deg, #eef 25%, transparent 25.1%, transparent 75%, #eef 75%, #eef),
+    linear-gradient(60deg, #eef 25%, transparent 25.1%, transparent 75%, #eef 75%, #eef);
+  background-size: 50px 100px;
+  background-position: 0 0, 0 0, 25px 50px, 25px 50px, 0 0, 25px 50px;
+}
+
+.content {
+  max-width: 640px;
+  margin: auto;
+}
+
+.content > * {
+  margin: 16px 0;
+}
+
+.content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.content li + li {
+  margin-top: 8px;
+}

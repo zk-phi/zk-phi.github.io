@@ -8,19 +8,6 @@
   font-display: swap;
 }
 
-:root {
-  --margin: 16px;
-}
-
 body {
   font-family: "DotGothic", sans-serif;
-  color: var(--fg);
-  background-color: var(--bg);
-  font-size: 16px;
-  line-height: 24px;
-  margin: 1em;
-}
-
-h1, h2, p, ul, hr {
-  margin: 1em 0;
 }

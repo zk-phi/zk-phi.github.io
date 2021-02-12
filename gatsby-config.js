@@ -1,6 +1,15 @@
 require("dotenv").config();
 
 const githubQuery = `{
+  repository(name: "gatsby-otameshi", owner: "zk-phi") {
+    ref(qualifiedName: "master") {
+      target {
+        ... on Commit {
+          authoredDate
+        }
+      }
+    }
+  }
   repositoryOwner(login: "zk-phi") {
     repositories(isFork: false, first: 50, ownerAffiliations: OWNER, orderBy: {field: CREATED_AT, direction: DESC}, privacy: PUBLIC) {
       edges {
@@ -19,6 +28,7 @@ module.exports = {
     siteMetadata: {
     },
     plugins: [
+        `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-source-qiita`,
             options: {
