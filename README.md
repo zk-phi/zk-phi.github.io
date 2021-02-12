@@ -4,6 +4,8 @@ https://zk-phi.github.io
 
 - 開発用サーバー立ち上げ `npm run develop`
 
+まだ lighthouse 100 点出ていない
+
 # workflows
 
 - PR を作ると lighthouse が走る
