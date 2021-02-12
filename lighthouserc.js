@@ -3,7 +3,7 @@ module.exports = {
         collect: {
             numberOfRuns: 4,
             url: ["http://localhost:9000/gatsby-otameshi"],
-            stratServerCommand: "npm run serve",
+            startServerCommand: "npm run serve",
         },
         assert: {
             preset: "lighthouse:no-pwa",
