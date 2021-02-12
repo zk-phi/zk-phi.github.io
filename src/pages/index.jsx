@@ -38,7 +38,7 @@ const Index = ({ data }) => {
         },
         {
             href: "http://id47.fm-p.jp/36/yawnlife/",
-            img: { src: imgYawnlife, alt: "ゆる春同盟。", w: 118, h: 15 },
+            img: { src: imgYawnlife, alt: "ゆる春同盟。", w: 116, h: 15 },
         },
     ];
     const unionBannersMaxHeight = 33;
