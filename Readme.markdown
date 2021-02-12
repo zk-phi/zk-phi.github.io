@@ -1,4 +1,4 @@
-https://zk-phi.github.io
+最新は https://github.com/zk-phi/zk-phi.github.io/tree/master
 
 # メモ
 
@@ -18,4 +18,6 @@ GitHub Actions で
 - コードいじるときは `master` 向けの PR でいじる
 - GitHub Pages のデプロイブランチは `gh-pages` に設定
 
-すると何かといい感じになる。
+するとなにかといい感じになる。
+
+gh-pages で lighthouse 全項目 100 までチューニングした
