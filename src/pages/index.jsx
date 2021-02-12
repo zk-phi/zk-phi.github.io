@@ -1,6 +1,6 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import "../styles/font.css";
+import Layout from '../components/Layout.jsx';
 
 const formatRepo = ({ node: repo }) => ({
     source: "GitHub",
@@ -53,7 +53,7 @@ const IndexPage = ({ data }) => {
     ].filter((item) => item.pubDate >= lim && (!filter || filter === item.category));
 
     return (
-        <main>
+        <Layout>
           <title>GatsbyJS すごい</title>
           <h1>最近の活動</h1>
           <p>ここ一年の活動をいろんなサイトから収集します</p>
@@ -75,7 +75,7 @@ const IndexPage = ({ data }) => {
                 </li>
             )) }
           </ul>
-        </main>
+        </Layout>
     );
 }
 
