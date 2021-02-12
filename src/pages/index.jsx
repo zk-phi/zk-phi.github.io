@@ -4,6 +4,7 @@ import "../styles/font.css";
 
 const formatRepo = ({ node: repo }) => ({
     source: "GitHub",
+    category: "tech",
     title: repo.name,
     link: repo.url,
     pubDate: new Date(repo.createdAt),
@@ -11,13 +12,15 @@ const formatRepo = ({ node: repo }) => ({
 
 const formatQiitaPost = ({ node: post }) => ({
     source: "Qiita",
+    category: "tech",
     title: post.title,
     link: post.url,
     pubDate: new Date(post.created_at),
 });
 
-const formatFeedItem = (source) => ({ node: item }) => ({
+const formatFeedItem = (source, category) => ({ node: item }) => ({
     source: source,
+    category: category,
     title: item.title,
     link: item.link,
     pubDate: new Date(item.pubDate),
@@ -25,6 +28,7 @@ const formatFeedItem = (source) => ({ node: item }) => ({
 
 const formatConnpassEvent = (item) => ({
     source: "connpass",
+    category: "event",
     title: item.title,
     link: item.event_url,
     pubDate: new Date(item.started_at),
@@ -39,14 +43,14 @@ const IndexPage = ({ data }) => {
     const items = [
         ...data.allGithubData.edges[0].node.data.repositoryOwner.repositories.edges.map(formatRepo),
         ...data.allQiitaPost.edges.map(formatQiitaPost),
-        ...data.allFeedNote.edges.map(formatFeedItem("note")),
-        ...data.allFeedSpeakerdeck.edges.map(formatFeedItem("Speakerdeck")),
-        ...data.allFeedSoundcloud.edges.map(formatFeedItem("Soundcloud")),
-        ...data.allFeedZenn.edges.map(formatFeedItem("Zenn")),
-        ...data.allFeedScrapbox.edges.map(formatFeedItem("Scrapbox")),
-        ...data.allFeedYouTube.edges.map(formatFeedItem("YouTube")),
+        ...data.allFeedNote.edges.map(formatFeedItem("note", "hobby")),
+        ...data.allFeedSpeakerdeck.edges.map(formatFeedItem("Speakerdeck", "hobby")),
+        ...data.allFeedSoundcloud.edges.map(formatFeedItem("Soundcloud", "hobby")),
+        ...data.allFeedZenn.edges.map(formatFeedItem("Zenn", "tech")),
+        ...data.allFeedScrapbox.edges.map(formatFeedItem("Scrapbox", "memo")),
+        ...data.allFeedYouTube.edges.map(formatFeedItem("YouTube", "hobby")),
         ...data.allConnpassEvents.nodes.map(formatConnpassEvent),
-    ].filter((item) => item.pubDate >= lim && (!filter || filter === item.source));
+    ].filter((item) => item.pubDate >= lim && (!filter || filter === item.category));
 
     return (
         <main>
@@ -56,15 +60,10 @@ const IndexPage = ({ data }) => {
 
           <select value={ filter } onChange={ (e) => setFilter(e.target.value) }>
             <option value="">全て</option>
-            <option value="GitHub">GitHub</option>
-            <option value="Qiita">Qiita</option>
-            <option value="note">note</option>
-            <option value="Speakerdeck">Speakerdeck</option>
-            <option value="Soundcloud">Soundcloud</option>
-            <option value="Zenn">Zenn</option>
-            <option value="Scrapbox">Scrapbox</option>
-            <option value="YouTube">YouTube</option>
-            <option value="connpass">connpass</option>
+            <option value="tech">テック</option>
+            <option value="hobby">趣味</option>
+            <option value="event">イベント参加</option>
+            <option value="memo">メモ</option>
           </select>
 
           <ul>
