@@ -24,11 +24,24 @@ const Index = ({ data }) => {
     };
 
     const unionBanners = [
-        { href: "http://nanos.jp/mimi5510/", src: imgYozora, alt: "夜空が好き" },
-        { href: "http://id11.fm-p.jp/31/mbp/", src: imgCellphone, alt: "携帯依存症" },
-        { href: "https://sites.google.com/site/happybusy/", src: imgHappybusy, alt: "時間ねぇー" },
-        { href: "http://id47.fm-p.jp/36/yawnlife/", src: imgYawnlife, alt: "ゆる春同盟。" },
+        {
+            href: "http://nanos.jp/mimi5510/",
+            img: { src: imgYozora, alt: "夜空が好き", w: 100, h: 30 },
+        },
+        {
+            href: "http://id11.fm-p.jp/31/mbp/",
+            img: { src: imgCellphone, alt: "携帯依存症", w: 88, h: 33 },
+        },
+        {
+            href: "https://sites.google.com/site/happybusy/",
+            img: { src: imgHappybusy, alt: "時間ねぇー", w: 88, h: 31 },
+        },
+        {
+            href: "http://id47.fm-p.jp/36/yawnlife/",
+            img: { src: imgYawnlife, alt: "ゆる春同盟。", w: 118, h: 15 },
+        },
     ];
+    const unionBannersMaxHeight = 33;
 
     return (
         <Layout>
@@ -56,10 +69,10 @@ const Index = ({ data }) => {
 
           <hr />
 
-          <p>
-            { unionBanners.map((union) => [
-                  <Link key={ union.href } href={ union.href }>
-                    <img alt={ union.alt } src={ union.src } />
+          <p style={{ lineHeight: unionBannersMaxHeight + "px" }}>
+            { unionBanners.map((u) => [
+                  <Link key={ u.href } href={ u.href }>
+                    <img src={ u.img.src } alt={ u.img.alt } h={ u.img.h } width={ u.img.w } />
                   </Link>,
                   " "
             ]) }
