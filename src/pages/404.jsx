@@ -11,7 +11,6 @@ const NotFoundPage = () => {
             <html lang="ja" />
             <title>サーバーが見つかりました</title>
             <meta name="Description" content="サーバーが見つかりました" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
             <body className={ style.notfound } />
           </Helmet>
 

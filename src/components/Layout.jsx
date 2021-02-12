@@ -9,7 +9,6 @@ const Layout = ({ title, children }) => {
             <html lang="ja" />
             <title>{ title }</title>
             <meta name="Description" content="zk-phi のホームページです" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
             <body className={ style.body } />
           </Helmet>
           { children }
