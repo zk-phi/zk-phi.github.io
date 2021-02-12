@@ -1,0 +1,8 @@
+.title {
+    font-size: 32px;
+    line-height: 48px;
+    color: var(--accent2);
+    text-shadow: -4px -4px 0px var(--accent1);
+    font-style: italic;
+    text-align: center;
+}

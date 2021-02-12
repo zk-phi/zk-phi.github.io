@@ -1,6 +1,15 @@
 require("dotenv").config();
 
 const githubQuery = `{
+  repository(name: "gatsby-otameshi", owner: "zk-phi") {
+    ref(qualifiedName: "master") {
+      target {
+        ... on Commit {
+          authoredDate
+        }
+      }
+    }
+  }
   repositoryOwner(login: "zk-phi") {
     repositories(isFork: false, first: 50, ownerAffiliations: OWNER, orderBy: {field: CREATED_AT, direction: DESC}, privacy: PUBLIC) {
       edges {
@@ -19,6 +28,7 @@ module.exports = {
     siteMetadata: {
     },
     plugins: [
+        `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-source-qiita`,
             options: {
@@ -53,13 +63,6 @@ module.exports = {
             options: {
                 url: "https://zenn.dev/zk_phi/feed",
                 name: `Zenn`,
-            }
-        },
-        {
-            resolve: `gatsby-source-rss-feed`,
-            options: {
-                url: "https://scrapbox.io/api/feed/zkphi",
-                name: `Scrapbox`,
             }
         },
         {

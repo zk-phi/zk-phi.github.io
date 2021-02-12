@@ -1,86 +1,91 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import "../styles/font.css";
+import Emoji from "../components/Emoji.jsx";
+import Layout from '../components/Layout.jsx';
+import PageTitle from '../components/PageTitle.jsx';
+import ClassicBtn from '../components/ClassicBtn.jsx';
+import Link from "../components/Link.jsx";
+import New from '../components/New.jsx';
+import DateFormat from "../utils/DateFormat.jsx";
+import imgYozora from "../images/yozora.jpg";
+import imgYawnlife from "../images/yawnlife.gif";
+import imgHappybusy from "../images/happybusy.gif";
+import imgCellphone from "../images/cellphone.gif";
 
-const formatRepo = ({ node: repo }) => ({
-    source: "GitHub",
-    title: repo.name,
-    link: repo.url,
-    pubDate: new Date(repo.createdAt),
-});
+const Index = ({ data }) => {
+    const lastUpdated = new Date(
+        data.allGithubData.edges[0].node.data.repository.ref.target.authoredDate
+    );
 
-const formatQiitaPost = ({ node: post }) => ({
-    source: "Qiita",
-    title: post.title,
-    link: post.url,
-    pubDate: new Date(post.created_at),
-});
+    const [clapBtnEnabled, setClapBtnEnabled] = React.useState(true);
+    const clap = () => {
+        window.alert("応援ありがとうございます!!");
+        setClapBtnEnabled(false);
+    };
 
-const formatFeedItem = (source) => ({ node: item }) => ({
-    source: source,
-    title: item.title,
-    link: item.link,
-    pubDate: new Date(item.pubDate),
-});
-
-const formatConnpassEvent = (item) => ({
-    source: "connpass",
-    title: item.title,
-    link: item.event_url,
-    pubDate: new Date(item.started_at),
-});
-
-const IndexPage = ({ data }) => {
-    const [filter, setFilter] = React.useState("");
-
-    const lim = new Date();
-    lim.setMonth(lim.getMonth() - 12);
-
-    const items = [
-        ...data.allGithubData.edges[0].node.data.repositoryOwner.repositories.edges.map(formatRepo),
-        ...data.allQiitaPost.edges.map(formatQiitaPost),
-        ...data.allFeedNote.edges.map(formatFeedItem("note")),
-        ...data.allFeedSpeakerdeck.edges.map(formatFeedItem("Speakerdeck")),
-        ...data.allFeedSoundcloud.edges.map(formatFeedItem("Soundcloud")),
-        ...data.allFeedZenn.edges.map(formatFeedItem("Zenn")),
-        ...data.allFeedScrapbox.edges.map(formatFeedItem("Scrapbox")),
-        ...data.allFeedYouTube.edges.map(formatFeedItem("YouTube")),
-        ...data.allConnpassEvents.nodes.map(formatConnpassEvent),
-    ].filter((item) => item.pubDate >= lim && (!filter || filter === item.source));
+    const unionBanners = [
+        {
+            href: "http://nanos.jp/mimi5510/",
+            img: { src: imgYozora, alt: "夜空が好き", w: 100, h: 30 },
+        },
+        {
+            href: "http://id11.fm-p.jp/31/mbp/",
+            img: { src: imgCellphone, alt: "携帯依存症", w: 88, h: 33 },
+        },
+        {
+            href: "https://sites.google.com/site/happybusy/",
+            img: { src: imgHappybusy, alt: "時間ねぇー", w: 88, h: 31 },
+        },
+        {
+            href: "http://id47.fm-p.jp/36/yawnlife/",
+            img: { src: imgYawnlife, alt: "ゆる春同盟。", w: 116, h: 15 },
+        },
+    ];
+    const unionBannersMaxHeight = 33;
 
     return (
-        <main>
-          <title>GatsbyJS すごい</title>
-          <h1>最近の活動</h1>
-          <p>ここ一年の活動をいろんなサイトから収集します</p>
+        <Layout title="zk-phi の部屋">
+          <PageTitle><Emoji ji="🌴"/> zk-phi の部屋 <Emoji ji="🌴" /></PageTitle>
 
-          <select value={ filter } onChange={ (e) => setFilter(e.target.value) }>
-            <option value="">全て</option>
-            <option value="GitHub">GitHub</option>
-            <option value="Qiita">Qiita</option>
-            <option value="note">note</option>
-            <option value="Speakerdeck">Speakerdeck</option>
-            <option value="Soundcloud">Soundcloud</option>
-            <option value="Zenn">Zenn</option>
-            <option value="Scrapbox">Scrapbox</option>
-            <option value="YouTube">YouTube</option>
-            <option value="connpass">connpass</option>
-          </select>
+          <p>
+            zk-phi のホームページへようこそ！
+            ここでは私の作成したフリーソフト、したためた文書などを公開しています。
+          </p>
+
+          <p>
+            最終更新日： { DateFormat.format(lastUpdated) }
+          </p>
 
           <ul>
-            { items.sort((a, b) => a.pubDate <  b.pubDate ? 1 : -1).map((item) => (
-                <li key={ item.link }>
-                  [{ item.source }]
-                  <a target="_blank" rel="noreferrer" href={ item.link }>{ item.title }</a>
-                  ({ item.pubDate.toLocaleString() })
-                </li>
-            )) }
+            <li>
+              <Link to="/activities">最近の活動</Link> <New />
+            </li>
+            <li>
+              <Link to="/links">リンク集</Link>
+            </li>
           </ul>
-        </main>
-    );
-}
 
-export default IndexPage;
+          <hr />
+
+          <p style={{ lineHeight: unionBannersMaxHeight + "px" }}>
+            { unionBanners.map((u) => [
+                  <Link key={ u.href } href={ u.href }>
+                    <img src={ u.img.src } alt={ u.img.alt } height={ u.img.h } width={ u.img.w } />
+                  </Link>,
+                  " "
+            ]) }
+          </p>
+
+          <p>
+            <ClassicBtn onClick={ clap } disabled={ !clapBtnEnabled }>
+              拍手を送る
+            </ClassicBtn>
+          </p>
+        </Layout>
+    );
+};
+
+export default Index;
 
 export const query = graphql`
     query {
@@ -88,89 +93,15 @@ export const query = graphql`
             edges {
                 node {
                     data {
-                        repositoryOwner {
-                            repositories {
-                                edges {
-                                    node {
-                                        createdAt
-                                        name
-                                        url
-                                    }
+                        repository {
+                            ref {
+                                target {
+                                    authoredDate
                                 }
                             }
                         }
                     }
                 }
-            }
-        }
-        allQiitaPost {
-            edges {
-                node {
-                    title
-                    url
-                    created_at
-                }
-            }
-        }
-        allFeedNote {
-            edges {
-                node {
-                    title
-                    link
-                    pubDate
-                }
-            }
-        }
-        allFeedSpeakerdeck {
-            edges {
-                node {
-                    title
-                    link
-                    pubDate
-                }
-            }
-        }
-        allFeedSoundcloud {
-            edges {
-                node {
-                    title
-                    link
-                    pubDate
-                }
-            }
-        }
-        allFeedZenn {
-            edges {
-                node {
-                    title
-                    link
-                    pubDate
-                }
-            }
-        }
-        allFeedScrapbox {
-            edges {
-                node {
-                    title
-                    link
-                    pubDate
-                }
-            }
-        }
-        allFeedYouTube {
-            edges {
-                node {
-                    title
-                    link
-                    pubDate
-                }
-            }
-        }
-        allConnpassEvents {
-            nodes {
-                title
-                event_url
-                started_at
             }
         }
     }

@@ -1,0 +1,27 @@
+.notfound {
+  margin: 32px;
+  max-width: 512px;
+}
+
+.notfound > * {
+  margin: 16px 0;
+}
+
+.notfound h2 {
+  font-weight: normal;
+}
+
+.notfound a {
+  color: #f00;
+}
+
+.info {
+  display: inline-block;
+
+  font-weight: bold;
+  color: #00f;
+
+  width: 32px;
+  line-height: 48px;
+  text-align: center;
+}
