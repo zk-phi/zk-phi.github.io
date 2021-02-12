@@ -2,7 +2,7 @@ module.exports = {
     ci: {
         collect: {
             numberOfRuns: 4,
-            url: ["http://localhost:9000/gatsby-otameshi/"],
+            url: ["http://localhost:9000/"],
             startServerCommand: "npm run serve",
         },
         assert: {

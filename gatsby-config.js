@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const githubQuery = `{
-  repository(name: "gatsby-otameshi", owner: "zk-phi") {
+  repository(name: "zk-phi.github.io", owner: "zk-phi") {
     ref(qualifiedName: "master") {
       target {
         ... on Commit {
@@ -24,7 +24,7 @@ const githubQuery = `{
 }`;
 
 module.exports = {
-    pathPrefix: '/gatsby-otameshi',
+    pathPrefix: '/',
     siteMetadata: {
     },
     plugins: [
