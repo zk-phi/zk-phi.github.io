@@ -70,7 +70,7 @@ const Index = ({ data }) => {
           <p style={{ lineHeight: unionBannersMaxHeight + "px" }}>
             { unionBanners.map((u) => [
                   <Link key={ u.href } href={ u.href }>
-                    <img src={ u.img.src } alt={ u.img.alt } h={ u.img.h } width={ u.img.w } />
+                    <img src={ u.img.src } alt={ u.img.alt } height={ u.img.h } width={ u.img.w } />
                   </Link>,
                   " "
             ]) }
