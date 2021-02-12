@@ -7,9 +7,7 @@ import SectionHeader from '../components/SectionHeader.jsx';
 
 const Others = () => {
     return (
-        <Layout>
-          <title>zk-phi の部屋 :: その他</title>
-
+        <Layout title="zk-phi の部屋 :: その他">
           <PageTitle><Emoji ji="🍺"/> その他 <Emoji ji="🍺" /></PageTitle>
 
           <p>

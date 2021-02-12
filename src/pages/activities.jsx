@@ -60,9 +60,7 @@ const Activities = ({ data }) => {
     ].filter((item) => item.pubDate >= lim && (!filter || filter === item.category));
 
     return (
-        <Layout>
-          <title>zk-phi の部屋 :: 最近の活動</title>
-
+        <Layout title="zk-phi の部屋 :: 最近の活動">
           <PageTitle><Emoji ji="💻"/> 最近の活動 <Emoji ji="💻"/></PageTitle>
 
           <p>

@@ -44,9 +44,7 @@ const Index = ({ data }) => {
     const unionBannersMaxHeight = 33;
 
     return (
-        <Layout>
-          <title>zk-phi の部屋</title>
-
+        <Layout title="zk-phi の部屋">
           <PageTitle><Emoji ji="🌴"/> zk-phi の部屋 <Emoji ji="🌴" /></PageTitle>
 
           <p>

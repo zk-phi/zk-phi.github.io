@@ -8,9 +8,7 @@ import SectionHeader from '../components/SectionHeader.jsx';
 
 const Links = () => {
     return (
-        <Layout>
-          <title>zk-phi の部屋 :: リンク集</title>
-
+        <Layout title="zk-phi の部屋 :: リンク集">
           <PageTitle><Emoji ji="🌏"/> リンク集 <Emoji ji="🌏" /></PageTitle>
 
           <p>
