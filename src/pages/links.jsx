@@ -9,7 +9,7 @@ import SectionHeader from '../components/SectionHeader.jsx';
 const Links = () => {
     return (
         <Layout title="zk-phi の部屋 :: リンク集">
-          <PageTitle><Emoji ji="🌏"/> リンク集 <Emoji ji="🌏" /></PageTitle>
+          <PageTitle><Emoji ji="🌏" rotate /> リンク集 <Emoji ji="🌏" rotate /></PageTitle>
 
           <p>
             管理人の出没する投稿サイトをまとめました。
