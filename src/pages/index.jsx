@@ -65,6 +65,10 @@ const Index = ({ data }) => {
             </li>
           </ul>
 
+          <p>
+            <i>当サイトはリンクフリーです</i>
+          </p>
+
           <hr />
 
           <p style={{ lineHeight: unionBannersMaxHeight + "px" }}>

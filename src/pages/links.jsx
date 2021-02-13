@@ -12,7 +12,7 @@ const Links = () => {
           <PageTitle><Emoji ji="🌏"/> リンク集 <Emoji ji="🌏" /></PageTitle>
 
           <p>
-            私の活動、公開物などを見ることのできるサイト様の一覧です。
+            管理人の出没する投稿サイトをまとめました。
           </p>
 
           <p>

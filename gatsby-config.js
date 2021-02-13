@@ -17,6 +17,7 @@ const githubQuery = `{
           name
           url
           createdAt
+          isArchived
         }
       }
     }
