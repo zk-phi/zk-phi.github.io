@@ -4,9 +4,10 @@ import { Helmet } from 'react-helmet';
 import Emoji from '../components/Emoji.jsx';
 
 const Layout = ({ title, children }) => {
-    const stalker = React.createRef();
+    const stalker = React.useRef(null);
     const handleMousemove = (e) => {
         if (stalker.current) {
+            stalker.current.style.transition = "opacity 0.3s";
             stalker.current.style.opacity = 1;
             stalker.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
         }
@@ -25,7 +26,7 @@ const Layout = ({ title, children }) => {
             <meta name="Description" content="zk-phi のホームページです" />
             <body className={ style.body } />
           </Helmet>
-          <div ref={ stalker } className={ style.stalker }><Emoji ji="👀" /></div>
+          <div ref={ stalker } className={ style.stalker }><Emoji ji="🦄" /></div>
           { children }
         </main>
     );
