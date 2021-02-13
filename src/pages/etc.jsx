@@ -8,7 +8,7 @@ import SectionHeader from '../components/SectionHeader.jsx';
 const Others = () => {
     return (
         <Layout title="zk-phi の部屋 :: その他">
-          <PageTitle><Emoji ji="🍺"/> その他 <Emoji ji="🍺" /></PageTitle>
+          <PageTitle><Emoji ji="🍺" rotate /> その他 <Emoji ji="🍺" rotate /></PageTitle>
 
           <p>
             その他の活動です。

@@ -45,7 +45,7 @@ const Index = ({ data }) => {
 
     return (
         <Layout title="zk-phi の部屋">
-          <PageTitle><Emoji ji="🌴"/> zk-phi の部屋 <Emoji ji="🌴" /></PageTitle>
+          <PageTitle><Emoji ji="🌴" rotate /> zk-phi の部屋 <Emoji ji="🌴" rotate /></PageTitle>
 
           <p>
             zk-phi のホームページへようこそ！
