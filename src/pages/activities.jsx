@@ -6,12 +6,14 @@ import Emoji from "../components/Emoji.jsx";
 import PageTitle from '../components/PageTitle.jsx';
 import ActivityListItem from "../components/ActivityListItem.jsx";
 import Section from "../components/Section.jsx";
+import SectionHeader from "../components/SectionHeader.jsx";
 
 const CATEGORIES = [
     "OSS",
     "テック記事",
     "趣味記事",
     "イベント",
+    "メモ",
     "その他",
 ];
 
@@ -55,6 +57,26 @@ const formatConnpassEvent = (item) => (
     }
 );
 
+const factorSortedItemsByMonth = (items) => {
+    if (!items) return [];
+
+    const ret = [{
+        year: items[0].pubDate.getFullYear(),
+        month: items[0].pubDate.getMonth(),
+        items: [],
+    }];
+    items.forEach((item) => {
+        const year = item.pubDate.getFullYear();
+        const month = item.pubDate.getMonth();
+        if (year !== ret[0].year || month !== ret[0].month) {
+            ret.unshift({ year, month, items: [] });
+        }
+        ret[0].items.push(item);
+    });
+
+    return ret.reverse();
+};
+
 const Activities = ({ data }) => {
     const [filter, setFilter] = React.useState("");
 
@@ -62,8 +84,8 @@ const Activities = ({ data }) => {
         setFilter(e.target.value);
     };
 
-    const lim = new Date();
-    lim.setMonth(lim.getMonth() - 12);
+    const now = new Date();
+    const lim = new Date(now.getFullYear(), now.getMonth() - 12);
 
     const items = [
         ...data.allGithubData.edges[0].node.data.repositoryOwner.repositories.edges.map(formatRepo),
@@ -73,8 +95,13 @@ const Activities = ({ data }) => {
         ...data.allFeedSoundcloud.edges.map(formatFeedItem("Soundcloud", "その他")),
         ...data.allFeedZenn.edges.map(formatFeedItem("Zenn", "テック記事")),
         ...data.allFeedYouTube.edges.map(formatFeedItem("YouTube", "その他")),
+        ...data.allFeedScrapbox.edges.map(formatFeedItem("Scrapbox", "メモ")),
         ...data.allConnpassEvents.nodes.map(formatConnpassEvent),
-    ].filter((item) => item && item.pubDate >= lim && (!filter || filter === item.category));
+    ].filter((item) => (
+        item && item.pubDate >= lim && (!filter || filter === item.category)
+    )).sort((a, b) => a.pubDate < b.pubDate ? 1 : -1);
+
+    const itemsByMonth = factorSortedItemsByMonth(items);
 
     return (
         <Layout title="zk-phi の部屋 :: 最近の活動">
@@ -99,13 +126,16 @@ const Activities = ({ data }) => {
             </select>
           </p>
 
-          <Section>
-            <ul>
-              { items.sort((a, b) => a.pubDate <  b.pubDate ? 1 : -1).map((item) => (
-                  <ActivityListItem key={ item.link } item={ item } />
-              )) }
-            </ul>
-          </Section>
+          { itemsByMonth.map((month) => (
+              <Section key={ month.year * 12 + month.month }>
+                <SectionHeader>{ `${month.year} ${month.month + 1}月` }</SectionHeader>
+                <ul>
+                  { month.items.map((item) => (
+                      <ActivityListItem key={ item.link } item={ item } />
+                  )) }
+                </ul>
+              </Section>
+            ))}
 
           <hr />
 
@@ -199,6 +229,15 @@ export const query = graphql`
                 title
                 event_url
                 started_at
+            }
+        }
+        allFeedScrapbox {
+            edges {
+                node {
+                    title
+                    link
+                    pubDate
+                }
             }
         }
     }
