@@ -12,6 +12,7 @@ const CATEGORIES = [
     "テック記事",
     "趣味記事",
     "イベント",
+    "メモ",
     "その他",
 ];
 
@@ -73,6 +74,7 @@ const Activities = ({ data }) => {
         ...data.allFeedSoundcloud.edges.map(formatFeedItem("Soundcloud", "その他")),
         ...data.allFeedZenn.edges.map(formatFeedItem("Zenn", "テック記事")),
         ...data.allFeedYouTube.edges.map(formatFeedItem("YouTube", "その他")),
+        ...data.allFeedScrapbox.edges.map(formatFeedItem("Scrapbox", "メモ")),
         ...data.allConnpassEvents.nodes.map(formatConnpassEvent),
     ].filter((item) => item && item.pubDate >= lim && (!filter || filter === item.category));
 
@@ -199,6 +201,15 @@ export const query = graphql`
                 title
                 event_url
                 started_at
+            }
+        }
+        allFeedScrapbox {
+            edges {
+                node {
+                    title
+                    link
+                    pubDate
+                }
             }
         }
     }
