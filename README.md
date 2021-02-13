@@ -2,7 +2,7 @@ https://zk-phi.github.io
 
 おためし GatsbyJS
 
-- 開発用サーバー立ち上げ `npm run develop`
+- 開発用サーバー立ち上げ `npm install` して `npm run develop`
 
 まだ lighthouse 100 点出ていない
 
@@ -19,6 +19,6 @@ https://zk-phi.github.io
 - `GITHUB_API_TOKEN` (GitHub の個人用トークン)
 - `QIITA_API_TOKEN` (Qiita の個人用トークン)
 
-`npm install` すると `dotenv` が入るので、ローカルで開発する場合は `.env` ファイル (`.gitignore` されている) に書いておくと便利。
+`dotenv` が入っているので、ローカルで開発する場合は `.env` ファイルに書いておくと便利。
 
 GitHub Actions で使うトークンは GitHub Secrets に登録しておけば ok (名前が `GH_API_TOKEN` になっていることに注意)
