@@ -2,13 +2,13 @@
   0% {
     opacity: 1;
   }
-  40% {
+  25% {
     opacity: 1;
   }
   50% {
     opacity: 0;
   }
-  90% {
+  75% {
     opacity: 0;
   }
 }
