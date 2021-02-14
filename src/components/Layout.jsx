@@ -12,10 +12,15 @@ const Layout = ({ title, children }) => {
             transform: `translate(${e.clientX}px, ${e.clientY}px)`,
         });
     };
+    const handleTouchstart = (e) => {
+        e.preventDefault();
+    };
     React.useEffect(() => {
         document.addEventListener('mousemove', handleMousemove, { passive: true });
+        document.addEventListener('touchstart', handleTouchstart, { passive: true });
         return () => {
             document.removeEventListener('mousemove', handleMousemove);
+            document.removeEventListener('touchstart', handleTouchstart);
         }
     }, []);
     return (
