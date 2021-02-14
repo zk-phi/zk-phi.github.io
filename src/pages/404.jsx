@@ -14,7 +14,7 @@ const NotFoundPage = ({ backTo = "/" }) => {
             <body className={ style.notfound } />
           </Helmet>
 
-          <h2>
+          <h2 className={ style.h2 }>
             <Emoji ji="i" className={ style.info } /> ページを表示できません
           </h2>
 
@@ -68,7 +68,8 @@ const NotFoundPage = ({ backTo = "/" }) => {
             </li>
             <li>
               別のリンク先を表示するには、
-              <Link to={ backTo }>[戻る]</Link> ボタンをクリックしてください。
+              <Link className={ style.a } to={ backTo }>[戻る]</Link>
+              ボタンをクリックしてください。
             </li>
           </ul>
 
