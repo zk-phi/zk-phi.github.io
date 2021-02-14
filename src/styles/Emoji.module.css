@@ -15,16 +15,28 @@
 
 @keyframes puni {
   0% {
-    transform: scale(1, 1);
+    transform: scale(1, 1) rotate(5deg);
+  }
+  12.5% {
+    transform: scale(0.9, 1.1) rotate(10deg);
   }
   25% {
-    transform: scale(0.9, 1.1);
+    transform: scale(1, 1) rotate(5deg);
+  }
+  37.5% {
+    transform: scale(1.1, 0.9) rotate(0deg);
   }
   50% {
-    transform: scale(1, 1);
+    transform: scale(1, 1) rotate(-5deg);
+  }
+  62.5% {
+    transform: scale(0.9, 1.1) rotate(-10deg);
   }
   75% {
-    transform: scale(1.1, 0.9);
+    transform: scale(1, 1) rotate(-5deg);
+  }
+  87.5% {
+    transform: scale(1.1, 0.9) rotate(0);
   }
 }
 
@@ -37,5 +49,5 @@
 }
 
 .emoji.puni {
-  animation: puni 0.5s linear infinite;
+  animation: puni 1.5s linear infinite;
 }
