@@ -13,6 +13,7 @@ import imgYawnlife from "../images/yawnlife.gif";
 import imgHappybusy from "../images/happybusy.gif";
 import imgCellphone from "../images/cellphone.gif";
 import imgCode39 from "../images/code39_entrance.png";
+import Banner from "../components/Banner.jsx";
 
 const UNION_BANNERS = [
     {
@@ -82,9 +83,9 @@ const Index = ({ data }) => {
 
           <p style={{ lineHeight: UNION_BANNERS_MAX_HEIGHT + "px" }}>
             { UNION_BANNERS.map((u) => [
-                  <Link key={ u.href || u.to } href={ u.href } to={ u.to }>
-                    <img src={ u.img.src } alt={ u.img.alt } height={ u.img.h } width={ u.img.w } />
-                  </Link>,
+                  <Banner key={ u.href || u.to } href={ u.href } to={ u.to }
+                          src={ u.img.src } alt={ u.img.alt }
+                          height={ u.img.h } width={ u.img.w } />,
                   " "
             ]) }
           </p>
