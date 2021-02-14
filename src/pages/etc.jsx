@@ -56,7 +56,7 @@ const Others = () => {
             </li>
           </List>
 
-          <SectionHeader>メディア <small>(目についたもの)</small></SectionHeader>
+          <SectionHeader>メディア掲載 <small>(目についたもの)</small></SectionHeader>
 
           <List>
             <li>
