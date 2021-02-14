@@ -5,8 +5,8 @@
   --accent1: #88f;
   --accent2: #f8f;
   --link: #55f;
-  --focus: #f5f;
-  --active: #f55;
+  /* --focus: #f5f; */
+  /* --active: #f55; */
   --bgImg:
     linear-gradient(30deg, #eff 12%, transparent 12.1%, transparent 87%, #eff 87.1%, #eff),
     linear-gradient(150deg, #eff 12%, transparent 12.1%, transparent 87%, #eff 87.1%, #eff),
