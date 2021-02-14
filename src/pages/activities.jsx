@@ -8,6 +8,21 @@ import ActivityListItem from "../components/ActivityListItem.jsx";
 import Section from "../components/Section.jsx";
 import SectionHeader from "../components/SectionHeader.jsx";
 
+const MONTH_EMOJIS = [
+    "🎍",
+    "👹",
+    "🎎",
+    "🌸",
+    "🎏",
+    "🐌",
+    "🎋",
+    "🎆",
+    "🎑",
+    "🎃",
+    "🍁",
+    "🎄",
+];
+
 const CATEGORIES = [
     "OSS",
     "テック記事",
@@ -85,7 +100,7 @@ const Activities = ({ data }) => {
     };
 
     const now = new Date();
-    const lim = new Date(now.getFullYear(), now.getMonth() - 12);
+    const lim = new Date(now.getFullYear(), now.getMonth() - 11);
 
     const items = [
         ...data.allGithubData.edges[0].node.data.repositoryOwner.repositories.edges.map(formatRepo),
@@ -126,11 +141,13 @@ const Activities = ({ data }) => {
             </select>
           </p>
 
-          { itemsByMonth.map((month) => (
-              <Section key={ month.year * 12 + month.month }>
-                <SectionHeader>{ `${month.year} ${month.month + 1}月` }</SectionHeader>
+          { itemsByMonth.map((m) => (
+              <Section key={ m.year * 12 + m.month }>
+                <SectionHeader>
+                  <Emoji ji={ MONTH_EMOJIS[m.month] } puni /> { `${m.year} ${m.month + 1}月` }
+                </SectionHeader>
                 <ul>
-                  { month.items.map((item) => (
+                  { m.items.map((item) => (
                       <ActivityListItem key={ item.link } item={ item } />
                   )) }
                 </ul>
