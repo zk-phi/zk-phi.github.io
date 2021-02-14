@@ -4,14 +4,16 @@ import Emoji from '../components/Emoji.jsx';
 
 const Stalker = () => {
     const stalker = React.useRef();
+    const [isTouch, setIsTouch] = React.useState(false);
     const handleMousemove = (e) => {
-        if (stalker.current) {
+        if (!isTouch && stalker.current) {
             stalker.current.style.transition = "opacity 0.3s";
             stalker.current.style.opacity = 1;
             stalker.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
         }
     };
     const handleTouchstart = (e) => {
+        setIsTouch(true);
         e.preventDefault();
     };
     React.useEffect(() => {
