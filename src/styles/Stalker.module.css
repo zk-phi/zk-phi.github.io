@@ -1,0 +1,11 @@
+.stalker {
+  opacity: 0;
+  font-size: 32px;
+  display: inline-block;
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  margin: 0;
+  pointer-events: none;
+  z-index: 1;
+}
