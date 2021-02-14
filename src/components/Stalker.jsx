@@ -15,17 +15,15 @@ const Stalker = () => {
         stalker.current.style.opacity = 0;
     };
     const handleMousemove = (e) => handleMove(e.clientX, e.clientY);
-    const handleTouchmove = (e) => handleMove(e.touches[0].clientX, e.touches[0].clientY);
+    const handleTouchmove = (e) => handleMove(e.touches[0].clientX + 8, e.touches[0].clientY + 8);
     React.useEffect(() => {
         document.addEventListener('mousemove', handleMousemove, { passive: true });
         document.addEventListener('touchmove', handleTouchmove, { passive: true });
         document.addEventListener('mouseout', handleEnd, { passive: true });
-        document.addEventListener('touchend', handleEnd, { passive: true });
         return () => {
             document.removeEventListener('mousemove', handleMousemove);
             document.removeEventListener('touchmove', handleTouchmove);
             document.removeEventListener('mouseout', handleEnd);
-            document.removeEventListener('touchend', handleEnd);
         }
     }, []);
     return (
