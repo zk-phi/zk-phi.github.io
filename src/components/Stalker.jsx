@@ -15,7 +15,7 @@ const Stalker = () => {
         stalker.current.style.opacity = 0;
     };
     const handleMousemove = (e) => handleMove(e.clientX, e.clientY);
-    const handleTouchmove = (e) => handleMove(e.touches[0].screenX, e.touches[0].screenY);
+    const handleTouchmove = (e) => handleMove(e.touches[0].clientX, e.touches[0].clientY);
     React.useEffect(() => {
         document.addEventListener('mousemove', handleMousemove, { passive: true });
         document.addEventListener('touchmove', handleTouchmove, { passive: true });
