@@ -145,7 +145,8 @@ const Activities = ({ data }) => {
           { itemsByMonth.map((m) => (
               <Section key={ m.year * 12 + m.month }>
                 <SectionHeader>
-                  <Emoji ji={ MONTH_EMOJIS[m.month] } puni /> { `${m.year} ${m.month + 1}月` }
+                  <Emoji ji={ MONTH_EMOJIS[m.month] } puni /> { m.month + 1 }月
+                  <small>/{ m.year }</small>
                 </SectionHeader>
                 <List>
                   { m.items.map((item) => (
