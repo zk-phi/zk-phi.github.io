@@ -13,6 +13,29 @@ import imgYawnlife from "../images/yawnlife.gif";
 import imgHappybusy from "../images/happybusy.gif";
 import imgCellphone from "../images/cellphone.gif";
 
+const UNION_BANNERS = [
+    {
+        href: "http://nanos.jp/mimi5510/",
+        img: { src: imgYozora, alt: "夜空が好き", w: 100, h: 30 },
+    },
+    {
+        href: "http://id11.fm-p.jp/31/mbp/",
+        img: { src: imgCellphone, alt: "携帯依存症", w: 88, h: 33 },
+    },
+    {
+        href: "https://sites.google.com/site/happybusy/",
+        img: { src: imgHappybusy, alt: "時間ねぇー", w: 88, h: 31 },
+    },
+    {
+        href: "http://id47.fm-p.jp/36/yawnlife/",
+        img: { src: imgYawnlife, alt: "ゆる春同盟。", w: 116, h: 15 },
+    },
+];
+
+const UNION_BANNERS_MAX_HEIGHT = UNION_BANNERS.reduce((acc, banner) => (
+    Math.max(acc, banner.img.h)
+), 0);
+
 const Index = ({ data }) => {
     const lastUpdated = new Date(
         data.allGithubData.edges[0].node.data.repository.ref.target.authoredDate
@@ -23,26 +46,6 @@ const Index = ({ data }) => {
         window.alert("応援ありがとうございます!!");
         setClapBtnEnabled(false);
     };
-
-    const unionBanners = [
-        {
-            href: "http://nanos.jp/mimi5510/",
-            img: { src: imgYozora, alt: "夜空が好き", w: 100, h: 30 },
-        },
-        {
-            href: "http://id11.fm-p.jp/31/mbp/",
-            img: { src: imgCellphone, alt: "携帯依存症", w: 88, h: 33 },
-        },
-        {
-            href: "https://sites.google.com/site/happybusy/",
-            img: { src: imgHappybusy, alt: "時間ねぇー", w: 88, h: 31 },
-        },
-        {
-            href: "http://id47.fm-p.jp/36/yawnlife/",
-            img: { src: imgYawnlife, alt: "ゆる春同盟。", w: 116, h: 15 },
-        },
-    ];
-    const unionBannersMaxHeight = 33;
 
     return (
         <Layout title="zk-phi の部屋">
@@ -72,8 +75,8 @@ const Index = ({ data }) => {
 
           <hr />
 
-          <p style={{ lineHeight: unionBannersMaxHeight + "px" }}>
-            { unionBanners.map((u) => [
+          <p style={{ lineHeight: UNION_BANNERS_MAX_HEIGHT + "px" }}>
+            { UNION_BANNERS.map((u) => [
                   <Link key={ u.href } href={ u.href }>
                     <img src={ u.img.src } alt={ u.img.alt } height={ u.img.h } width={ u.img.w } />
                   </Link>,
