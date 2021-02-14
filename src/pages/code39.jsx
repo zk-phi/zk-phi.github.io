@@ -8,7 +8,7 @@ import Emoji from "../components/Emoji.jsx";
 const Code39 = () => {
     return (
         <Layout title="zk-phi の部屋">
-          <PageTitle><Emoji ji="🖐" rotate /> おまけコーナー <Emoji ji="🖐" rotate /></PageTitle>
+          <PageTitle><Emoji ji="✌️" rotate /> おまけコーナー <Emoji ji="✌️" rotate /></PageTitle>
           <div className={ style.scrollContainer }>
             <div className={ style.gradient }>
               <div className={ style.gradient_end }>CODE39</div>
