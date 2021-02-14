@@ -6,6 +6,7 @@ import PageTitle from '../components/PageTitle.jsx';
 import ClassicBtn from '../components/ClassicBtn.jsx';
 import Link from "../components/Link.jsx";
 import New from '../components/New.jsx';
+import List from "../components/List.jsx";
 import DateFormat from "../utils/DateFormat.jsx";
 import imgYozora from "../images/yozora.jpg";
 import imgYawnlife from "../images/yawnlife.gif";
@@ -56,14 +57,14 @@ const Index = ({ data }) => {
             最終更新日： { DateFormat.format(lastUpdated) }
           </p>
 
-          <ul>
+          <List>
             <li>
               <Link to="/activities">最近の活動</Link> <New />
             </li>
             <li>
               <Link to="/links">リンク集</Link>
             </li>
-          </ul>
+          </List>
 
           <p>
             <i>当サイトはリンクフリーです</i>

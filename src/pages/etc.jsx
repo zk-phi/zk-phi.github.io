@@ -4,6 +4,7 @@ import Link from "../components/Link.jsx";
 import Layout from '../components/Layout.jsx';
 import PageTitle from '../components/PageTitle.jsx';
 import SectionHeader from '../components/SectionHeader.jsx';
+import List from "../components/List.jsx";
 
 const Others = () => {
     return (
@@ -22,7 +23,7 @@ const Others = () => {
 
           <SectionHeader>イベント出展 <small>(頒布物があったもの)</small></SectionHeader>
 
-          <ul>
+          <List>
             <li>
               <Link href="https://github.com/zk-phi/switch42-keyboard">
                 【技術書典６】Switch42 キーボードキット
@@ -43,21 +44,21 @@ const Others = () => {
                 【技術書典５】四人の知らなかった自作キーボードの世界 (寄稿)
               </Link>
             </li>
-          </ul>
+          </List>
 
           <SectionHeader>Podcast</SectionHeader>
 
-          <ul>
+          <List>
             <li>
               <Link href="https://podcasts.apple.com/jp/podcast/season-2-keybords-ep-5-%E5%A4%A9%E3%82%AD%E3%83%BC-vol-2-%E5%85%AC%E9%96%8B%E5%8F%8E%E9%8C%B2-%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%83%91%E3%83%8D%E3%83%AB%E3%83%87%E3%82%A3%E3%82%B9%E3%82%AB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3/id1173331146?i=1000437542348">
                 それはそう 天キー Vol.2 公開収録 (ゲスト)
               </Link>
             </li>
-          </ul>
+          </List>
 
           <SectionHeader>メディア <small>(目についたもの)</small></SectionHeader>
 
-          <ul>
+          <List>
             <li>窓の杜ＮＥＷＳ 2007/9/14</li>
             <li>Windows100% 2007 年 11 月号</li>
             <li>iP! 2008 年 2 月号</li>
@@ -69,21 +70,21 @@ const Others = () => {
             <li>厳選フリーソフト集 350</li>
             <li>完全保存版フリーソフトガイド BOOK</li>
             <li>Makerzine 2019.05.21</li>
-          </ul>
+          </List>
 
           <SectionHeader>表彰</SectionHeader>
 
-          <ul>
+          <List>
             <li>ICPC 2014 アジア予選進出</li>
             <li>CODE BOUT 決勝進出</li>
             <li>日本語プログラミングコンテスト 2007 入賞</li>
-          </ul>
+          </List>
 
           <SectionHeader>競プロ</SectionHeader>
 
           リハビリ中
 
-          <ul>
+          <List>
             <li>
               <Link href="https://atcoder.jp/users/zk_phi">
                 AtCoder
@@ -99,7 +100,7 @@ const Others = () => {
                 Project Euler
               </Link>
             </li>
-          </ul>
+          </List>
 
           <hr />
 

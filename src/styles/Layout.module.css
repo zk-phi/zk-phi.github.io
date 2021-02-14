@@ -24,12 +24,3 @@
 .content > * {
   margin: 16px 0;
 }
-
-.content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.content li + li {
-  margin-top: 8px;
-}

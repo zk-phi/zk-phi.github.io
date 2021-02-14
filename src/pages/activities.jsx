@@ -7,6 +7,7 @@ import PageTitle from '../components/PageTitle.jsx';
 import ActivityListItem from "../components/ActivityListItem.jsx";
 import Section from "../components/Section.jsx";
 import SectionHeader from "../components/SectionHeader.jsx";
+import List from "../components/List.jsx";
 
 const MONTH_EMOJIS = [
     "🎍",
@@ -146,11 +147,11 @@ const Activities = ({ data }) => {
                 <SectionHeader>
                   <Emoji ji={ MONTH_EMOJIS[m.month] } puni /> { `${m.year} ${m.month + 1}月` }
                 </SectionHeader>
-                <ul>
+                <List>
                   { m.items.map((item) => (
                       <ActivityListItem key={ item.link } item={ item } />
                   )) }
-                </ul>
+                </List>
               </Section>
             ))}
 

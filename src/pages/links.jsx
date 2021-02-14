@@ -5,6 +5,7 @@ import Layout from '../components/Layout.jsx';
 import PageTitle from '../components/PageTitle.jsx';
 import UnderDevelopment from '../components/UnderDevelopment.jsx';
 import SectionHeader from '../components/SectionHeader.jsx';
+import List from "../components/List.jsx";
 
 const Links = () => {
     return (
@@ -27,7 +28,7 @@ const Links = () => {
 
           <SectionHeader><Emoji ji="🐬" puni /> 製作物</SectionHeader>
 
-          <ul>
+          <List>
             <li>
               <Link href="https://github.com/zk-phi">
                 ソフト、ハード、フォントなど (GitHub)
@@ -68,11 +69,11 @@ const Links = () => {
                 クイズ (クイズメーカー)
               </Link>
             </li>
-          </ul>
+          </List>
 
           <SectionHeader><Emoji ji="🐬" puni /> ショップ</SectionHeader>
 
-          <ul>
+          <List>
             <li>
               <Link href="https://zk-phi.booth.pm/">
                 同人ハードなど (BOOTH)
@@ -88,11 +89,11 @@ const Links = () => {
                 その他 (SUZURI)
               </Link>
             </li>
-          </ul>
+          </List>
 
           <SectionHeader><Emoji ji="🐬" puni /> 記事</SectionHeader>
 
-          <ul>
+          <List>
             <li>
               <Link href="https://qiita.com/zk_phi">
                 プログラミング関連 (Qiita)
@@ -113,11 +114,11 @@ const Links = () => {
                 海外フォーラム (Reddit)
               </Link>
             </li>
-          </ul>
+          </List>
 
           <SectionHeader><Emoji ji="🐬" puni /> SNS アカウント</SectionHeader>
 
-          <ul>
+          <List>
             <li>
               <Link href="https://twitter.com/zk_phi">
                 Twitter
@@ -136,15 +137,15 @@ const Links = () => {
             <li>
               <Link to="/404">mixi</Link>  <UnderDevelopment />
             </li>
-          </ul>
+          </List>
 
           <SectionHeader><Emoji ji="🐬" puni /> その他</SectionHeader>
 
-          <ul>
+          <List>
             <li>
               <Link to="/etc">イベント出展、メディア掲載など</Link>
             </li>
-          </ul>
+          </List>
 
           <hr />
 
