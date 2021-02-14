@@ -9,10 +9,12 @@ const Code39 = () => {
     return (
         <Layout title="zk-phi の部屋">
           <PageTitle><Emoji ji="🖐" rotate /> おまけコーナー <Emoji ji="🖐" rotate /></PageTitle>
-          <div className={ style.gradient }>
-            <div className={ style.gradient_end }>CODE39</div>
+          <div className={ style.scrollContainer }>
+            <div className={ style.gradient }>
+              <div className={ style.gradient_end }>CODE39</div>
+            </div>
+            <img alt="code39" src={ image } className={ style.code39 } />
           </div>
-          <img alt="code39" src={ image } className={ style.code39 } />
         </Layout>
     );
 }
