@@ -135,7 +135,7 @@ const Links = () => {
               </Link>
             </li>
             <li>
-              <Link to="/404">mixi</Link>  <UnderDevelopment />
+              <Link to="/mixi">mixi</Link>  <UnderDevelopment />
             </li>
           </List>
 

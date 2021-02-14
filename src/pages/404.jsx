@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 import Emoji from "../components/Emoji.jsx";
 import style from "../styles/404.module.css";
 
-const NotFoundPage = () => {
+const NotFoundPage = ({ backTo = "/" }) => {
     return (
         <main>
           <Helmet>
@@ -68,7 +68,7 @@ const NotFoundPage = () => {
             </li>
             <li>
               別のリンク先を表示するには、
-              <Link to="/">[戻る]</Link> ボタンをクリックしてください。
+              <Link to={ backTo }>[戻る]</Link> ボタンをクリックしてください。
             </li>
           </ul>
 
