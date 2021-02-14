@@ -3,7 +3,6 @@ import style from "../styles/Stalker.module.css";
 import Emoji from '../components/Emoji.jsx';
 
 const Stalker = () => {
-    const isTouchDevice = !!window.ontouchstart;
     const stalker = React.useRef();
     const handleMousemove = (e) => {
         if (stalker.current) {
@@ -18,7 +17,7 @@ const Stalker = () => {
         }
     };
     React.useEffect(() => {
-        if (!isTouchDevice) {
+        if (!window.ontouchstart) {
             document.addEventListener('mousemove', handleMousemove, { passive: true });
             document.addEventListener('mouseout', handleMouseout, { passive: true });
             return () => {
@@ -26,7 +25,7 @@ const Stalker = () => {
                 document.removeEventListener('mouseout', handleMouseout);
             }
         }
-    }, [isTouchDevice]);
+    });
     return (
         <div ref={ stalker } className={ style.stalker }>
           <Emoji ji="🦄" />
