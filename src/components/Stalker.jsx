@@ -4,24 +4,28 @@ import Emoji from '../components/Emoji.jsx';
 
 const Stalker = () => {
     const stalker = React.useRef();
-    const [isTouch, setIsTouch] = React.useState(false);
-    const handleMousemove = (e) => {
-        if (!isTouch && stalker.current) {
+    const handleMove = (x, y) => {
+        if (stalker.current) {
             stalker.current.style.transition = "opacity 0.3s";
             stalker.current.style.opacity = 1;
-            stalker.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            stalker.current.style.transform = `translate(${x}px, ${y}px)`;
         }
     };
-    const handleTouchstart = (e) => {
-        setIsTouch(true);
-        e.preventDefault();
+    const handleEnd = (e) => {
+        stalker.current.style.opacity = 0;
     };
+    const handleMousemove = (e) => handleMove(e.clientX, e.clientY);
+    const handleTouchmove = (e) => handleMove(e.touches[0].pageX, e.touches[0].pageY);
     React.useEffect(() => {
         document.addEventListener('mousemove', handleMousemove, { passive: true });
-        document.addEventListener('touchstart', handleTouchstart, { passive: true });
+        document.addEventListener('touchmove', handleTouchmove, { passive: true });
+        document.addEventListener('mouseout', handleEnd, { passive: true });
+        document.addEventListener('touchend', handleEnd, { passive: true });
         return () => {
             document.removeEventListener('mousemove', handleMousemove);
-            document.removeEventListener('touchstart', handleTouchstart);
+            document.removeEventListener('touchmove', handleTouchmove);
+            document.removeEventListener('mouseout', handleEnd);
+            document.removeEventListener('touchend', handleEnd);
         }
     }, []);
     return (
