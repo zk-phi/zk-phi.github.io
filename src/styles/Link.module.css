@@ -19,7 +19,9 @@
   background: linear-gradient(
     to right,
     var(--accent1) 0,
-    var(--accent2) 50%,
+    var(--accent2) 25%,
+    var(--accent1) 50%,
+    var(--accent2) 75%,
     var(--accent1) 100%
   );
   background-size: 1000px 1px;
