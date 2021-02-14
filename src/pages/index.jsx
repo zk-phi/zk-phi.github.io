@@ -12,6 +12,7 @@ import imgYozora from "../images/yozora.jpg";
 import imgYawnlife from "../images/yawnlife.gif";
 import imgHappybusy from "../images/happybusy.gif";
 import imgCellphone from "../images/cellphone.gif";
+import imgCode39 from "../images/code39_entrance.png";
 
 const UNION_BANNERS = [
     {
@@ -30,6 +31,10 @@ const UNION_BANNERS = [
         href: "http://id47.fm-p.jp/36/yawnlife/",
         img: { src: imgYawnlife, alt: "ゆる春同盟。", w: 116, h: 15 },
     },
+    {
+        to: "/code39",
+        img: { src: imgCode39, alt: "???", w: 4, h: 4 },
+    }
 ];
 
 const UNION_BANNERS_MAX_HEIGHT = UNION_BANNERS.reduce((acc, banner) => (
@@ -77,7 +82,7 @@ const Index = ({ data }) => {
 
           <p style={{ lineHeight: UNION_BANNERS_MAX_HEIGHT + "px" }}>
             { UNION_BANNERS.map((u) => [
-                  <Link key={ u.href } href={ u.href }>
+                  <Link key={ u.href || u.to } href={ u.href } to={ u.to }>
                     <img src={ u.img.src } alt={ u.img.alt } height={ u.img.h } width={ u.img.w } />
                   </Link>,
                   " "

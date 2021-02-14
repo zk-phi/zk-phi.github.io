@@ -1,0 +1,30 @@
+.gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 5000vh;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  cursor: not-allowed;
+  margin: 0;
+  z-index: 2;
+}
+
+.gradient_end {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: #fff;
+  font-size: 32px;
+  line-height: 1em;
+}
+
+.code39 {
+  position: absolute;
+  top: 5000vh;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  margin: 0;
+}
