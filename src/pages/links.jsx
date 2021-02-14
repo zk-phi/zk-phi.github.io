@@ -25,7 +25,7 @@ const Links = () => {
             <Link href="https://www.resume.id/zk_phi">ポートフォリオ (RESUME)</Link>
           </p>
 
-          <SectionHeader><Emoji ji="🐬" /> 製作物</SectionHeader>
+          <SectionHeader><Emoji ji="🐬" puni /> 製作物</SectionHeader>
 
           <ul>
             <li>
@@ -70,7 +70,7 @@ const Links = () => {
             </li>
           </ul>
 
-          <SectionHeader><Emoji ji="🐬" /> ショップ</SectionHeader>
+          <SectionHeader><Emoji ji="🐬" puni /> ショップ</SectionHeader>
 
           <ul>
             <li>
@@ -90,7 +90,7 @@ const Links = () => {
             </li>
           </ul>
 
-          <SectionHeader><Emoji ji="🐬" /> 記事</SectionHeader>
+          <SectionHeader><Emoji ji="🐬" puni /> 記事</SectionHeader>
 
           <ul>
             <li>
@@ -115,7 +115,7 @@ const Links = () => {
             </li>
           </ul>
 
-          <SectionHeader><Emoji ji="🐬" /> SNS アカウント</SectionHeader>
+          <SectionHeader><Emoji ji="🐬" puni /> SNS アカウント</SectionHeader>
 
           <ul>
             <li>
@@ -138,7 +138,7 @@ const Links = () => {
             </li>
           </ul>
 
-          <SectionHeader><Emoji ji="🐬" /> その他</SectionHeader>
+          <SectionHeader><Emoji ji="🐬" puni /> その他</SectionHeader>
 
           <ul>
             <li>

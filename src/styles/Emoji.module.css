@@ -13,10 +13,29 @@
   }
 }
 
+@keyframes puni {
+  0% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1, 1);
+  }
+  75% {
+    transform: scale(1.1, 0.9);
+  }
+}
+
 .emoji {
   display: inline-block;
 }
 
 .emoji.rotate {
   animation: rotate 5s linear infinite;
+}
+
+.emoji.puni {
+  animation: puni 0.8s linear infinite;
 }
