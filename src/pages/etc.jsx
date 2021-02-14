@@ -59,7 +59,11 @@ const Others = () => {
           <SectionHeader>メディア <small>(目についたもの)</small></SectionHeader>
 
           <List>
-            <li>窓の杜ＮＥＷＳ 2007/9/14</li>
+            <li>
+              <Link href="https://forest.watch.impress.co.jp/article/2007/09/14/youtubesbmaker.html">
+                窓の杜ＮＥＷＳ 2007.9.14
+              </Link>
+            </li>
             <li>Windows100% 2007 年 11 月号</li>
             <li>iP! 2008 年 2 月号</li>
             <li>Windows100% 2008 年 6 月号</li>
@@ -69,7 +73,16 @@ const Others = () => {
             <li>フリーソフト大百科</li>
             <li>厳選フリーソフト集 350</li>
             <li>完全保存版フリーソフトガイド BOOK</li>
-            <li>Makerzine 2019.05.21</li>
+            <li>
+              <Link href="https://makezine.jp/blog/2019/05/meishiten.html">
+                Makerzine 2019.05.21
+              </Link>
+            </li>
+            <li>
+              <Link href="https://akiba-pc.watch.impress.co.jp/docs/wakiba/find/1306205.html">
+                AKIBA PC Hotline! 2021.2.13
+              </Link>
+            </li>
           </List>
 
           <SectionHeader>表彰</SectionHeader>
