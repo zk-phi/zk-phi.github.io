@@ -3,7 +3,8 @@
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
-     width="26.13mm" height="13.5mm">
+     width="26.13mm" height="13.5mm"
+     preserveAspectRatio="none">
     <g stroke-width="0" fill="#000000">
          <rect x="0mm" y="0mm" width="0.26mm" height="13.5mm" />
          <rect x="0.91mm" y="0mm" width="0.26mm" height="13.5mm" />
