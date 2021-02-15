@@ -18,7 +18,7 @@ const DDM9 = () => {
           <PageTitle><Emoji ji="👋" rotate /> おまけコーナー <Emoji ji="👋️" rotate /></PageTitle>
 
           <p>
-            ほんもののおまけコーナーです。
+            ほんもの<Emoji ji="✨" />のおまけコーナーです。
           </p>
 
           <p>
@@ -40,6 +40,12 @@ const DDM9 = () => {
               </li>
             </List>
           </Section>
+
+          <hr />
+
+          <p>
+            <Link to="/">&lt; 戻る</Link>
+          </p>
         </Layout>
     );
 }

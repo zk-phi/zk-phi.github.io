@@ -5,6 +5,7 @@ import style from "../styles/code39.module.css";
 import image from "../images/code39.svg";
 import PageTitle from "../components/PageTitle.jsx";
 import Emoji from "../components/Emoji.jsx";
+import Link from "../components/Link.jsx";
 
 const Code39 = () => {
     return (
@@ -18,6 +19,14 @@ const Code39 = () => {
           <p>
             おまけコーナーへようこそ！ここにはなにもありません？？？
           </p>
+
+          <p>
+            <Link to="/">&lt; 戻る</Link>
+          </p>
+
+          <hr />
+
+          ↓
 
           <div className={ style.scrollContainer }>
             <div className={ style.gradient }>
