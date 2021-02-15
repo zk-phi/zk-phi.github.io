@@ -38,6 +38,9 @@
   87.5% {
     transform: scale(1.1, 0.9) rotate(0);
   }
+  100% {
+    transform: scale(1, 1) rotate(5deg);
+  }
 }
 
 .emoji {
