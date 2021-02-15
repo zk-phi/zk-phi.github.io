@@ -19,10 +19,6 @@ const Code39 = () => {
             おまけコーナーへようこそ！ここにはなにもありません？？？
           </p>
 
-          <hr />
-
-          ↓↓↓
-
           <div className={ style.scrollContainer }>
             <div className={ style.gradient }>
               <div className={ style.gradient_end }>CODE39</div>
