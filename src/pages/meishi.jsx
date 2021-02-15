@@ -1,6 +1,6 @@
 import * as React from "react";
 import Helmet from "react-helmet";
-import style from "../styles/DDM9.module.css";
+import style from "../styles/meishi.module.css";
 import imgF from "../images/ddm9_f.png";
 import imgB from "../images/ddm9_b.png";
 import Layout from "../components/Layout.jsx";
@@ -15,7 +15,7 @@ const style2 = {
     transition: "transform 0.5s ease-in 0s",
 };
 
-const DDM9 = () => {
+const Meishi = () => {
     const [reversed, setReversed] = React.useState(false);
 
     return (
@@ -41,4 +41,4 @@ const DDM9 = () => {
     );
 };
 
-export default DDM9;
+export default Meishi;
