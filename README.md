@@ -8,11 +8,9 @@ https://zk-phi.github.io
 
 # workflows
 
-- PR を作ると lighthouse が走る
+- なんらかの branch を push すると lighthouse が走る
 - `master` に push するとビルドが走る
 - 毎早朝にビルドが走る
-
-ので、 `master` 向けの PR を作っていく感じで開発するといい感じになる。
 
 ビルド時、各種サービスから情報を取ってきて埋め込むため以下の環境変数が必要
 
