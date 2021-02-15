@@ -15,7 +15,7 @@ const DDM9 = () => {
             <meta name="robots" content="noindex" />
           </Helmet>
 
-          <PageTitle><Emoji ji="👋" rotate /> おまけコーナー <Emoji ji="👋️" rotate /></PageTitle>
+          <PageTitle><Emoji ji="🎉" rotate /> おまけコーナー <Emoji ji="🎉️" rotate /></PageTitle>
 
           <p>
             ほんもの<Emoji ji="✨" />のおまけコーナーです。
