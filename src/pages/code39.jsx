@@ -30,7 +30,7 @@ const Code39 = () => {
 
           <div className={ style.scrollContainer }>
             <div className={ style.gradient }>
-              <div className={ style.gradient_end }>CODE39</div>
+              <div className={ style.gradient_end }>X0503</div>
             </div>
             <img alt="code39" src={ image } className={ style.code39 } />
             <div className={ style.foot } />
