@@ -17,6 +17,7 @@
   width: 100%;
   min-height: 5000vh;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  filter: drop-shadow(10px 10px 10px #000);
 }
 
 .gradient_end {
@@ -33,6 +34,6 @@
   left: 0;
   top: 5000vh;
   width: 100%;
-  height: 128px;
-  background-color: #fff;
+  height: 100vh;
+  filter: drop-shadow(10px 10px 10px #000);
 }
