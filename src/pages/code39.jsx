@@ -16,7 +16,7 @@ const Code39 = () => {
           <PageTitle><Emoji ji="👋" rotate /> おまけコーナー <Emoji ji="👋️" rotate /></PageTitle>
 
           <p>
-            おまけコーナーへようこそ！ここにはなにもありません？？？
+            おまけコーナーです。ここにはなにもありません？？？
           </p>
 
           <div className={ style.scrollContainer }>
