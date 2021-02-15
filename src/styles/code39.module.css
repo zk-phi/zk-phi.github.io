@@ -17,7 +17,6 @@
   width: 100%;
   min-height: 5000vh;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
-  filter: drop-shadow(10px 10px 10px #000);
 }
 
 .gradient_end {
@@ -27,6 +26,10 @@
   color: #fff;
   font-size: 32px;
   line-height: 1em;
+  width: 100%;
+  text-align: left;
+  background-color: #000;
+  filter: drop-shadow(10px 10px 10px #000);
 }
 
 .code39 {
