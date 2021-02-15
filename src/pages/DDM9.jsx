@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 import style from "../styles/DDM9.module.css";
 import imgF from "../images/ddm9_f.png";
 import imgB from "../images/ddm9_b.png";
+import Layout from "../components/Layout.jsx";
 
 const style1 = {
     transform: "scale(1, 1)",
@@ -18,26 +19,25 @@ const DDM9 = () => {
     const [reversed, setReversed] = React.useState(false);
 
     return (
-        <main>
+        <Layout title="zk-phi の部屋 :: おまけコーナー">
           <Helmet>
-            <html lang="ja" />
-            <title>おまけコーナー</title>
-            <meta name="Description" content="おまけコーナー" />
-            <body className={ style.body } />
+            <meta name="robots" content="noindex" />
           </Helmet>
+
           <div className={ style.wrapper } style={ reversed ? style2 : style1 }>
             <div className={ style.spacer } />
             <button className={ style.btn } onClick={ () => setReversed(true) }>
               <img alt="meishi" className={ style.img } src={ imgF } />
             </button>
           </div>
+
           <div className={ style.wrapper } style={ reversed ? style1 : style2 }>
             <div className={ style.spacer } />
             <button className={ style.btn } onClick={ () => setReversed(false) }>
               <img alt="meishi-backside" className={ style.img } src={ imgB } />
             </button>
           </div>
-        </main>
+        </Layout>
     );
 };
 
