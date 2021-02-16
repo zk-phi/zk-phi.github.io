@@ -12,6 +12,7 @@ jobs:
       - run: pip install fonttools brotli zopfli
       - uses: actions/setup-node@v2
       - run: npm ci
+      - run: npm run imagemin
       - run: npm run lighthouse
         env:
           GITHUB_API_TOKEN: ${{ secrets.GH_API_TOKEN }}
