@@ -1,0 +1,62 @@
+---
+title: zk-phi の部屋
+layout: layouts/common.njk
+styles:
+  - css/index.css
+unions:
+  - href: http://nanos.jp/mimi5510/
+    src: img/yozora.jpg
+    alt: 夜空が好き
+  - href: http://id11.fm-p.jp/31/mbp/
+    src: img/cellphone.gif
+    alt: 携帯依存症
+  - href: https://sites.google.com/site/happybusy/
+    src: img/happybusy.gif
+    alt: 時間ねぇー
+  - href: http://id47.fm-p.jp/36/yawnlife/
+    src: img/yawnlife.gif
+    alt: ゆる春同盟。
+  - href: /code39
+    src: img/code39_entrance.png
+    alt: ???
+---
+
+<h1 class="title">
+  <span class="rot">🌴</span> zk-phi の部屋 <span class="rot">🌴</span>
+</h1>
+
+<p>
+  zk-phi のホームページへようこそ！
+  ここでは私の作成したフリーソフト、したためた文書などを公開しています。
+</p>
+
+<p>
+  最終更新日： {{ lastUpdatedDate | formatDate }}
+</p>
+
+<ul class="list">
+  <li class="item">
+    <a class="link" href="/activities">最近の活動</a> <strong class="new">New!!</strong>
+  </li>
+  <li class="item">
+    <a class="link" href="/links">リンク集</a>
+  </li>
+</ul>
+
+<p>
+  〜当サイトはリンクフリーです〜
+</p>
+
+<hr />
+
+<p style="line-height: 33px">
+  {%- for u in unions %}
+  <a class="link banner" href={{ u.href }}>{% image u.src, u.alt %}</a>
+  {%- endfor -%}
+</p>
+
+<p>
+  <button class="btn" onclick="clap()">
+    拍手を送る
+  </button>
+</p>
