@@ -4,8 +4,9 @@ const Image = require("@11ty/eleventy-img");
 const HTMLMinifier = require("html-minifier");
 
 module.exports = (eleventyConfig) => {
-    // fonts are simply copied (later optimized with subfont)
+    // they are simply copied (later optimized with subfont)
     eleventyConfig.addPassthroughCopy("fonts");
+    eleventyConfig.addPassthroughCopy("js");
     eleventyConfig.addPassthroughCopy("favicon.ico");
 
     // format date obj
