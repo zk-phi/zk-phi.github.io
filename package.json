@@ -1,8 +1,9 @@
 {
     "scripts": {
-        "start": "eleventy --serve",
+        "develop": "eleventy --serve",
         "build": "eleventy",
-        "lighthouse": "npm run build && lhci autorun"
+        "serve": "npm run build && http-server -p 8000"
+        "lighthouse": "npm run serve && lhci autorun"
     },
     "dependencies": {},
     "devDependencies": {

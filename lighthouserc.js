@@ -2,7 +2,7 @@ module.exports = {
     ci: {
         collect: {
             numberOfRuns: 4,
-            url: ["http://localhost:8080/"],
+            url: ["http://localhost:8000/"],
             startServerCommand: "npm run start",
         },
         assert: {
