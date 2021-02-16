@@ -1,7 +1,7 @@
 {
     "scripts": {
         "develop": "eleventy --serve",
-        "build": "eleventy && subfont _site/index.html --in-place --inline-css --no-fallbacks",
+        "build": "eleventy && uglifyjs js/app.js -o _site/js/app.js && subfont _site/index.html --in-place --inline-css --no-fallbacks",
         "serve": "http-server -p 8000 _site",
         "lighthouse": "npm run build && lhci autorun"
     },
