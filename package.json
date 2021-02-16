@@ -9,7 +9,7 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "gatsby build && subfont public/index.html --in-place",
+    "build": "imagemin src/images/* -o src/images/ && gatsby build && subfont public/index.html --in-place",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "lighthouse": "npm run build && lhci autorun"
