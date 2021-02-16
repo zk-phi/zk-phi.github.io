@@ -8,6 +8,11 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addPassthroughCopy("fonts");
     eleventyConfig.addPassthroughCopy("favicon.ico");
 
+    // format date obj
+    eleventyConfig.addNunjucksFilter("formatDate", (date) => (
+        new Intl.DateTimeFormat('ja-JP').format(date)
+    ));
+
     // generate optimized images in "_site/img/" and returns an appropreate picture tag
     eleventyConfig.addNunjucksAsyncShortcode("image", async (src, alt, sizes) => {
         const img = await Image(src, {
