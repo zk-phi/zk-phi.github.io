@@ -3,7 +3,7 @@ module.exports = {
         collect: {
             numberOfRuns: 4,
             url: ["http://localhost:8000/"],
-            startServerCommand: "npm run start",
+            startServerCommand: "npm run serve",
         },
         assert: {
             preset: "lighthouse:no-pwa",
