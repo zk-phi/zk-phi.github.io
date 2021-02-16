@@ -39,6 +39,11 @@
   text-align: center;
 }
 
+.section-header {
+  font-size: 24px;
+  line-height: 36px;
+}
+
 .list {
   list-style: none;
   padding: 0;
