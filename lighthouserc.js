@@ -11,6 +11,7 @@ module.exports = {
                 "uses-long-cache-ttl": "off",
                 "image-size-responsive": "off",
                 "tap-targets": ["error", { minScore: 0.78 }],
+                "unused-css-rules": ["error", { maxLength: 1 }],
             },
         },
         upload: {
