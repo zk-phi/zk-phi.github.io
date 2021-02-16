@@ -11,7 +11,8 @@
     "start": "gatsby develop",
     "build": "gatsby build && subfont public/index.html --in-place",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "lighthouse": "npm run build && lhci autorun"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
