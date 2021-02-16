@@ -51,7 +51,9 @@ unions:
 
 <p style="line-height: 33px">
   {%- for u in unions %}
-  <a class="link banner" href={{ u.href }}>{% image u.src, u.alt %}</a>
+  <a class="link banner" target="_blank" rel="noreferrer" href={{ u.href }}>
+    {% image u.src, u.alt %}
+  </a>
   {%- endfor -%}
 </p>
 
