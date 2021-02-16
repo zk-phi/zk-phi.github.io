@@ -6,6 +6,7 @@ const HTMLMinifier = require("html-minifier");
 module.exports = (eleventyConfig) => {
     // fonts are simply copied (later optimized with subfont)
     eleventyConfig.addPassthroughCopy("fonts");
+    eleventyConfig.addPassthroughCopy("favicon.ico");
 
     // generate optimized images in "_site/img/" and returns an appropreate picture tag
     eleventyConfig.addNunjucksAsyncShortcode("image", async (src, alt, sizes) => {
