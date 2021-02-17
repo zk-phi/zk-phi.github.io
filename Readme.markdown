@@ -2,6 +2,10 @@ https://zk-phi.github.io
 
 おためし 11ty
 
+直す気のないところ以外は lighthouse 満点までチューニングしてみた
+- 画像の解像度が低すぎ → 元からこのサイズなので
+- 小さすぎるリンクがある → ほぼ押されることを意図していないリンクが一つだけある
+
 # workflows
 
 - なんらかの branch を push すると lighthouse が走る
