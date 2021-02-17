@@ -36,7 +36,8 @@ pip install fonttools brotli zopfli
   - `uglifyjs-folder` で js を minify
   - `cleancss` で css を minify
   - `svgo` で svg 画像を minify
-  - `subfont` で web フォントをサブセット化 & preload (トップページのみ)
+  - `glyphhanger` で web フォントをサブセット化
+    - `subfont` の方が多分無難だけど、読み込み方を自由に試せて遊べそうなのでこちらに
 
 - クライアント側で (see `js/app.js`)
   - リンクを `mouseover` (`touchstart`) したときにリンク先を prefetch
@@ -55,7 +56,7 @@ pip install fonttools brotli zopfli
   - `js` ... インライン化して使う小さな js 片たち
   - `layouts` ... いろんなページで共通して使っている DOM 構造
 - `css` ... 遅延ロードする追加の css / `npm run build` すると `cleancss` で minify される
-- `fonts` ... web フォント / `npm run build` すると `subfont` でサブセット化される
+- `fonts` ... web フォント / `npm run build` すると `glyphhanger` でサブセット化される
 - `img` ... ラスター画像 / `eeleventy-img` で webp 化される
 - `js` ... 遅延ロードする追加の js / `npm run build` すると `uglifyjs-folder` で minify される
 - `pages` ... 各ページのテンプレート
