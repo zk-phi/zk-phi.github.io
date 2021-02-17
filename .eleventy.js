@@ -40,7 +40,9 @@ module.exports = (eleventyConfig) => {
                 collapseBooleanAttributes: true,
                 collapseWhitespace: true,
                 removeComments: true,
-                minifyCSS: true,
+                minifyCSS: {
+                    level: 2
+                },
                 minifyJS: true,
             });
         }
