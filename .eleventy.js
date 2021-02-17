@@ -41,6 +41,7 @@ module.exports = (eleventyConfig) => {
             return HTMLMinifier.minify(content, {
                 collapseBooleanAttributes: true,
                 collapseWhitespace: true,
+                collapseInlineTagWhitespace: true,
                 removeComments: true,
                 minifyCSS: {
                     level: 2
