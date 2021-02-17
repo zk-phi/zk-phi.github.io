@@ -6,11 +6,13 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addPassthroughCopy("fonts");
     eleventyConfig.addPassthroughCopy("svg");
     eleventyConfig.addPassthroughCopy("js");
+    eleventyConfig.addPassthroughCopy("css");
     eleventyConfig.addPassthroughCopy("favicon.ico");
     // ... and watched too
     eleventyConfig.addWatchTarget("fonts");
     eleventyConfig.addWatchTarget("svg");
     eleventyConfig.addWatchTarget("js");
+    eleventyConfig.addWatchTarget("css");
     eleventyConfig.addWatchTarget("favicon.ico");
 
     // format date obj

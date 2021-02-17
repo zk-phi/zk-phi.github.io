@@ -9,6 +9,10 @@
     {% if noindex %}
     <meta name="robots" content="noindex" />
     {% endif %}
+    <link rel="stylesheet" href="/css/common.css" media="print" onload="this.media='all'">
+    {% for s in lazyStyles %}
+    <link rel="stylesheet" href="{{ s }}" media="print" onload="this.media='all'">
+    {% endfor %}
     <script defer src="/js/app.js"></script>
     <style>
 {% include "css/common.css" %}
