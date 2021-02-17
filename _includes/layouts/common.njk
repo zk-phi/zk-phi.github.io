@@ -14,9 +14,6 @@
     <link rel="stylesheet" href="{{ s }}" media="print" onload="this.media='all';this.onload=null;">
     {% endfor %}
     <script defer src="/js/app.js"></script>
-    {% for s in lazyScripts %}
-    <script defer src="{{ s }}"></script>
-    {% endfor %}
     <style>
 {% include "css/common.css" %}
 {% include "css/font.css" %}
