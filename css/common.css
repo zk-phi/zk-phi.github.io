@@ -10,7 +10,7 @@
 }
 
 .link:hover, .link:focus {
-  color: var(--bg);
+  color: var(--bg) !important;
   font-style: italic;
   background: linear-gradient(
     to right,
