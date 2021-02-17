@@ -9,6 +9,7 @@ module.exports = {
             preset: "lighthouse:no-pwa",
             assertions: {
                 "uses-long-cache-ttl": "off",
+                "uses-text-compression": "off",
                 "image-size-responsive": "off",
                 "tap-targets": ["error", { minScore: 0.78 }]
             },
