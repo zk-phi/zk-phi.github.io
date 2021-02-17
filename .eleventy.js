@@ -6,8 +6,12 @@ const HTMLMinifier = require("html-minifier");
 module.exports = (eleventyConfig) => {
     // they are simply copied (later optimized with subfont)
     eleventyConfig.addPassthroughCopy("fonts");
-    eleventyConfig.addPassthroughCopy("js");
+    eleventyConfig.addPassthroughCopy("app.js");
     eleventyConfig.addPassthroughCopy("favicon.ico");
+    // ... and watched too
+    eleventyConfig.addWatchTarget("fonts");
+    eleventyConfig.addWatchTarget("app.js");
+    eleventyConfig.addWatchTarget("favicon.ico");
 
     // format date obj
     eleventyConfig.addNunjucksFilter("formatDate", (date) => (
