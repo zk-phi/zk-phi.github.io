@@ -5,7 +5,7 @@ https://zk-phi.github.io
 # workflows
 
 - なんらかの branch を push すると lighthouse が走る
-- `master` に push するとビルドが走る
+- `master` に push するとビルドが走って `gh-pages` に発射される
 - 毎早朝にビルドが走る
 
 # develop
