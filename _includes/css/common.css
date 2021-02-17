@@ -34,6 +34,7 @@
   color: var(--accent2);
   text-align: center;
   text-shadow: -4px -4px 0px var(--accent1);
+  font-style: italic;
 }
 
 .section {
@@ -68,6 +69,7 @@
 .link, .link:visited {
   color: var(--link);
   border: 1px solid transparent;
+  font-style: italic;
 }
 
 /* ---- emoji animations */
