@@ -1,5 +1,6 @@
 {
     "scripts": {
+        "clean": "rm -r _site",
         "develop": "eleventy --serve",
         "build": "eleventy",
         "postbuild": "npm run postbuild:js && npm run postbuild:font && npm run postbuild:svg",
