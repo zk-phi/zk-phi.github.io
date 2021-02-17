@@ -25,22 +25,24 @@ document.documentElement.addEventListener("touchstart", prefetch, { passive: tru
 // mouse-stalker
 let isTouch = false;
 const stalker = document.getElementById("stalker");
-const handleMousemove = (e) => {
-    if (!isTouch) {
-        stalker.style.transition = "opacity 0.3s";
-        stalker.style.opacity = 1;
-        stalker.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-    }
-};
-const handleMouseout = (e) => {
-    stalker.style.opacity = 0;
-};
-const handleTouchstart = (e) => {
-    isTouch = true;
-};
-document.addEventListener('mousemove', handleMousemove, { passive: true });
-document.addEventListener('mouseout', handleMouseout, { passive: true });
-document.addEventListener('touchstart', handleTouchstart, { passive: true });
+if (stalker) {
+    const handleMousemove = (e) => {
+        if (!isTouch) {
+            stalker.style.transition = "opacity 0.3s";
+            stalker.style.opacity = 1;
+            stalker.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        }
+    };
+    const handleMouseout = (e) => {
+        stalker.style.opacity = 0;
+    };
+    const handleTouchstart = (e) => {
+        isTouch = true;
+    };
+    document.addEventListener('mousemove', handleMousemove, { passive: true });
+    document.addEventListener('mouseout', handleMouseout, { passive: true });
+    document.addEventListener('touchstart', handleTouchstart, { passive: true });
+}
 
 // start loading webfont
 document.body.classList.add("dotgothic");
