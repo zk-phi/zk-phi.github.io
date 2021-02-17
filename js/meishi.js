@@ -1,0 +1,1 @@
+function flip(){const e=document.getElementById("meishi-upside"),i=document.getElementById("meishi-downside");e.id="meishi-downside",i.id="meishi-upside"}
