@@ -4,7 +4,7 @@ https://zk-phi.github.io
 
 直す気のないところ以外は lighthouse 満点までチューニングしてみた
 - 画像の解像度が低すぎ → 元からこのサイズなので
-- 小さすぎるリンクがある → ほぼ押されることを意図していないリンクが一つだけある
+- 小さすぎるリンクがある → 元から押されることを意図していないリンクが一つあるので
 
 # workflows
 
@@ -30,43 +30,49 @@ pip install fonttools brotli zopfli
 
 # optimizations
 
-- ビルドの過程で (see `.eleventy.js`)
+- テンプレートレベル
+  - クリティカルな css, 小さな js 片をすべてインラインに展開
+  - 追加の css, js, font はすべて遅延ロード
+    - js は defer
+    - css は media をつけて外すやつ
+      - このあたりを参照 https://github.com/filamentgroup/loadCSS
+    - font は
+      - css 側で `font-display: swap` な fontface を定義
+        - (サブセット化する時に扱いやすいようインライン化)
+      - 呼び出し (`font-family: ...`) はクラスで囲んでおいて、遅延ロードされる js でトリガー
+      - initial rendering に障るのを嫌ってあえて preload しないでみた (多分いけてない)
+      - Font Loading API を使った方が丁寧っぽい https://dev.opera.com/articles/better-font-face/
+
+- ビルド時 (see `.eleventy.js`)
   - `eleventy-img` でラスター画像の自動 webp 化 & lazy load
   - `htmlmin` で html (とインライン js, css) を minify
-    - タグ間のスペースまで消す設定にして、空白は margin で設定する
-    - → フォントが読み込まれた時の CLS が起きない
+    - タグ間のスペースまで消す設定にして、空白は margin でつける
+    - → フォントが後から読み込まれた時の CLS が小さい
 
-- ビルド後に (see `package.json`)
+- ビルド後 (see `package.json`)
   - `uglifyjs-folder` で js を minify
   - `cleancss` で css を minify
   - `svgo` で svg 画像を minify
-  - `glyphhanger` で web フォントをサブセット化
+  - `glyphhanger` で web フォントをサブセット化, `index.html` 内の url を置き換え
+    - サブセット化するのは `index.html` 用だけ
     - `subfont` の方が多分無難だけど、読み込み方を自由に試せて遊べそうなのでこちらに
 
-- クライアント側で (see `js/app.js`)
+- クライアント側 (see `js/app.js`)
   - リンクを `mouseover` (`touchstart`) したときにリンク先を prefetch
 
-# directory
+# directories
 
-- `.github`
-  - `workflows` ... push 時に GitHub Actions で自動実行されるコマンドたち
-  - `dependabot.yml` ... パッケージが古いときに PR で教えてくれる君
-- `_data` ... ビルド時に実行されて、テンプレートから結果を使えるやつ
+- `_data`
   - `lastUpdatedDate.js` ... GitHub からこのリポジトリの最終更新日を取ってくる
   - `monthEmoji.js` ... それぞれの月を表す絵文字
   - `recentActivities.js` ... 最近の僕の活動をいろんなフィードから取ってくる
 - `_includes`
-  - `css` ... インライン化して使う基本的な css
+  - `css` ... インライン化して使う基本的な css たち
   - `js` ... インライン化して使う小さな js 片たち
   - `layouts` ... いろんなページで共通して使っている DOM 構造
-- `css` ... 遅延ロードする追加の css / `npm run build` すると `cleancss` で minify される
-- `fonts` ... web フォント / `npm run build` すると `glyphhanger` でサブセット化される
-- `img` ... ラスター画像 / `eeleventy-img` で webp 化される
-- `js` ... 遅延ロードする追加の js / `npm run build` すると `uglifyjs-folder` で minify される
+- `css` ... インライン化しない css
+- `fonts` ... web フォント
+- `img` ... ラスター画像
+- `js` ... インライン化しない js
 - `pages` ... 各ページのテンプレート
-- `svg` ... SVG 画像 / `npm run build` すると `svgo` で minify される
-- `.eleventy.js` ... 静的サイトジェネレータの設定
-- `lighthouserc.js` ... Lighthouse CI の設定
-- `.gitignore`
-- `Readme.markdown`
-- `favicon.ico`
+- `svg` ... SVG 画像
