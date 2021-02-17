@@ -23,7 +23,7 @@ document.documentElement.addEventListener("mouseover", prefetch, { passive: true
 document.documentElement.addEventListener("touchstart", prefetch, { passive: true });
 
 // mouse-stalker
-const isTouch = false;
+let isTouch = false;
 const stalker = document.getElementById("stalker");
 const handleMousemove = (e) => {
     if (!isTouch) {
