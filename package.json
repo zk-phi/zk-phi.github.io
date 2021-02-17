@@ -3,13 +3,15 @@
         "clean": "rm -r _site",
         "develop": "eleventy --serve",
         "build": "eleventy",
-        "postbuild": "npm run postbuild:js && npm run postbuild:font && npm run postbuild:svg && npm run postbuild:css",
-        "postbuild:js": "uglifyjs-folder -e -x .js _site/js -o _site/js",
-        "postbuild:css": "cleancss -O2 --batch --batch-suffix '' _site/css/*.css",
-        "postbuild:font": "npx glyphhanger _site/index.html --subset _site/fonts/*.woff --formats woff2 && replace '(/fonts/.*)\\.woff' '$1-subset.woff2' _site/index.html",
-        "postbuild:svg": "svgo _site/svg/*",
+        "postbuild": "npm run opt:js && npm run opt:font && npm run opt:svg && npm run opt:css",
         "serve": "http-server -p 8000 _site",
-        "lighthouse": "npm run build && lhci autorun"
+        "lighthouse": "npm run build && lhci autorun",
+        "opt:js": "uglifyjs-folder -e -x .js _site/js -o _site/js",
+        "opt:css": "cleancss -O2 --batch --batch-suffix '' _site/css/*.css",
+        "opt:svg": "svgo _site/svg/*",
+        "opt:font": "npm run ss:gen && npm run ss:apply",
+        "ss:gen": "npx glyphhanger --formats woff2 --subset _site/fonts/*.woff _site/index.html",
+        "ss:apply": "replace '(/fonts/.*)\\.woff' '$1-subset.woff2' _site/index.html"
     },
     "dependencies": {},
     "devDependencies": {
