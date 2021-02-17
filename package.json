@@ -3,7 +3,7 @@
         "develop": "eleventy --serve",
         "build": "eleventy",
         "postbuild": "npm run postbuild:js && npm run postbuild:font && npm run postbuild:svg",
-        "postbuild:js": "uglifyjs _site/app.js -o _site/app.js",
+        "postbuild:js": "uglifyjs _site/js/app.js -o _site/js/app.js",
         "postbuild:font": "subfont _site/index.html --in-place --inline-css --no-fallbacks",
         "postbuild:svg": "svgo _site/svg/*",
         "serve": "http-server -p 8000 _site",
