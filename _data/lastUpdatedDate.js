@@ -4,20 +4,20 @@ const { AssetCache } = require("@11ty/eleventy-cache-assets");
 module.exports = async () => {
     const cache = new AssetCache("lastUpdatedDate");
 
+    let repo;
     if (cache.isCacheValid("1d")) {
-        const value = await cache.getCachedValue();
-        return new Date(value);
+        repo = await cache.getCachedValue();
+    } else {
+        const octokit = new Octokit({
+            auth: process.env.GITHUB_API_TOKEN
+        });
+        const res = await octokit.repos.get({
+            owner: "zk-phi",
+            repo: "zk-phi.github.io",
+        });
+        repo = res.data;
+        cache.save(res.data, "json");
     }
 
-    const octokit = new Octokit({
-        auth: process.env.GITHUB_API_TOKEN
-    });
-
-    const repo = await octokit.repos.get({
-        owner: "zk-phi",
-        repo: "zk-phi.github.io",
-    });
-
-    cache.save(repo.data.pushed_at);
-    return new Date(repo.data.pushed_at);
+    return new Date(repo.pushed_at);
 };
