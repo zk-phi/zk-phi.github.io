@@ -20,18 +20,20 @@ web フォントのサブセット化に必要なツールを
 pip install fonttools brotli zopfli
 ```
 
-入れてから `npm run build` で `_site` に生成される
+入れてから `npm run build` で `_site` に生成される。
+
+`npm run serve` で確認できる。
 
 # optimizations
 
 - ビルドの過程で (see `.eleventy.js`)
-  - `eleventy-img` で画像の自動 webp 化 & lazy load (see `.eleventy.js`)
-  - `htmlmin` でインライン HTML, JS, CSS を minify
+  - `eleventy-img` でラスター画像の自動 webp 化 & lazy load
+  - `htmlmin` で html (とインライン js, css) を minify
 
 - ビルド後に (see `package.json`)
   - `uglifyjs` で js を minify
   - `subfont` で web フォントをサブセット化 & preload (トップページのみ)
-  - `svgo` で SVG 画像を minify
+  - `svgo` で svg 画像を minify
 
 - クライアント側で (see `js/app.js`)
   - リンクを `mouseover` (`touchstart`) したときにリンク先を prefetch
@@ -41,17 +43,17 @@ pip install fonttools brotli zopfli
 - `.github`
   - `workflows` ... push 時に GitHub Actions で自動実行されるコマンドたち
   - `dependabot.yml` ... パッケージが古いときに PR で教えてくれる君
-- `_data` ... ビルド時に実行されて、テンプレートに結果を埋め込めるやつ
+- `_data` ... ビルド時に実行されて、テンプレートから結果を使えるやつ
   - `lastUpdatedDate.js` ... GitHub からこのリポジトリの最終更新日を取ってくる
   - `monthEmoji.js` ... それぞれの月を表す絵文字
   - `recentActivities.js` ... 最近の僕の活動をいろんなフィードから取ってくる
 - `_includes`
-  - `css` ... インライン化して使うコアの CSS
-  - `js` ... インライン化して使う小さな JS 片たち
+  - `css` ... インライン化して使う基本的な css
+  - `js` ... インライン化して使う小さな js 片たち
   - `layouts` ... いろんなページで共通して使っている DOM 構造
-- `fonts` ... WEB フォント / `npm run build` すると `subfont` でサブセット化される
-- `img` ... ラスター画像 / `eeleventy-img` で WEBP 化される
-- `js` ... defer で読み込む JS
+- `fonts` ... web フォント / `npm run build` すると `subfont` でサブセット化される
+- `img` ... ラスター画像 / `eeleventy-img` で webp 化される
+- `js` ... defer で遅延ロードするデカい js
   - `app.js` ... `npm run build` すると `uglifyjs` で minify される
 - `pages` ... 各ページのテンプレート
 - `svg` ... SVG 画像 / `npm run build` すると `svgo` で minify される
