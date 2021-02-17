@@ -4,7 +4,7 @@
         "develop": "eleventy --serve",
         "build": "eleventy",
         "postbuild": "npm run postbuild:js && npm run postbuild:font && npm run postbuild:svg && npm run postbuild:css",
-        "postbuild:js": "uglifyjs _site/js/app.js -o _site/js/app.js",
+        "postbuild:js": "uglifyjs-folder -e -x .js _site/js -o _site/js",
         "postbuild:css": "cleancss -O2 --batch --batch-suffix '' _site/css/*.css",
         "postbuild:font": "subfont _site/index.html --in-place --inline-css --no-fallbacks",
         "postbuild:svg": "svgo _site/svg/*",
