@@ -5,8 +5,6 @@
   --accent1: #88f;
   --accent2: #f8f;
   --link: #55f;
-  /* --focus: #f5f; */
-  /* --active: #f55; */
   --bgImg:
     linear-gradient(30deg, #eff 12%, transparent 12.1%, transparent 87%, #eff 87.1%, #eff),
     linear-gradient(150deg, #eff 12%, transparent 12.1%, transparent 87%, #eff 87.1%, #eff),
@@ -18,7 +16,7 @@
   --bgImgPos: 0 0, 0 0, 25px 50px, 25px 50px, 0 0, 25px 50px;
 }
 
-.body {
+#body {
   text-align: center;
   color: var(--fg);
   background-color: var(--bg);
@@ -160,4 +158,18 @@
 .puni {
   display: inline-block;
   animation: puni 1.5s linear infinite;
+}
+
+/* ---- mouse stalker */
+
+#stalker {
+  opacity: 0;
+  font-size: 32px;
+  display: inline-block;
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  margin: 0;
+  pointer-events: none;
+  z-index: 1;
 }
