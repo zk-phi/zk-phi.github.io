@@ -6,7 +6,7 @@
         "postbuild": "npm run postbuild:js && npm run postbuild:font && npm run postbuild:svg && npm run postbuild:css",
         "postbuild:js": "uglifyjs-folder -e -x .js _site/js -o _site/js",
         "postbuild:css": "cleancss -O2 --batch --batch-suffix '' _site/css/*.css",
-        "postbuild:font": "subfont _site/index.html --in-place --inline-css --no-fallbacks",
+        "postbuild:font": "npx glyphhanger _site/index.html --subset _site/fonts/*.woff --formats woff2 && replace '(/fonts/.*)\\.woff' '$1-subset.woff2' _site/index.html",
         "postbuild:svg": "svgo _site/svg/*",
         "serve": "http-server -p 8000 _site",
         "lighthouse": "npm run build && lhci autorun"
