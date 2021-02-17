@@ -21,14 +21,15 @@ module.exports = (eleventyConfig) => {
     ));
 
     // generate optimized images in "_site/img/" and returns an appropreate picture tag
-    eleventyConfig.addNunjucksAsyncShortcode("image", async (src, alt, sizes) => {
+    eleventyConfig.addNunjucksAsyncShortcode("image", async (src, alt, opts) => {
         const img = await Image(src, {
             outputDir: "_site/img/",
             widths: [null] /* keep original */
         });
         return Image.generateHTML(img, {
             alt,
-            sizes,
+            sizes: opts?.sizes,
+            class: opts?.class,
             loading: "lazy",
             decoding: "async",
         })
