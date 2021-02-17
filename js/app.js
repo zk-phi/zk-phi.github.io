@@ -41,3 +41,6 @@ const handleTouchstart = (e) => {
 document.addEventListener('mousemove', handleMousemove, { passive: true });
 document.addEventListener('mouseout', handleMouseout, { passive: true });
 document.addEventListener('touchstart', handleTouchstart, { passive: true });
+
+// start loading webfont
+document.body.classList.add("dotgothic");
