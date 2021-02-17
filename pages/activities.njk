@@ -1,0 +1,47 @@
+---
+title: "zk-phi の部屋 :: 最近の活動"
+permalink: /activities/index.html
+layout: layouts/common.njk
+styles:
+  - css/activities.css
+---
+
+<h1 class="title">
+  <span class="rot">💻</span> 最近の活動 <span class="rot">💻</span>
+</h1>
+
+<p>
+  直近１年の間に公開したフリーソフト・文書などをまとめました。
+</p>
+
+<p>
+  <a class="link" href="/">&lt; 戻る</a>
+</p>
+
+<hr />
+
+{% for m in recentActivities %}
+<div class="section">
+  <h2 class="section-header">
+    <span class="puni">{{ monthEmoji[m.month] }}</span>
+    {{ m.month + 1 }}月<small>/{{ m.year }}</small>
+  </h2>
+  <ul class="list">
+    {% for i in m.items %}
+    <li class="item">
+      <div class="activity-meta">
+        <span class="activity-tag">{{ i.category | safe }}</span>
+        <span class="activity-source">{{ i.source | safe }}</span>
+      </div>
+      <a class="link" href="{{ i.link | safe }}">{{ i.title | safe }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endfor %}
+
+<hr />
+
+<p>
+  <a class="link" href="/">&lt; 戻る</a>
+</p>

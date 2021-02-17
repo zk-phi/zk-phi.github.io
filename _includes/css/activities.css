@@ -1,0 +1,16 @@
+.activity-meta {
+  margin-bottom: 8px;
+}
+
+.activity-source {
+  color: var(--muted);
+}
+
+.activity-tag {
+  color: var(--muted);
+  line-height: 14px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: 1px dotted var(--muted);
+  padding: 2px 4px;
+}
