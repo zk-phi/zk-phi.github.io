@@ -1,9 +1,11 @@
 {
     "scripts": {
         "develop": "eleventy --serve",
-        "build": "eleventy && npm run postbuild:js && npm run postbuild:font",
+        "build": "eleventy",
+        "postbuild": "npm run postbuild:js && npm run postbuild:font && npm run postbuild:svg",
         "postbuild:js": "uglifyjs _site/app.js -o _site/app.js",
         "postbuild:font": "subfont _site/index.html --in-place --inline-css --no-fallbacks",
+        "postbuild:svg": "svgo _site/svg/*",
         "serve": "http-server -p 8000 _site",
         "lighthouse": "npm run build && lhci autorun"
     },
@@ -18,6 +20,7 @@
         "html-minifier": "^4.0.0",
         "http-server": "^0.12.3",
         "subfont": "^5.3.0",
+        "svgo": "^1.3.2",
         "uglify-js": "^3.12.8"
     }
 }
