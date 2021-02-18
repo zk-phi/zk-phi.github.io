@@ -30,18 +30,17 @@ pip install fonttools brotli zopfli
 
 # optimizations
 
-- テンプレートレベル
-  - クリティカルな css, 小さな js 片をすべてインラインに展開
+- テンプレートレベル (see `_includes/layout/minimal.njk`)
+  - クリティカルな css をすべてインラインに展開
   - 追加の css, js, font はすべて遅延ロード
-    - js は defer
-    - css は media をつけて外すやつ
-      - このあたりを参照 https://github.com/filamentgroup/loadCSS
+    - js, css は `requestIdleCallback` でアイドルを待ってからロード (see `js/loader.js`)
+      - `loader.js` 自体は `defer` で遅延ロード
     - font は
       - css 側で `font-display: swap` な fontface を定義
-        - (サブセット化する時に扱いやすいようインライン化)
-      - 呼び出し (`font-family: ...`) はクラスで囲んでおいて、遅延ロードされる js でトリガー
-      - initial rendering に障るのを嫌ってあえて preload しないでみた (多分いけてない)
-      - Font Loading API を使った方が丁寧っぽい https://dev.opera.com/articles/better-font-face/
+        - 呼び出し (`font-family: ...`) をクラスで囲んでおいて、 js で遅れてトリガー
+        - Font Loading API を使った方が丁寧っぽい https://dev.opera.com/articles/better-font-face/
+      - initial rendering の vs FOUT 時間はトレードオフっぽい？
+        - 前者を取ってあえて preload しないでみた (多分いけてない)
 
 - ビルド時 (see `.eleventy.js`)
   - `eleventy-img` でラスター画像の自動 webp 化 & lazy load
@@ -57,8 +56,9 @@ pip install fonttools brotli zopfli
     - サブセット化するのは `index.html` 用だけ
     - `subfont` の方が多分無難だけど、読み込み方を自由に試せて遊べそうなのでこちらに
 
-- クライアント側 (see `js/app.js`)
-  - リンクを `mouseover` (`touchstart`) したときにリンク先を prefetch
+- クライアント側 (see `js/prefetch.js`)
+  - サイト内リンクをすべて `prefetch`
+  - `mouseover` (`touchstart`) で `prerender`
 
 # directories
 
@@ -68,11 +68,10 @@ pip install fonttools brotli zopfli
   - `recentActivities.js` ... 最近の僕の活動をいろんなフィードから取ってくる
 - `_includes`
   - `css` ... インライン化して使う基本的な css たち
-  - `js` ... インライン化して使う小さな js 片たち
   - `layouts` ... いろんなページで共通して使っている DOM 構造
-- `css` ... インライン化しない css
+- `css` ... 遅延ロードする css
 - `fonts` ... web フォント
 - `img` ... ラスター画像
-- `js` ... インライン化しない js
+- `js` ... 遅延ロードする js
 - `pages` ... 各ページのテンプレート
 - `svg` ... SVG 画像
