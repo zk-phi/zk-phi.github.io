@@ -85,16 +85,3 @@
 .puni {
   animation: puni 1.5s linear infinite;
 }
-
-/* ---- mouse stalker */
-
-#stalker {
-  font-size: 32px;
-  display: inline-block;
-  position: fixed;
-  top: 8px;
-  left: 8px;
-  margin: 0;
-  pointer-events: none;
-  z-index: 1;
-}

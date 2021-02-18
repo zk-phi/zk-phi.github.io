@@ -38,6 +38,8 @@
                 stalker.id = "stalker";
                 document.body.appendChild(stalker);
             }
+            stalker.style.transition = "opacity 0.3s";
+            stalker.style.opacity = 1;
             stalker.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
         }
     };
