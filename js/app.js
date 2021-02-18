@@ -36,10 +36,13 @@
                 stalker = document.createElement("div");
                 stalker.innerHTML = "🦄";
                 stalker.id = "stalker";
+                stalker.style.opacity = 0;
+                stalker.style.transition = "opacity 0.3s";
                 document.body.appendChild(stalker);
+                window.requestAnimationFrame(function() {
+                    stalker.style.opacity = 1;
+                });
             }
-            stalker.style.transition = "opacity 0.3s";
-            stalker.style.opacity = 1;
             stalker.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
         }
     };
