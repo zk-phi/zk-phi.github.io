@@ -47,6 +47,5 @@
 }
 
 .new {
-  font-style: italic;
   animation: blink 1s linear infinite;
 }
