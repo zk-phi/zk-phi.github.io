@@ -18,7 +18,7 @@
   <body id="{{ bodyId }}">
     {{ content | safe }}
     <script>
-const lazyScripts = [{% for s in lazyScripts %}"{{ s }}",{% endfor %}];
+const lazyScripts = ["/js/prefetch.js", {% for s in lazyScripts %}"{{ s }}",{% endfor %}];
 const lazyStyles = [{% for s in lazyStyles %}"{{ s }}",{% endfor %}];
 document.body.classList.add("dotgothic");
     </script>
