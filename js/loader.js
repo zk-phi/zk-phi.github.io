@@ -15,5 +15,5 @@ function load() {
 if (window.requestIdleCallback) {
     window.requestIdleCallback(load, { timeout: 2000 });
 } else {
-    window.setTimeout(load, 100);
+    window.setTimeout(load, 500);
 }
