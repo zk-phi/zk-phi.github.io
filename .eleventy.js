@@ -2,6 +2,9 @@ const Image = require("@11ty/eleventy-img");
 const HTMLMinifier = require("html-minifier");
 
 module.exports = (eleventyConfig) => {
+    // merge data
+    eleventyConfig.setDataDeepMerge(true);
+
     // they are simply copied (later optimized with subfont)
     eleventyConfig.addPassthroughCopy("fonts");
     eleventyConfig.addPassthroughCopy("svg");

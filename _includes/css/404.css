@@ -1,9 +1,9 @@
-.body {
+#body {
   margin: 32px;
   max-width: 512px;
 }
 
-.body > * {
+#body > * {
   margin: 16px 0;
 }
 
