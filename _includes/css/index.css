@@ -20,6 +20,12 @@
   color: #333;
   background-color: #c0c0c0;
   line-height: 1;
+  box-shadow:
+    -2px 0 0 0 #fff,
+    0 -2px 0 0 #fff,
+    -2px -2px 0 0 #fff,
+    0 0 0 1px #717171,
+    0 0 0 2px #000;
 }
 
 /* --- strong texts */
