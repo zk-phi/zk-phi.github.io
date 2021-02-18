@@ -27,22 +27,24 @@
 
     // ---- mouse-stalker
 
+    let stalker;
     let isTouch = false;
-
-    const stalker = document.createElement("div");
-    stalker.innerHTML = "🦄";
-    stalker.id = "stalker";
-    document.body.appendChild(stalker);
 
     const handleMousemove = (e) => {
         if (!isTouch) {
-            stalker.style.transition = "opacity 0.3s";
-            stalker.style.opacity = 1;
+            if (!stalker) {
+                stalker = document.createElement("div");
+                stalker.innerHTML = "🦄";
+                stalker.id = "stalker";
+                document.body.appendChild(stalker);
+            }
             stalker.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
         }
     };
     const handleMouseout = (e) => {
-        stalker.style.opacity = 0;
+        if (stalker) {
+            stalker.style.opacity = 0;
+        }
     };
     const handleTouchstart = (e) => {
         isTouch = true;
