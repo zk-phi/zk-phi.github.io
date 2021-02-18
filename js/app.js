@@ -45,6 +45,6 @@
         document.addEventListener('touchstart', handleTouchstart, { passive: true });
     }
 
-    // start loading webfont
-    document.body.classList.add("dotgothic");
+    //// start loading webfont
+    //document.body.classList.add("dotgothic");
 })();
