@@ -30,6 +30,7 @@
     let isTouch = false;
 
     const stalker = document.createElement("div");
+    stalker.innerHTML = "🦄";
     stalker.id = "stalker";
     document.body.appendChild(stalker);
 
