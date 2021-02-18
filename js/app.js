@@ -23,7 +23,7 @@
     document.documentElement.addEventListener("mouseover", prefetch, { passive: true });
     document.documentElement.addEventListener("touchstart", prefetch, { passive: true });
 
-    // mouse-stalker
+    // mouse-stalker (some pages do not have stalker div)
     let isTouch = false;
     const stalker = document.getElementById("stalker");
     if (stalker) {
