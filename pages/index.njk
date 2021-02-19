@@ -24,6 +24,7 @@ unions:
   - href: /code39/
     src: img/code39_entrance.png
     alt: ???
+maxUnionBannerHeight: 33px
 ---
 
 <h1 id="title">
@@ -54,7 +55,7 @@ unions:
 
 <hr />
 
-<p style="line-height: 33px">
+<p style="line-height: {{ maxUnionBannerHeight }}">
   {% for u in unions %}
   <a class="link banner" target="_blank" rel="noreferrer" href={{ u.href }}>
     {% image u.src, u.alt %}
