@@ -1,5 +1,4 @@
 const Image = require("@11ty/eleventy-img");
-const HTMLMinifier = require("html-minifier");
 
 module.exports = (eleventyConfig) => {
     // merge data
@@ -36,22 +35,5 @@ module.exports = (eleventyConfig) => {
             loading: "lazy",
             decoding: "async",
         })
-    });
-
-    // minify generated HTML (and inlined CSS/JS)
-    eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
-        if (outputPath.endsWith(".html")) {
-            return HTMLMinifier.minify(content, {
-                collapseBooleanAttributes: true,
-                collapseWhitespace: true,
-                collapseInlineTagWhitespace: true,
-                removeComments: true,
-                minifyCSS: {
-                    level: 2
-                },
-                minifyJS: true,
-            });
-        }
-        return content;
     });
 };
