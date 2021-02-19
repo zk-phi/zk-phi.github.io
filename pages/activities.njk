@@ -33,7 +33,9 @@ styles:
         <span class="activity-tag">{{ i.category | safe }}</span>
         <span class="activity-source">{{ i.source | safe }}</span>
       </div>
-      <a class="link" href="{{ i.link | safe }}">{{ i.title | safe }}</a>
+      <a class="link" target="_blank" rel="noreferrer" href="{{ i.link | safe }}">
+        {{ i.title | safe }}
+      </a>
     </li>
     {% endfor %}
   </ul>
