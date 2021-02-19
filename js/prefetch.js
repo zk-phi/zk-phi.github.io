@@ -22,6 +22,6 @@
     });
 
     link("/fonts/DotGothic16-Regular.woff", "prefetch");
-    document.documentElement.addEventListener("mouseover", prerender, { passive: true });
+    document.documentElement.addEventListener("mousedown", prerender, { passive: true });
     document.documentElement.addEventListener("touchstart", prerender, { passive: true });
 })();
