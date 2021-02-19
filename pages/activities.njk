@@ -6,22 +6,22 @@ styles:
   - css/activities.css
 ---
 
-<h1 id="title">
+<h1 id="title" class="block">
   <span class="rot">💻</span> 最近の活動 <span class="rot">💻</span>
 </h1>
 
-<p>
+<p class="block">
   直近１年の間に公開したフリーソフト・文書などをまとめました。
 </p>
 
-<p>
+<p class="block">
   <a class="link" href="/">&lt; 戻る</a>
 </p>
 
 <hr />
 
 {% for m in recentActivities %}
-<div class="left">
+<div class="left block">
   <h2 class="header">
     <span class="puni">{{ monthEmoji[m.month] }}</span>
     {{ m.month + 1 }}月<small>/{{ m.year }}</small>
@@ -44,6 +44,6 @@ styles:
 
 <hr />
 
-<p>
+<p class="block">
   <a class="link" href="/">&lt; 戻る</a>
 </p>

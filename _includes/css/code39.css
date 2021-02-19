@@ -6,7 +6,6 @@
   height: 100vh;
   overflow-y: scroll;
   cursor: not-allowed;
-  margin: 0 !important;
   z-index: 2;
 }
 
