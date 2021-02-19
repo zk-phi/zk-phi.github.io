@@ -6,5 +6,12 @@
     "minifyCSS": {
         "level": 2
     },
-    "minifyJS": true
+    "minifyJS": true,
+    "removeEmptyAttributes": true,
+    "removeOptionalTags": true,
+    "removeRedundantAttributes": true,
+    "removeScriptTypeAttributes": true,
+    "removeStyleLinkTypeAttributes": true,
+    "removeTagWhitespace": true,
+    "useShortDoctype": true
 }
