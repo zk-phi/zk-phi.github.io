@@ -51,8 +51,8 @@
   padding: 0;
 }
 
-.item + .item {
-  margin-top: 8px;
+.item {
+  margin: 8px 0;
 }
 
 #content {
