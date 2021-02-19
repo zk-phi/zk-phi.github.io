@@ -4,10 +4,7 @@
   display: inline-block;
   vertical-align: bottom;
   line-height: 1;
-}
-
-.banner + .banner {
-  margin-left: 8px;
+  margin: 0 4px;
 }
 
 /* ---- classic buttons */
