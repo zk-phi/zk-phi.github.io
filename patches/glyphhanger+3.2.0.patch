@@ -1,0 +1,43 @@
+diff --git a/node_modules/glyphhanger/cmd.js b/node_modules/glyphhanger/cmd.js
+index ec2ab86..307d302 100755
+--- a/node_modules/glyphhanger/cmd.js
++++ b/node_modules/glyphhanger/cmd.js
+@@ -30,6 +30,7 @@ if( argv.jsdom ) {
+ 
+ var subset = new GlyphHangerSubset();
+ subset.setOutputDirectory(argv.output);
++subset.setOutputSuffix(argv.suffix);
+ 
+ if( argv.formats ) {
+ 	subset.setFormats( argv.formats );
+diff --git a/node_modules/glyphhanger/src/GlyphHangerSubset.js b/node_modules/glyphhanger/src/GlyphHangerSubset.js
+index ea9c3fa..7621500 100644
+--- a/node_modules/glyphhanger/src/GlyphHangerSubset.js
++++ b/node_modules/glyphhanger/src/GlyphHangerSubset.js
+@@ -23,6 +23,16 @@ class GlyphHangerSubset {
+ 		return this.outputDirectory;
+ 	}
+ 
++	setOutputSuffix( suffix ) {
++		if( suffix != null ) {
++			this.outputSuffix = suffix;
++		}
++	}
++
++	getOutputSuffix() {
++		return this.outputSuffix;
++	}
++
+ 	setFontFilesGlob( ttfFilesGlob ) {
+ 		this.fontPaths = glob.sync( ttfFilesGlob );
+ 	}
+@@ -84,7 +94,8 @@ class GlyphHangerSubset {
+ 
+ 	getFilenameFromTTFPath( ttfPath, format, useZopfli ) {
+ 		var fontPath = parsePath( ttfPath );
+-		var outputFilename = fontPath.name + "-subset" + ( useZopfli ? ".zopfli" : "" ) + ( format ? "." + format : fontPath.ext );
++		var suffix = this.getOutputSuffix();;
++		var outputFilename = fontPath.name + (suffix == null ? "-subset" : suffix) + ( useZopfli ? ".zopfli" : "" ) + ( format ? "." + format : fontPath.ext );
+ 		return outputFilename;
+ 	}
+ 
