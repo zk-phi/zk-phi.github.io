@@ -10,9 +10,9 @@
         "o:js": "uglifyjs-folder -e -x .js _site/js -o _site/js",
         "o:css": "cleancss -O2 --batch --batch-suffix '' _site/css/*.css",
         "o:svg": "svgo _site/svg/*",
-        "o:font": "npm run ss:gen && npm run ss:apply",
-        "ss:gen": "npx glyphhanger --formats woff2 --subset _site/fonts/*.woff _site/index.html",
-        "ss:apply": "replace '(/fonts/.*)\\.woff' '$1-subset.woff2' _site/index.html"
+        "o:font": "npm run ss:g && npm run ss:app",
+        "ss:g": "glyphhanger --formats woff2 --onlyVisible --subset _site/fonts/* _site/index.html",
+        "ss:app": "replace '(/fonts/.*)\\.woff' '$1-subset.woff2' _site/index.html"
     },
     "dependencies": {},
     "devDependencies": {
