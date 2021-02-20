@@ -15,12 +15,12 @@
 {% for s in styles %}{% include s %}{% endfor %}
     </style>
   </head>
-  <body id="{{ bodyId }}">
+  <body id="{{ bodyId }}" class="{% if not delayFontLoad %}dotgothic{% endif %}">
     {{ content | safe }}
     <script>
 const lazyScripts = ["/js/prefetch.js", {% for s in lazyScripts %}"{{ s }}",{% endfor %}];
 const lazyStyles = [{% for s in lazyStyles %}"{{ s }}",{% endfor %}];
-document.body.classList.add("dotgothic");
+{% if delayFontLoad %}document.body.classList.add("dotgothic"){% endif %}
     </script>
   </body>
 </html>
