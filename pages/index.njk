@@ -27,20 +27,20 @@ unions:
 maxUnionBannerHeight: 33px
 ---
 
-<h1 id="title" class="block">
+<h1 id="title">
   <span class="rot">🌴</span> zk-phi の部屋 <span class="rot">🌴</span>
 </h1>
 
-<p class="block">
+<p>
   zk-phi のホームページへようこそ！
   ここでは私の作成したフリーソフト、したためた文書などを公開しています。
 </p>
 
-<p class="block">
+<p>
   最終更新日： {{ lastUpdatedDate | formatDate }}
 </p>
 
-<ul class="list block">
+<ul class="list">
   <li class="item">
     <a class="link" href="/activities/">最近の活動</a> <strong class="new">New!!</strong>
   </li>
@@ -49,13 +49,13 @@ maxUnionBannerHeight: 33px
   </li>
 </ul>
 
-<p class="block">
+<p>
   〜当サイトはリンクフリーです〜
 </p>
 
 <hr />
 
-<p class="block" style="line-height: {{ maxUnionBannerHeight }}">
+<p style="line-height: {{ maxUnionBannerHeight }}">
   {% for u in unions %}
   <a class="link banner" target="_blank" rel="noreferrer" href={{ u.href }}>
     {% image u.src, u.alt %}
@@ -63,13 +63,13 @@ maxUnionBannerHeight: 33px
   {% endfor %}
 </p>
 
-<p class="block">
+<p>
   <button class="btn" id="JS_clap">
     拍手を送る
   </button>
 </p>
 
-<footer class="block">
+<footer>
   <small>
     Tested with Chrome, Safari / IE unsupported
   </small>
