@@ -21,7 +21,7 @@
         }
     });
 
-    link("/fonts/DotGothic16-Regular.woff", "prefetch");
+    link("/fonts/DotGothic16-Regular.woff2", "prefetch");
     document.documentElement.addEventListener("mousedown", prerender, { passive: true });
     document.documentElement.addEventListener("touchstart", prerender, { passive: true });
 })();

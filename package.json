@@ -12,7 +12,7 @@
         "o:svg": "svgo _site/svg/*",
         "o:font": "npm run ss:g && npm run ss:app",
         "ss:g": "glyphhanger --formats woff2 --onlyVisible --subset _site/fonts/* _site/index.html",
-        "ss:app": "replace '(/fonts/.*)\\.woff' '$1-subset.woff2' _site/index.html"
+        "ss:app": "replace '(/fonts/.*)\\.woff2' '$1-subset.woff2' _site/index.html"
     },
     "dependencies": {},
     "devDependencies": {
