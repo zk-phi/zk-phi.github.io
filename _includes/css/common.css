@@ -20,16 +20,14 @@
   text-align: center;
   color: var(--fg);
   background-color: var(--bg);
-  font-size: 16px;
-  line-height: 24px;
+  line-height: 1.5em;
   background-image: var(--bgImg);
   background-size: var(--bgImgSize);
   background-position: var(--bgImgPos);
 }
 
 #title {
-  font-size: 32px;
-  line-height: 48px;
+  line-height: 1;
   color: var(--accent2);
   text-align: center;
   text-shadow: -4px -4px 0px var(--accent1);
@@ -41,8 +39,7 @@
 }
 
 .header {
-  font-size: 24px;
-  line-height: 36px;
+  line-height: 1;
 }
 
 .list {

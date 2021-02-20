@@ -8,8 +8,7 @@
 
 .activity-tag {
   color: var(--muted);
-  line-height: 14px;
-  font-size: 12px;
+  font-size: 0.7em;
   border-radius: 4px;
   border: 1px dotted var(--muted);
   padding: 2px 4px;
