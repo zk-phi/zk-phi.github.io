@@ -12,23 +12,29 @@ https://zk-phi.github.io
 - `master` に push するとビルドが走って `gh-pages` に発射される
 - 毎早朝にビルドが走る
 
-# develop
+# 環境構築
 
-`npm install` して `npm run develop` で開発用サーバー立ち上げ
+`npm install && npx patch-package`
 
-# build
+本当は `postinstall` で `patch-package` を走らせたいけど、なぜか GitHub Actions 上で `npm ci` にコケるので手で実行します。
 
-web フォントのサブセット化に必要なツールを
+当てるパッチはこれ https://github.com/filamentgroup/glyphhanger/pull/85 なのでマージされたら不要です。
+
+## develop
+
+`npm run develop` で開発用サーバー立ち上げ
+
+## build
+
+`npm run build` で静的ページが `_site` に生成される (`npm run serve` で確認できる)。
+
+web フォントのサブセット化に必要なツール
 
 ```
 pip install fonttools brotli zopfli
 ```
 
-入れてから `npm run build && npm run opt` で `_site` に生成される。
-
-`npm run serve` で確認できる。
-
-生成物の様子を確認したいときは `npm run opt` を外すと minify 前の結果がみられる。
+を入れてから `npm run opt` すると、生成された静的ページがもろもろ最適化される。
 
 # optimizations
 
