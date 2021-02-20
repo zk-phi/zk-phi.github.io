@@ -66,10 +66,10 @@ pip install fonttools brotli zopfli
 
 (see `package.json`)
 
-- `glyphhanger` で web フォントをサブセット化, `index.html` 内の url を置き換え
-   - サブセット化するのは `index.html` 用だけ
-   - `subfont` の方が多分無難だけど、読み込み方を自由に試せて遊べそうなのでこちらに
-   - html の minify 前に走らせないと、書き換え箇所が複数ある時うまくいかないっぽい
+- `glyphhanger` で web フォントをサブセット化
+   - `index.html` 用とそれ以外用で別々にサブセット化
+   - `@fontface` の CSS をインライン化してあるので、 `index.html` だけ外から URL を書き換える
+     - ※ html の minify 前に走らせないと、書き換え箇所が複数ある時うまくいかないっぽい
 
 - `htmlmin` で html (とインライン js, css) を minify
    - タグ間のスペースまで消す設定にして、空白は margin でつける
