@@ -36,4 +36,11 @@ module.exports = (eleventyConfig) => {
             decoding: "async",
         })
     });
+
+    return {
+        dir: {
+            includes: "",
+            layouts: "_layouts",
+        }
+    };
 };
