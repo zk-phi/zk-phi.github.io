@@ -95,12 +95,11 @@ pip install fonttools brotli zopfli
   - `lastUpdatedDate.js` ... GitHub からこのリポジトリの最終更新日を取ってくる
   - `monthEmoji.js` ... それぞれの月を表す絵文字
   - `recentActivities.js` ... 最近の僕の活動をいろんなフィードから取ってくる
-- `_includes`
-  - `css` ... インライン化して使う基本的な css たち
-  - `layouts` ... いろんなページで共通して使っている DOM 構造
-- `css` ... 遅延ロードする css
+- `_layouts` ... いろんなページで共通して使っている DOM 構造
+- `css` ... css
 - `fonts` ... web フォント
 - `img` ... ラスター画像
-- `js` ... 遅延ロードする js
-- `pages` ... 各ページのテンプレート
-- `svg` ... SVG 画像
+- `js` ... js
+- `pages` ... 各ページ (のテンプレート)
+- `svg` ... SVG
+- `patches` ... node のパッケージに当てるパッチ (本家 merge 待ち)
