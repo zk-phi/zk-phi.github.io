@@ -9,16 +9,12 @@
     {% if noindex %}
     <meta name="robots" content="noindex" />
     {% endif %}
-    {% if not inlineStyles %}
     {% for s in styles %}
     <link rel="stylesheet" href="/{{ s }}">
     {% endfor %}
-    {% endif %}
     <script defer src="/js/loader.js"></script>
     <style>
-{% if inlineStyles %}
-{% for s in styles %}{% include s %}{% endfor %}
-{% endif %}
+{% for s in inlineStyles %}{% include s %}{% endfor %}
     </style>
   </head>
   <body id="{{ bodyId }}" class="{% if not delayFontLoad %}dotgothic{% endif %}">
