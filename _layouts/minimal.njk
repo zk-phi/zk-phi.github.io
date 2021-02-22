@@ -26,6 +26,7 @@
     <script>
 const lazyScripts = ["/js/prefetch.js", {% for s in lazyScripts %}"/{{ s }}",{% endfor %}];
 const lazyStyles = [{% for s in lazyStyles %}"/{{ s }}",{% endfor %}];
+const prefetches = [{% for s in prefetches %}"/{{ s }}",{% endfor %}];
 {% if delayFontLoad %}document.body.classList.add("dotgothic"){% endif %}
     </script>
   </body>

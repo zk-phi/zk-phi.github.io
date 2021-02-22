@@ -13,7 +13,7 @@
         "o:font": "npm run ss:generate:all && npm run ss:generate:index && npm run ss:apply:index",
         "ss:generate:all": "glyphhanger --formats woff2 --onlyVisible --subset fonts/* --output _site/fonts/ --suffix '' _site/**/*.html",
         "ss:generate:index": "glyphhanger --formats woff2 --onlyVisible --subset fonts/* --output _site/fonts/ --suffix '_subset' _site/index.html",
-        "ss:apply:index": "replace '(/fonts/.*)\\.woff2' '$1_subset.woff2' _site/index.html"
+        "ss:apply:index": "replace '(url\\([^)]*)\\.woff2' '$1_subset.woff2' _site/index.html"
     },
     "dependencies": {},
     "devDependencies": {
