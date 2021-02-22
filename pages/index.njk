@@ -25,6 +25,7 @@ unions:
   - href: /code39/
     src: img/code39_entrance.png
     alt: ???
+    sameorigin: true
 maxUnionBannerHeight: 33px
 ---
 
@@ -58,7 +59,9 @@ maxUnionBannerHeight: 33px
 
 <p style="line-height: {{ maxUnionBannerHeight }}">
   {%- for u in unions -%}
-  <a class="link banner" target="_blank" rel="noreferrer" href={{ u.href }}>
+  <a class="link banner"
+     {% if not u.sameorigin %}target="_blank" rel="noreferrer"{% endif %}
+     href={{ u.href }}>
     {% image u.src, u.alt %}
   </a>
   {%- endfor -%}

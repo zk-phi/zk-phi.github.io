@@ -56,11 +56,13 @@ links:
       - title: mixi
         icon: <strong class="under-development">工事中</strong>
         href: /404.html
+        sameorigin: true
 
   - header: その他
     items:
       - title: イベント出展、メディア掲載など
         href: /etc/
+        sameorigin: true
 ---
 
 <h1 id="title">
@@ -88,7 +90,9 @@ links:
 <ul class="list">
   {% for item in category.items %}
   <li class="item">
-    <a class="link" target="_blank" rel="noreferrer" href="{{ item.href }}">
+    <a class="link"
+       {% if not item.sameorigin %}target="_blank" rel="noreferrer"{% endif %}
+       href="{{ item.href }}">
       {{- item.title -}}
     </a>
     {{- item.icon | safe }}
