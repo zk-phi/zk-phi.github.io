@@ -17,11 +17,15 @@
 
 .info {
   display: inline-block;
+  margin-right: 12px;
+  font-size: 0.9em;
 
   font-weight: bold;
   color: #00f;
 
-  width: 32px;
-  line-height: 48px;
+  border: 1px solid #999;
+  box-shadow: 1px 1px #333;
+
+  padding: 2px 8px;
   text-align: center;
 }
