@@ -5,7 +5,7 @@
     background-position-x: 0;
   }
   100% {
-    background-position-x: 1000px;
+    background-position-x: 400px;
   }
 }
 
@@ -15,12 +15,10 @@
   background: linear-gradient(
     to right,
     var(--accent1) 0,
-    var(--accent2) 25%,
-    var(--accent1) 50%,
-    var(--accent2) 75%,
+    var(--accent2) 50%,
     var(--accent1) 100%
   );
-  background-size: 1000px 1px;
+  background-size: 400px 1px;
   animation: rainbow 4s linear infinite;
 }
 
