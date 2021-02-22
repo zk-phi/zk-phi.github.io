@@ -28,7 +28,7 @@
         "http-server": "^0.12.3",
         "patch-package": "^6.2.2",
         "replace": "^1.2.0",
-        "svgo": "^2.0.1",
+        "svgo": "^2.0.3",
         "uglifyjs-folder": "^2.0.0"
     }
 }
