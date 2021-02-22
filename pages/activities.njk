@@ -37,7 +37,7 @@ inlineStyles:
         </span>
       </div>
       <a class="link" target="_blank" rel="noreferrer" href="{{ i.link }}">
-        {{ i.title }}
+        {{ i.title | safe }}
       </a>
     </li>
     {% endfor %}
