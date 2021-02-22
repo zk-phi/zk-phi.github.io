@@ -1,0 +1,20 @@
+---
+layout: minimal.njk
+bodyId: body
+inlineStyles:
+  - css/font.css
+  - css/common_critical.css
+prefetches:
+  - css/font.css
+  - css/common_critical.css
+  - fonts/DotGothic16-Regular.woff2
+lazyScripts:
+  - js/stalker.js
+lazyStyles:
+  - css/common.css
+  - css/stalker.css
+---
+
+<div id="content">
+  {{ content | safe }}
+</div>
