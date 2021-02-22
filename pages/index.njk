@@ -29,7 +29,7 @@ maxUnionBannerHeight: 33px
 ---
 
 <h1 id="title">
-  <span class="rot">🌴</span> zk-phi の部屋 <span class="rot">🌴</span>
+  <span class="rot">🌴</span>zk-phi の部屋<span class="rot">🌴</span>
 </h1>
 
 <p>
@@ -43,7 +43,7 @@ maxUnionBannerHeight: 33px
 
 <ul class="list">
   <li class="item">
-    <a class="link" href="/activities/">最近の活動</a> <strong class="new">New!!</strong>
+    <a class="link" href="/activities/">最近の活動</a><strong class="new">New!!</strong>
   </li>
   <li class="item">
     <a class="link" href="/links/">リンク集</a>
@@ -57,11 +57,11 @@ maxUnionBannerHeight: 33px
 <hr />
 
 <p style="line-height: {{ maxUnionBannerHeight }}">
-  {% for u in unions %}
+  {%- for u in unions -%}
   <a class="link banner" target="_blank" rel="noreferrer" href={{ u.href }}>
     {% image u.src, u.alt %}
   </a>
-  {% endfor %}
+  {%- endfor -%}
 </p>
 
 <p>

@@ -7,7 +7,7 @@ inlineStyles:
 ---
 
 <h1 id="title">
-  <span class="rot">💻</span> 最近の活動 <span class="rot">💻</span>
+  <span class="rot">💻</span>最近の活動<span class="rot">💻</span>
 </h1>
 
 <p>
@@ -24,17 +24,20 @@ inlineStyles:
 <div class="left">
   <h2 class="header">
     <span class="puni">{{ monthEmoji[m.month] }}</span>
-    {{ m.month + 1 }}月<small>/{{ m.year }}</small>
+    {{- m.month + 1 }}月<small>/{{ m.year }}</small>
   </h2>
   <ul class="list">
     {% for i in m.items %}
     <li class="item">
       <div class="activity-meta">
-        <span class="activity-tag">{{ i.category | safe }}</span>
-        <span class="activity-source">{{ i.source | safe }}</span>
+        <span class="activity-tag">
+          {{- i.category -}}
+        </span><span class="activity-source">
+          {{- i.source -}}
+        </span>
       </div>
-      <a class="link" target="_blank" rel="noreferrer" href="{{ i.link | safe }}">
-        {{ i.title | safe }}
+      <a class="link" target="_blank" rel="noreferrer" href="{{ i.link }}">
+        {{ i.title }}
       </a>
     </li>
     {% endfor %}
