@@ -4,6 +4,63 @@ permalink: /links/index.html
 layout: common.njk
 inlineStyles:
   - css/links.css
+
+links:
+  - header: 製作物
+    items:
+      - title: ソフト、ハード、フォントなど (GitHub)
+        href: https://github.com/zk-phi
+      - title: 回路・基板設計 (CADLAB)
+        href: https://cadlab.io/zk-phi
+      - title: 技術書 (Zenn)
+        href: https://zenn.dev/zk_phi
+      - title: 発表スライド (Speakerdeck)
+        href: https://speakerdeck.com/zk_phi
+      - title: 音楽 (Soundcloud)
+        href: https://soundcloud.com/zk_phi
+      - title: 動画 (YouTube)
+        href: https://www.youtube.com/channel/UC9_g5OIOEDXQsaqV3BkRWcQ
+      - title: 動画 (ニコニコ動画)
+        href: https://www.nicovideo.jp/mylist/66800354
+      - title: クイズ (クイズメーカー)
+        href: https://quiz-maker.site/creator/detail/177123803
+
+  - header: ショップ
+    items:
+      - title: 同人ハードなど (BOOTH)
+        href: https://zk-phi.booth.pm/
+      - title: 3D プリント製品 (DMM.make)
+        href: https://make.dmm.com/shop/219669/
+      - title: その他 (SUZURI)
+        href: https://suzuri.jp/zk_phi
+
+  - header: 記事
+    items:
+      - title: プログラミング関連 (Qiita)
+        href: https://qiita.com/zk_phi
+      - title: 趣味 (note)
+        href: https://note.mu/zk_phi
+      - title: 雑感・公開メモ (Scrapbox)
+        href: https://scrapbox.io/zkphi/
+      - title: 海外フォーラム (Reddit)
+        href: https://reddit.com/u/zk_phi
+
+  - header: SNS アカウント
+    items:
+      - title: Twitter
+        href: https://twitter.com/zk_phi
+      - title: ビール (Untappd)
+        href: https://untappd.com/user/zk_phi
+      - title: 読書 (読書メーター)
+        href: https://bookmeter.com/users/143741
+      - title: mixi
+        icon: <strong class="under-development">工事中</strong>
+        href: /404.html
+
+  - header: その他
+    items:
+      - title: イベント出展、メディア掲載など
+        href: /etc/
 ---
 
 <h1 id="title">
@@ -26,136 +83,19 @@ inlineStyles:
   </a>
 </p>
 
-<h2 class="header">
-  <span class="puni">🐬</span> 製作物
-</h2>
-
+{% for category in links %}
+<h2 class="header"><span class="puni">🐬</span> {{ category.header }}</h2>
 <ul class="list">
+  {% for item in category.items %}
   <li class="item">
-    <a class="link" target="_blank" rel="noreferrer" href="https://github.com/zk-phi">
-      ソフト、ハード、フォントなど (GitHub)
+    <a class="link" target="_blank" rel="noreferrer" href="{{ item.href }}">
+      {{- item.title -}}
     </a>
+    {{- item.icon | safe }}
   </li>
-  <li class="item">
-    <a class="link" target="_blank" rel="noreferrer" href="https://cadlab.io/zk-phi">
-      回路・基板設計 (CADLAB)
-    </a>
-  </li>
-  <li class="item">
-    <a class="link" target="_blank" rel="noreferrer" href="https://zenn.dev/zk_phi">
-      技術書 (Zenn)
-    </a>
-  </li>
-  <li class="item">
-    <a class="link" target="_blank" rel="noreferrer" href="https://speakerdeck.com/zk_phi">
-      発表スライド (Speakerdeck)
-    </a>
-  </li>
-  <li class="item">
-    <a class="link" target="_blank" rel="noreferrer" href="https://soundcloud.com/zk_phi">
-      音楽 (Soundcloud)
-    </a>
-  </li>
-  <li class="item">
-    <a class="link" href="https://www.youtube.com/channel/UC9_g5OIOEDXQsaqV3BkRWcQ">
-      動画 (YouTube)
-    </a>
-  </li>
-  <li class="item">
-    <a class="link" href="https://www.nicovideo.jp/mylist/66800354">
-      動画 (ニコニコ動画)
-    </a>
-  </li>
-  <li class="item">
-    <a class="link" href="https://quiz-maker.site/creator/detail/177123803">
-      クイズ (クイズメーカー)
-    </a>
-  </li>
+  {% endfor %}
 </ul>
-
-<h2 class="header">
-  <span class="putni">🐬</span> ショップ
-</h2>
-
-<ul class="list">
-  <li class="item">
-    <a class="link" target="_blank" rel="noreferrer" href="https://zk-phi.booth.pm/">
-      同人ハードなど (BOOTH)
-    </a>
-  </li>
-  <li class="item">
-    <a class="link" target="_blank" rel="noreferrer" href="https://make.dmm.com/shop/219669/">
-      3D プリント製品 (DMM.make)
-    </a>
-  </li>
-  <li class="item">
-    <a class="link" target="_blank" rel="noreferrer" href="https://suzuri.jp/zk_phi">
-      その他 (SUZURI)
-    </a>
-  </li>
-</ul>
-
-<h2 class="header">
-  <span class="puni">🐬</span> 記事
-</h2>
-
-<ul class="list">
-  <li class="item">
-    <a class="link" target="_blank" rel="noreferrer" href="https://qiita.com/zk_phi">
-      プログラミング関連 (Qiita)
-    </a>
-  </li>
-  <li class="item">
-    <a class="link" target="_blank" rel="noreferrer" href="https://note.mu/zk_phi">
-      趣味 (note)
-    </a>
-  </li>
-  <li class="item">
-    <a class="link" target="_blank" rel="noreferrer" href="https://scrapbox.io/zkphi/">
-      雑感・公開メモ (Scrapbox)
-    </a>
-  </li>
-  <li class="item">
-    <a class="link" target="_blank" rel="noreferrer" href="https://reddit.com/u/zk_phi">
-      海外フォーラム (Reddit)
-    </a>
-  </li>
-</ul>
-
-<h2 class="header">
-  <span class="puni">🐬</span> SNS アカウント
-</h2>
-
-<ul class="list">
-  <li class="item">
-    <a class="link" target="_blank" rel="noreferrer" href="https://twitter.com/zk_phi">
-      Twitter
-    </a>
-  </li>
-  <li class="item">
-    <a class="link" target="_blank" rel="noreferrer" href="https://untappd.com/user/zk_phi">
-      ビール (Untappd)
-    </a>
-  </li>
-  <li class="item">
-    <a class="link" target="_blank" rel="noreferrer" href="https://bookmeter.com/users/143741">
-      読書 (読書メーター)
-    </a>
-  </li>
-  <li class="item">
-    <a class="link" href="/404.html">mixi</a> <strong class="under-development">工事中</strong>
-  </li>
-</ul>
-
-<h2 class="header">
-  <span class="puni">🐬</span> その他
-</h2>
-
-<ul class="list">
-  <li class="item">
-    <a class="link" href="/etc/">イベント出展、メディア掲載など</a>
-  </li>
-</ul>
+{% endfor %}
 
 <hr />
 
