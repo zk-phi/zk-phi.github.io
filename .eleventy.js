@@ -38,13 +38,9 @@ module.exports = (eleventyConfig) => {
     });
 
     // filter activities by category
-    eleventyConfig.addNunjucksFilter("filterActivities", (data, label) => {
-        const match = label.match(/^(.*)以外$/);
-        const category = match ? match[1] : label;
-        const inverse = !!match;
-
+    eleventyConfig.addNunjucksFilter("filterActivities", (data, tag) => {
         return data.filter((item) => (
-            inverse ? item.category !== category : item.category === category
+            tag == "" ? item.category !== "メモ" : item.category === tag
         ));
     });
 

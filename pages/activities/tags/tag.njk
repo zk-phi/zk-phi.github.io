@@ -19,7 +19,22 @@ inlineStyles:
 </p>
 
 <p>
-  <a class="link" href="/">&lt; 戻る</a>
+  カテゴリ:
+  {% if tag !== "" %}
+  {{ tag }}
+  {% else %}
+  {% for t in activityTags %}{% if t !== "" %}
+  <a class="link activity-tag" href="/activities/{{ activityTagUrls[t] }}/">
+    {{- t -}}
+  </a>
+  {% endif %}{% endfor %}
+  {% endif %}
+</p>
+
+<p>
+  <a class="link" href="{% if tag == "" %}/{% else %}/activities/{% endif %}">
+    &lt; 戻る
+  </a>
 </p>
 
 <hr />
@@ -34,9 +49,9 @@ inlineStyles:
     {% for i in m.items %}
     <li class="item">
       <div class="activity-meta">
-        <span class="activity-tag">
+        <a class="link activity-tag" href="/activities/{{ activityTagUrls[i.category] }}/">
           {{- i.category -}}
-        </span><span class="activity-source">
+        </a><span class="activity-source">
           {{- i.source -}}
         </span>
       </div>
@@ -52,5 +67,7 @@ inlineStyles:
 <hr />
 
 <p>
-  <a class="link" href="/">&lt; 戻る</a>
+  <a class="link" href="{% if activityTagUrls[tag] == "" %}/{% else %}/activities/{% endif %}">
+    &lt; 戻る
+  </a>
 </p>
