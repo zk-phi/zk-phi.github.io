@@ -94,7 +94,7 @@ const getRecentQiitaPosts = jsonItems({
 const getRecentScrapboxNotes = rssItems({
     uri: "https://scrapbox.io/api/feed/zkphi",
     source: "Scrapbox",
-    category: "趣味記事",
+    category: "メモ",
 });
 
 const getRecentSoundcloudPosts = rssItems({
