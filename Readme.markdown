@@ -44,17 +44,21 @@ pip install fonttools brotli zopfli
 
 (see `_includes/layout/minimal.njk`)
 
-- クリティカルな css をすべてインラインに展開
+- index.njk のクリティカルな css をすべてインラインに展開
+  - それ以外のページはキャッシュに期待して普通に配置
 
-- 追加の css, js, font をすべて遅延ロード
+- index.njk のフォントをほんのり遅延ロード
+   - css 側で `font-display: swap` な fontface を定義
+   - 呼び出し (`font-family: ...`) をクラスで囲んでおいて、 js で遅れてトリガー
+     - 初回レンダーをブロックしないのを狙っている、数字見るといちおう意味ありそう
+   - Font Loading API を使った方が丁寧っぽい https://dev.opera.com/articles/better-font-face/
+   - initial rendering vs FOUT 時間はトレードオフっぽい？
+     - 前者を取ってあえて preload しないでみた (多分いけてない)
+
+- 追加の css, js をすべて遅延ロード
+   - 各種インタラクションなど、初回のレンダリングに必要のないもの
    - js, css は `requestIdleCallback` でアイドルを待ってからロード (see `js/loader.js`)
      - `loader.js` 自体は `defer` で遅延ロード
-   - font は
-     - css 側で `font-display: swap` な fontface を定義
-       - 呼び出し (`font-family: ...`) をクラスで囲んでおいて、 js で遅れてトリガー
-       - Font Loading API を使った方が丁寧っぽい https://dev.opera.com/articles/better-font-face/
-     - initial rendering の vs FOUT 時間はトレードオフっぽい？
-       - 前者を取ってあえて preload しないでみた (多分いけてない)
 
 ## ビルド時
 
@@ -86,8 +90,12 @@ pip install fonttools brotli zopfli
 
 (see `js/prefetch.js`)
 
-- サイト内リンクをすべて `prefetch`
-  - `mouseover` (`touchstart`) で `prerender`
+- サイト内リンクをほぼすべてアイドル中に `prefetch`
+  - `mousedown` (`touchstart`) で `prerender`
+  - 「最近の活動」ページだけリンクがすごく多いので自重
+
+- 全ページ共通で使用している CSS などもアイドル中に `prefetch`
+  - index.njk だけ初回レンダー最優先でインライン化しているので
 
 # directories
 
