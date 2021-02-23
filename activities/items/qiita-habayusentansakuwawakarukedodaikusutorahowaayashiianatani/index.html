@@ -1,0 +1,74 @@
+<!doctypehtml><html lang="ja"><title>zk-phi の部屋 :: 最近の活動</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible"content="IE=edge"><meta name="viewport"content="width=device-width,initial-scale=1"><meta name="description"content="zk-phi のホームページです"><link rel="stylesheet"href="/css/font.css"><link rel="stylesheet"href="/css/common_critical.css"><link rel="stylesheet"href="/css/activity.css"><script defer src="/js/loader.js"></script><body id="body"class="dotgothic"><div id="content"><h1 id="title"><span class="rot">💻</span>最近の活動<span class="rot">💻</span></h1><p><a class="link"href="javascript:history.back()">&lt; 戻る</a><hr><div class="left"><h2 class="header">「幅優先探索はわかるけどダイクストラ法は怪しい」あなたに</h2><div class="right"><p>Qiita (2020/5/19)<a class="link"target="_blank"rel="noreferrer"href="https://qiita.com/zk_phi/items/d93f670544e4b9816ed0">See original</a></div><div id="cdata"><h2>まえがき</h2><p>ふと幅優先探索と比べながらダイクストラ法を考えてみたらとてもしっくりきたので、記事に残したいなと思い、書いています。今までは、恥ずかしながらダイクストラ法はいまいち直感的にしっくりこず、知識として覚えて使っていました。<p>三角関数の公式を丸暗記せず、問題用紙の隅に単位円を書いて考えていたようなあなた (や、わたし) には、このように見方を変えてみるとひょっとしたら覚えやすいかもしれないです。<h3>この記事で扱うこと</h3><p>幅優先探索の復習をし、幅優先探索に「ある高速化テク」を適用しようとすると自然にダイクストラ法が導かれることを、なるべく直感的に説明します。<h3>この記事で扱わないこと</h3><p>「ダイクストラ法が必ず最短経路を見つける」こと、「ダイクストラ法が見つけた経路が必ず最短経路である」ことなどの厳密な説明はこの記事では扱いません。<h2>前知識：幅優先探索とダイクストラ法の使い分け</h2><p>大前提として、幅優先探索とダイクストラ法がそれぞれどんな場面で使えるアルゴリズムだったかを復習しておきます。<p>幅優先探索は一種の探索（条件を満たす項目を探す）アルゴリズムとして使うこともありますが、「あるスタート地点から各地点までの最短距離（経路）を求める」アルゴリズムとしても使うことができます。ただし、各地点どうしを結ぶ道の長さ（コスト）はすべて一定である必要があります。<p>対してダイクストラ法は、道にそれぞれ異なる長さ（コスト）が設定されていても使うことができる最短経路アルゴリズムです。<h2>幅優先探索の復習</h2><p>この記事では、まず幅優先探索について復習し、その亜種としてダイクストラ法を理解しようとしてみます。<p>まずは幅優先探索の典型的なユースケースである、迷路の最短経路を求める問題を考えます。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/1cc8a774-50e8-c0bd-71d3-a4ce915cd12d.png"alt="maze1png.png"><p>幅優先探索では、スタート地点から近い順に各地点までの最短経路を確定させてゆくのでした。<h3>初期化</h3><p>スタート地点から最初のマスまでの距離は１なので、<code>1</code>と書いておきます (問題によっては<code>0</code>かも)。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/7e1d6c8e-778d-c8b1-02a9-ca98d92c14dc.png"alt="maze1.png"><p>擬似コード:<pre><code>cost[&lt;スタート&gt;] = 1
+</code></pre><h3>各マスを近い順に訪問</h3><p>初期化できたら、ゴールへの最短経路が確定するまで、以下を繰り返します：<ul><li>未訪問のマスのうち、一番小さい最短距離が書いてあるマスを探す<li>そのマスを訪問済みにする<li>隣接するマスたちに最短距離を書き込む</ul><p>はじめ最短距離が書いてあるマスはスタート地点の<code>1</code>だけなので、まずはこのマスを訪問します (訪問済みになったことを、水色の背景で表すことにします)。<code>1</code>の周囲のマスには、スタート地点から数えて<code>2</code>歩でたどり着くことができるとわかるので、<code>2</code>と書いておきます。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/24cb31e4-4544-7fab-44df-c0632c0e744a.png"alt="maze2.png"><p>最短距離が<code>1</code>のマスを見終わったので、次は２つある<code>2</code>のマスたちを見てゆきます。どちらを先に訪問しても構いません。<p>ここで、後戻りはしないことに注意してください。すなわち、すでに<code>1</code>と書いてあるマスに、上から<code>3</code>と書く必要はありません。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/2b81c38c-da21-2d31-54b9-db0e747dd4c1.png"alt="maze3.png"><p><code>3</code>のマスが登場しましたが、<code>2</code>のマスがまだ残っているのでこちらを先に訪問します。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/66cb42a8-89c0-8516-5d92-9875a9c248c6.png"alt="maze4.png"><p><code>2</code>のマスを全て訪問し終えた時点で、初めて<code>3</code>のマスに手をつけます。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/e49d98f8-eda4-166b-9022-5a924efdcc76.png"alt="maze5.png"><p>以下同様に進めてゆくと、最短<code>7</code>歩でゴールにたどり着くことがわかりました。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/45c58b83-d699-79eb-4266-3be3d1d3c128.png"alt="mazeg.png"><p>擬似コード:<pre><code class="language-python">def 次のマスを探す():
+  (minCost, minCell) = (∞, null)
+  for d in &lt;全てのマス&gt;:
+    if !visited[d]: # 未訪問のマス
+      if defined cost[d] &amp;&amp; cost[d] &lt; minCost: # 書いてあるコストがより小さい
+        (minCost, minCell) = (cost[d], d)
+  visited[minCell] = true
+  return minCell
+
+while !defined cost[&lt;ゴール&gt;]: # ゴールのコストが判明するまで
+  d = 次のマスを探す()
+  for d2 in dに隣接するマスたち:
+    if !defined cost[d2]: # まだコストが書いてない
+      cost[d2] = cost[d] + 1
+</code></pre><h3>キューを使った最適化</h3><p>上の擬似コードの計算量は、<ul><li>次に訪問するマスを選ぶのに<code>O(n)</code>[<code>n</code>はマスの数]<li>訪問しなければいけないマスの数<code>O(n)</code></ul><p>なので全体として<code>O(n^2)</code>になっています。これはキュー (先入れ先出しリスト) を使うことで改善できるのでした。<p>すなわち、新しく見つかったマスをいつも待機列の一番後ろに並ばせておけば、あとは列の先頭から順番に取り出していくだけで、自然と最短経路の短い順に訪問できます。いちいち次に訪問するマスを検索する必要はありません。<p>スタート地点の最短距離を<code>1</code>とし、待機列に並ばせます。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/3039befb-7990-39db-cc1a-f6732abfb62f.png"alt="mazeq1.png"><p>待機列の先頭にいた<code>1</code>を取り出し、新しく見つかった２つの<code>2</code>を待機列に並ばせます。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/0d4d1e84-83d6-7425-bc8f-afbc3bb3455f.png"alt="mazeq2.png"><p>同様に待機列の先頭にいた<code>2</code>を取り出し、新しく見つかった<code>3</code>を待機列に並ばせます。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/d22f06ae-ae01-7f9e-5121-28ef09293326.png"alt="mazeq3.png"><p>擬似コードは以下のように変わります:<pre><code class="language-diff"> while !defined cost[&lt;ゴール&gt;]: # ゴールのコストが判明するまで
+-  d = 次のマスを探す()
++  d = キューの先頭を取り出す()
+   for d2 in dに隣接するマスたち:
+     if !defined cost[d2]: # まだコストが書いてない
+       cost[d2] = cost[d] + 1
++      キューの末尾に加える(d2)
+</code></pre><p>キューの追加・削除は一瞬 (<code>O(1)</code>) でできるので、計算量は<code>O(n)</code>に減りました。<p>これが一般的に用いられる幅優先探索です。<h3>おまけ：経路の復元</h3><p>最短距離だけでなく具体的な経路まで必要な場合には、ゴールからはじめて、「数字が１づつ下がっていくように」隣り合うマスを選んでいけば経路を復元できます。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/628feed8-9914-1326-59f4-2811d74644cf.png"alt="route.png"><p>ゴールの<code>7</code>から初めて、隣の<code>6</code>を探し、またその隣の<code>5</code>を探し… といった要領です。そのような経路が複数ある場合は、どれを選んでも最短経路になります。寄り道をしようとすると、必ず数字が増えてしまうはずです。<p>(「どのマスから来たか」を記録しながら探索していくとより高速に経路を復元することができますが、いよいよ本題から外れるので他の記事を参照してください)<h2>幅優先探索からダイクストラ法を導く</h2><p>幅優先探索の復習ができたところで、今度はダイクストラ法について考えてゆきます。<h3>「幅優先探索で解く問題」と「ダイクストラ法で解く問題」の相互変換</h3><p>上の迷路は、<p>・スタート ・ゴール ・分岐 / 合流地点 ・行き止まり<p>などの重要なマスだけに注目して、それ以外 (ただの一本道) を省略すると、次のように書くことができます。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/800c26d9-b74a-690d-f52b-e33295f36a21.png"alt="maze.png"><p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/dbb8e447-5e0e-9387-4b27-75b0b662175d.png"alt="mazesimplified.png"><p>一本道の脇に書かれている数字は、その道の長さです。<p>これはいかにも、ダイクストラ法の典型問題になっていることに気づきます。すなわち、「マスとマスの間の距離（コスト）が一定ではない状況で、最短経路を求める問題」として見ることができます。<p>いま、幅優先探索でこと足りる問題をわざわざダイクストラ法が必要な問題に変換できることを示しましたが、ここで重要なのは、その逆もできるということです。<p>すなわち、<strong>ダイクストラ法を要求する問題も、道の長さ分のマスを勝手に補ってしまえば、幅優先探索で解ける</strong>ということです。<h3>ダイクストラ法を幅優先探索の高速化テクだと思ってみる</h3><p>幅優先探索の問題とダイクストラ法の問題を互いに変換できるなら、ダイクストラ法の問題は全部幅優先探索の問題に変換してしまって、幅優先探索だけ覚えていれば良いじゃん。というわけにはいきません。<p>なぜなら、たとえばコスト１兆の道がたった１本あるだけで、幅優先探索に変換するとマスがいきなり１兆個も増えてしまって、計算がめちゃめちゃ遅くなってしまうからです。<p>ここで、「だったら、コスト１兆の道を本当に１兆ステップかけて進むんじゃなく、１ステップで一気に１兆歩進んだことにしてしまえばいいんじゃないか？」という高速化を思いつく人がいると思います。だって、ただの一本道なんて、まじめに探索しなくても大丈夫そうに見えます。<p><strong>実は、それがダイクストラ法と呼ばれるものなのでした。</strong><h3>「一気にたくさん進める幅優先探索」の実装</h3><p>では、「一気にたくさん進める幅優先探索」(すなわちダイクストラ法) は、普通の幅優先探索にどのような変更を加えれば実装できるでしょうか。<p>一本道をひたすらまっすぐ進むだけならとくに考えることはないので、問題は分岐と合流です。具体的には以下の２つの「追い越し」を考慮する必要が出てきます。<h4>探索順の追い越し (分岐時)</h4><p>例として次のような問題を考えます。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/8a476d74-37cf-e0b0-5239-33ffc7029618.png"alt="dij1.png"><p>まずはスタート地点の<code>1</code>を巡回し、隣のマスに距離を書き込みます。ここまでは通常の幅優先探索と変わりません。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/daa1e6c0-2a88-8ef1-fdff-896e596f0767.png"alt="dij2.png"><p>さて、通常の幅優先探索では、どちらのマスにも<code>2</code>が書き込まれ、どちらを先に巡回しても構いませんでした。しかし今回は<code>2</code>,<code>4</code>とそれぞれ別の数字が書き込まれています。では次に巡回すべきマスがどちらかと考えると、直感的に<code>2</code>の方だとわかります。<p>なぜなら、この問題を通常の幅優先探索の問題に変換してみると、上の距離<code>3</code>の一本道には、実は２つの見えないマスが隠れていて、これらを一気にスキップした結果が<code>4</code>だと考えられるからです。他方のルートの探索がまだそこまで追いついていないなら、追いつくのを待つのが筋だと考えられます。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/aa0ac170-6045-fc3a-2218-1b5f2b496e29.png"alt="dij2b.png"><p><code>2</code>のマスを訪問すると<code>3</code>のマスが登場します。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/57f88676-32be-9f8a-fd65-83292bf61b94.png"alt="dij3.png"><p>しかしまだ<code>4</code>には追いつかないので、引き続きこのルートの探索を進めます。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/638d3323-2805-8cb6-be96-b07f2d86ca09.png"alt="dij4.png"><p>ついに上ルートを追い越しました。ここにきて初めて、<code>4</code>のマスに訪問することができます。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/f22ec2fc-3018-0204-acce-09ff3855bd20.png"alt="dij5.png"><p>このように、通常の幅優先探索では全てのルートを均等に探索していったのに対し、「一気に進める幅優先探索」では「他方のルートが追いつくまで待つ」といった追い越し現象が発生します。<p>さて、通常の幅優先探索では、探索順を効率よく決めるためにキューを使用していました。しかしキューには追い越し機能は備わっていません。そこで、追い越し機能を備えたキューである「優先度付きキュー」を使用する必要が出てきます。<pre><code class="language-diff"> while !defined cost[&lt;ゴール&gt;]: # ゴールのコストが判明するまで
+-  d = キューの先頭を取り出す()
++  d = 優先度付きキューの先頭を取り出す()
+   for d2 in dに隣接するマスたち:
+     if !defined cost[d2]: # まだコストが書いてない
+-      cost[d2] = cost[d] + 1
+-      キューの末尾に加える(d2)
++      cost[d2] = cost[d] + 距離(d から d2)
++      優先度付きキューに加える(d2, 優先度:cost[d2])
+</code></pre><p>優先度付きキューへの要素の追加・取り出しは通常<code>O(log n)</code>です。ただのキューよりはやや遅いですが、しかし十分速いです。<h4>到着順の追い越し (合流時)</h4><p>分岐時だけでなく、合流時にも追い越しに気をつける必要があります。<p>先ほどの問題の探索をもう少し進めてみます。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/d04e6cde-3b4d-5360-fc44-3f0ded153f44.png"alt="dij5.png"><p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/cff9552c-34f3-29e9-759e-a25b3b0af049.png"alt="dij6.png"><p><code>5</code>のマスに訪問すると、いきなりゴールのマスに<code>9</code>が書き込まれます。<p>通常の幅優先探索であればここで探索を打ち切ってしまっても良かったのですが、「一気に進める幅優先探索」ではまだ探索を進める必要があります。なぜでしょう。<p>試しに<code>6</code>のマスに訪問してみると、今まで最短距離が<code>8</code>だと思われていたマスに、実は<code>7</code>歩で到達できることが発覚します。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/7d0215d0-84f0-748c-a311-e28f72808084.png"alt="dij7.png"><p>通常の幅優先探索では、足並みを揃えてどのルートも一歩づつすすんでゆくので、当然、最短経路が一番最初に合流地点に到着します。しかし、「一気に進める幅優先探索」では長〜い道を一気に進んだ場合、一時的に最短経路を追い越して、このように先に合流地点に到着してしまうことがあります。<p>さて、このまま探索を続けてみると、実はゴールには<code>8</code>歩でたどり着くことができるとわかります。打ち切らなくて良かったです。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/37e79048-b53c-899a-bd21-c971d1f260ce.png"alt="dij8.png"><p>このように、「一気に進める幅優先探索」では、一度書き込んだ最短距離があとから更新されてしまう可能性があります。<p>したがってプログラムでも、その点を考慮する必要があります。<pre><code class="language-diff">-while !defined cost[&lt;ゴール&gt;]: # ゴールのコストが判明するまで
++while !優先度付きキューが空(): # すべてのマスを巡回するまで
+   d = 優先度付きキューの先頭を取り出す()
+   for d2 in dに隣接するマスたち:
+     if !defined cost[d2]: # まだコストが書いてない
+       cost[d2] = cost[d] + 距離(d から d2)
+       優先度付きキューに加える(d2, 優先度:cost[d2])
++    elif cost[d] + 距離(d から d2) &lt; cost[d2]:
++      # 今書いてあるコスト (cost[d2]) より速いルートが見つかった → 上書きする
++      cost[d2] = cost[d] + 距離(d から d2)
++      優先度付きキューの並び順を更新(d2 の優先度を cost[d2] に)
+</code></pre><p>これがダイクストラ法です。<h4>おまけ１ : 経路の復元</h4><p>経路の復元は幅優先探索とほぼ同じです。<p><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/54240/066d0b77-8dae-9538-b9a6-b2e3d180598f.png"alt="dijroute.png"><p>ゴールからスタートして、数字が減るようにスタートまで戻ってゆきます。<p>ただし、減る数字の大きさと道の長さが合わない場合は、そのルートには入れません。たとえば、ゴールの<code>8</code>から<code>5</code>に進もうとすると、数字は<code>3</code>減っていますが、道の長さは<code>4</code>なので計算が合いません。このルートは最短経路ではありません。<h4>おまけ2 :<code>優先度付きキューの並び順を更新</code>について</h4><p>上の擬似コードにしれっと書いた<code>優先度付きキューの並び順を更新</code>は、実は愚直に行うと時間がかかってしまい、オーダーが悪くなってしまいます。<p>これを効率化するために、「優先度付きキューに同じマスを重複して並べることを認める。その代わり、同じマスは２度訪問しない」と書き変えることができます。<pre><code class="language-diff"> while !優先度付きキューが空(): # すべてのマスを巡回するまで
+   d = 優先度付きキューの先頭を取り出す()
++  if visited[d]: # すでに一度訪問したことがある
++    continue
++  else
++    visited[d] = true
+   for d2 in dに隣接するマスたち:
+     if !defined cost[d2]: # まだコストが書いてない
+       cost[d2] = cost[d] + 距離(d から d2)
+       優先度付きキューに加える(d2, 優先度:cost[d2])
+     elif cost[d] + 距離(d から d2) &lt; cost[d2]:
+       # 今書いてあるコスト (cost[d2]) より速いルートが見つかった → 上書きする
+       cost[d2] = cost[d] + 距離(d から d2)
+-      優先度付きキューの順番を更新(d2)
++      優先度付きキューに加える(d2, 優先度:cost[d2])
+</code></pre><p>優先度が更新されるときは、今わかっているルートより速いルートが見つかったときです。したがって、重複して同じマスをキューに放り込むと、後から放り込まれた方は、すでにキューに並んでいたものを追い越して、結果的に先に取り出されます。ここで、後から取り出される方、すなわちもとからキューに入っていた方を無視すれば、実質優先度を書き換えたことと同じになります。<p>コードの重複を消すとさらにすっきりします。<pre><code class="language-diff"> while !優先度付きキューが空(): # すべてのマスを巡回するまで
+   d = 優先度付きキューの先頭を取り出す()
+   if visited[d]: # すでに一度訪問したことがある
+     continue
+   else
+     visited[d] = true
+   for d2 in dに隣接するマスたち:
+-    if !defined cost[d2]: # まだコストが書いてない
+-      cost[d2] = cost[d] + 距離(d から d2)
+-      優先度付きキューに加える(d2, 優先度:cost[d2])
+-    elif cost[d] + 距離(d から d2) &lt; cost[d2]:
+-      # 今書いてあるコスト (cost[d2]) より速いルートが見つかった → 上書きする
++    if !defined cost[d2] || cost[d] + 距離(d から d2) &lt; cost[d2]:
++      # まだコストが書いていないか、書いてあるコストより速いルートが見つかった
+       cost[d2] = cost[d] + 距離(d から d2)
+       優先度付きキューに加える(d2, 優先度:cost[d2])
+</code></pre><h2>まとめ</h2><p>ダイクストラ法を幅優先探索の高速化テクとして考えてみると、個人的には覚えやすくなったというかスッキリしたので紹介してみました。<p>「最適性原理から明らかですね」とか言われても、感覚的にはしっくりこないところが自分はあったりしたので、あなたのしっくりの助けになれば幸いです。</div></div><hr><p><a class="link"href="javascript:history.back()">&lt; 戻る</a></div><script>const lazyScripts=["/js/prefetch.js","/js/stalker.js","/js/activity.js"],lazyStyles=["/css/common.css","/css/stalker.css"],prefetches=[]</script>
