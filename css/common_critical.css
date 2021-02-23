@@ -24,6 +24,7 @@
   background-image: var(--bgImg);
   background-size: var(--bgImgSize);
   background-position: var(--bgImgPos);
+  margin: 16px;
 }
 
 #title {

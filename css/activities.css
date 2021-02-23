@@ -7,18 +7,21 @@
 }
 
 .activity-filter {
+  display: inline-block;
   font-size: 0.9em;
   color: var(--muted);
   margin-right: 6px;
 }
 
 .link.activity-tag, .link.activity-tag:visited {
-  word-break: keep-all;
+  display: inline-block;
   color: var(--muted);
   font-size: 0.7em;
   border-radius: 4px;
   border: 1px dotted;
-  padding: 2px 4px;
+  padding: 0 4px;
+  line-height: 1.9em;
   margin-right: 6px;
   text-decoration: none;
+  vertical-align: bottom;
 }
