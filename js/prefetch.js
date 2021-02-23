@@ -16,7 +16,7 @@
     }
 
     document.querySelectorAll('a').forEach(function(a) {
-        if (a.origin === location.origin) {
+        if (a.origin === location.origin && !a.href.match("/activities/item")) {
             link(a.href, "prefetch");
         }
     });
