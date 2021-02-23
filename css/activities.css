@@ -3,19 +3,12 @@
 }
 
 .activity-source {
-  color: var(--muted);
-}
-
-.activity-filter {
-  display: inline-block;
-  font-size: 0.9em;
-  color: var(--muted);
-  margin-right: 6px;
+  color: var(--fg);
 }
 
 .link.activity-tag, .link.activity-tag:visited {
   display: inline-block;
-  color: var(--muted);
+  color: var(--fg);
   font-size: 0.7em;
   border-radius: 4px;
   border: 1px dotted;
