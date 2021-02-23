@@ -39,9 +39,11 @@ module.exports = (eleventyConfig) => {
 
     // filter activities by category
     eleventyConfig.addNunjucksFilter("filterActivities", (data, tag) => {
-        return data.filter((item) => (
-            tag == "" ? item.category !== "メモ" : item.category === tag
-        ));
+        if (!tag) {
+            return data;
+        } else {
+            return data.filter((item) => item.category === tag);
+        }
     });
 
     // group activities by month
