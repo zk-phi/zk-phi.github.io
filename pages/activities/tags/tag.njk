@@ -23,7 +23,7 @@ inlineStyles:
   {%- if tag !== "" -%}
   <a class="link activity-tag" href="/activities/{{ activityTagUrls[tag] }}/">
     {{- tag -}}
-  </a>
+  </a><a class="link" href="/activities/">x</a>
   {%- else -%}
   {%- for t in activityTags %}{% if t !== "" -%}
   <a class="link activity-tag" href="/activities/{{ activityTagUrls[t] }}/">
@@ -34,9 +34,7 @@ inlineStyles:
 </p>
 
 <p>
-  <a class="link" href="{% if tag == "" %}/{% else %}/activities/{% endif %}">
-    &lt; 戻る
-  </a>
+  <a class="link" href="/">&lt; 戻る</a>
 </p>
 
 <hr />
@@ -69,7 +67,5 @@ inlineStyles:
 <hr />
 
 <p>
-  <a class="link" href="{% if activityTagUrls[tag] == "" %}/{% else %}/activities/{% endif %}">
-    &lt; 戻る
-  </a>
+  <a class="link" href="/">&lt; 戻る</a>
 </p>
