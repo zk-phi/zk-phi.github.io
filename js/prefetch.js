@@ -8,16 +8,17 @@
     }
 
     function prerender(e) {
-        if (e.target.tagName === "A" && !e.target["data-prerendered"]
-            && e.target.origin === location.origin) {
+        if (e.target.tagName === "A" && e.target.origin === location.origin) {
             link(e.target.href, "prerender");
-            e.target["data-prerendered"] = true;
         }
     }
 
+    const fetchedUrls = {};
     document.querySelectorAll('a').forEach(function(a) {
-        if (a.origin === location.origin && !a.href.match("/activities/item")) {
+        if (a.origin === location.origin
+            && !fetchedUrls[a.href] && !a.href.match("/activities/item")) {
             link(a.href, "prefetch");
+            fetchedUrls[a.href] = true;
         }
     });
 
