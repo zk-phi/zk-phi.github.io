@@ -1,4 +1,10 @@
 const Image = require("@11ty/eleventy-img");
+const Kuroshiro = require("@dsquare-gbu/kuroshiro");
+const KuromojiAnalyzer = require("kuroshiro-analyzer-kuromoji");
+const Slugify = require('slugify');
+
+const kuroshiro = new Kuroshiro();
+const kuroshiroInitialized = kuroshiro.init(new KuromojiAnalyzer());
 
 module.exports = (eleventyConfig) => {
     // merge data
@@ -35,6 +41,15 @@ module.exports = (eleventyConfig) => {
             loading: "lazy",
             decoding: "async",
         })
+    });
+
+    // make slug from activity
+    eleventyConfig.addNunjucksAsyncFilter("activitySlug", (activity, callback) => {
+        kuroshiroInitialized.then(() =>
+            kuroshiro.convert(activity.source + "-" + activity.title, { to: "romaji" })
+        ).then((res) => {
+            callback(null, Slugify(res, { lower: true, strict: true, locale: "ja" }));
+        });
     });
 
     // filter activities by category

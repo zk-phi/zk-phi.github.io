@@ -1,0 +1,75 @@
+---
+pagination:
+  data: recentActivities
+  size: 1
+  alias: activity
+title: "zk-phi の部屋 :: 最近の活動"
+permalink: /activities/items/{{ activity | activitySlug }}/index.html
+layout: common.njk
+styles:
+  - css/activity.css
+lazyScripts:
+  - js/activity.js
+---
+
+<h1 id="title">
+  <span class="rot">💻</span>最近の活動<span class="rot">💻</span>
+</h1>
+
+<p>
+  <a class="link" href="javascript:history.back()">&lt; 戻る</a>
+</p>
+
+<hr />
+
+<div class="left">
+  <h2 class="header">{{ activity.title }}</h2>
+
+  <div class="right">
+    <p>
+      {{ activity.source }} ({{ activity.pubDate | formatDate }})
+      <a class="link" target="_blank" rel="noreferrer" href="{{ activity.link }}">
+        See original
+      </a>
+    </p>
+  </div>
+
+  {% if activity.content %}
+
+  {% if activity.content.type == 'summaries' %}
+  {% for summary in activity.content.summaries %}
+  <p>{{ summary }}</p>
+  {% endfor %}
+  <p>
+    <a class="link" target="_blank" rel="noreferrer" href="{{ activity.link }}">
+      詳細を見る
+    </a>
+  </p>
+  {% endif %}
+
+  {% if activity.content.type == 'html' %}
+  <div id="cdata">{{ activity.content.body | safe }}</div>
+  {% endif %}
+
+  {% if activity.content.type == 'soundcloud' %}
+  <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ activity.content.trackId }}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+  {% endif %}
+
+  {% if activity.content.type == 'speakerdeck' %}
+  <script async class="speakerdeck-embed" data-id="{{ activity.content.deckId }}" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+  {% endif %}
+
+  {% if activity.content.type == 'youtube' %}
+  <div id="youtube">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ activity.content.videoId }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  {% endif %}
+
+  {% endif %}
+</div>
+
+<hr />
+
+<p>
+  <a class="link" href="javascript:history.back()">&lt; 戻る</a>
+</p>

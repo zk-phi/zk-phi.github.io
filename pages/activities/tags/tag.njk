@@ -57,7 +57,7 @@ inlineStyles:
           {{- i.source -}}
         </span>
       </div>
-      <a class="link" target="_blank" rel="noreferrer" href="{{ i.link }}">
+      <a class="link" href="/activities/items/{{ i | activitySlug }}/">
         {{ i.title | safe }}
       </a>
     </li>
