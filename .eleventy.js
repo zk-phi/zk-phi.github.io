@@ -37,6 +37,40 @@ module.exports = (eleventyConfig) => {
         })
     });
 
+    // filter activities by category
+    eleventyConfig.addNunjucksFilter("filterActivities", (data, label) => {
+        const match = label.match(/^(.*)以外$/);
+        const category = match ? match[1] : label;
+        const inverse = !!match;
+
+        return data.filter((item) => (
+            inverse ? item.category !== category : item.category === category
+        ));
+    });
+
+    // group activities by month
+    eleventyConfig.addNunjucksFilter("groupActivityByMonth", (data) => {
+        if (!data) {
+            return [];
+        }
+
+        const itemsByMonth = [{
+            year: data[0].pubDate.getFullYear(),
+            month: data[0].pubDate.getMonth(),
+            items: [],
+        }];
+        data.forEach((item) => {
+            const year = item.pubDate.getFullYear();
+            const month = item.pubDate.getMonth();
+            if (year !== itemsByMonth[0].year || month !== itemsByMonth[0].month) {
+                itemsByMonth.unshift({ year, month, items: [] });
+            }
+            itemsByMonth[0].items.push(item);
+        });
+
+        return itemsByMonth.reverse();
+    });
+
     return {
         dir: {
             includes: "",

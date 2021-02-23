@@ -1,6 +1,10 @@
 ---
+pagination:
+  data: activityTags
+  size: 1
+  alias: tag
 title: "zk-phi の部屋 :: 最近の活動"
-permalink: /activities/index.html
+permalink: /activities/{{ activityTagUrls[tag] }}/index.html
 layout: common.njk
 inlineStyles:
   - css/activities.css
@@ -20,7 +24,7 @@ inlineStyles:
 
 <hr />
 
-{% for m in recentActivities %}
+{% for m in recentActivities | filterActivities(tag) | groupActivityByMonth %}
 <div class="left">
   <h2 class="header">
     <span class="puni">{{ monthEmoji[m.month] }}</span>

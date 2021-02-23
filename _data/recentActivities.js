@@ -169,23 +169,5 @@ module.exports = async () => {
         item.pubDate >= lim
     )).sort((a, b) => a.pubDate < b.pubDate ? 1 : -1);
 
-    if (!activities) {
-        return [];
-    }
-
-    const itemsByMonth = [{
-        year: activities[0].pubDate.getFullYear(),
-        month: activities[0].pubDate.getMonth(),
-        items: [],
-    }];
-    activities.forEach((item) => {
-        const year = item.pubDate.getFullYear();
-        const month = item.pubDate.getMonth();
-        if (year !== itemsByMonth[0].year || month !== itemsByMonth[0].month) {
-            itemsByMonth.unshift({ year, month, items: [] });
-        }
-        itemsByMonth[0].items.push(item);
-    });
-
-    return itemsByMonth.reverse();
+    return activities;
 };
