@@ -19,18 +19,11 @@ inlineStyles:
 </p>
 
 <p>
-  {% if tag !== "" %}
-  カテゴリ：
-  <a class="link activity-tag" href="/activities/">
-    {{- tag -}}✓
+  {%- for t in activityTags %}{% if t !== "" -%}
+  <a class="link activity-tag" href="/activities/{{ "/" if t === tag else activityTagUrls[t] }}/">
+    {{- t -}}{%- if t === tag %}✓{% endif -%}
   </a>
-  {% else %}
-  {% for t in activityTags %}{% if t !== "" %}
-  <a class="link activity-tag" href="/activities/{{ activityTagUrls[t] }}/">
-    {{- t -}}
-  </a>
-  {% endif %}{% endfor %}
-  {% endif %}
+  {%- endif %}{% endfor -%}
 </p>
 
 <hr />
