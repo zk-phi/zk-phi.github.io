@@ -11,12 +11,6 @@
             e.href = s;
             document.head.appendChild(e);
         });
-        prefetches.forEach(function (s) {
-            const e = document.createElement("link");
-            e.rel = "prefetch";
-            e.href = s;
-            document.head.appendChild(e);
-        });
     }
 
     if (window.requestIdleCallback) {

@@ -1,13 +1,10 @@
 ---
 layout: minimal.njk
-bodyId: body
 inlineStyles:
   - css/font.css
   - css/common_critical.css
-prefetches:
-  - css/font.css
-  - css/common_critical.css
-  - fonts/DotGothic16-Regular.woff2
+preloads:
+  - { href: "fonts/DotGothic16-Regular.woff2", type: "font", cors: true }
 lazyScripts:
   - js/stalker.js
 lazyStyles:

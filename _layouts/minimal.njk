@@ -10,7 +10,7 @@
     <meta name="robots" content="noindex" />
     {% endif %}
     {% for s in preloads %}
-    <link rel="preload" href="/{{ s.href }}" as="{{ s.type }}">
+    <link rel="preload" href="/{{ s.href }}" as="{{ s.type }}"{{ " crossorigin" if s.cors }}>
     {% endfor %}
     {% for s in styles %}
     <link rel="stylesheet" href="/{{ s }}">
@@ -20,13 +20,11 @@
 {% for s in inlineStyles %}{% include s %}{% endfor %}
     </style>
   </head>
-  <body id="{{ bodyId }}" class="{% if not delayFontLoad %}dotgothic{% endif %}">
+  <body id="body">
     {{ content | safe }}
     <script>
 const lazyScripts = ["/js/prefetch.js", {% for s in lazyScripts %}"/{{ s }}",{% endfor %}];
 const lazyStyles = [{% for s in lazyStyles %}"/{{ s }}",{% endfor %}];
-const prefetches = [{% for s in prefetches %}"/{{ s }}",{% endfor %}];
-{% if delayFontLoad %}document.body.classList.add("dotgothic"){% endif %}
     </script>
   </body>
 </html>
