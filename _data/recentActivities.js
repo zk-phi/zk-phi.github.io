@@ -93,7 +93,7 @@ const getRecentGithubRepos = jsonItems({
 const getRecentNotePosts = rssItems({
     uri: "https://note.com/zk_phi/rss",
     source: "note",
-    category: "趣味",
+    category: "記事",
     extractContent: (item) => ({
         type: "html",
         body: item.description
@@ -105,7 +105,7 @@ const getRecentQiitaPosts = jsonItems({
     filter: (post) => !post.private,
     formatter: (post) => ({
         source: "Qiita",
-        category: "技術",
+        category: "記事",
         title: post.title,
         link: post.url,
         pubDate: new Date(post.created_at),
@@ -139,7 +139,7 @@ const getRecentSoundcloudPosts = rssItems({
 const getRecentSpeakerdeckSlides = atomItems({
     uri: "https://speakerdeck.com/zk_phi.atom",
     source: "Speakerdeck",
-    category: "趣味",
+    category: "発表",
     extractContent: (item) => ({
         type: "speakerdeck",
         deckId: item.content['#text'].match("/presentations/([^/]+)/")[1]
@@ -159,7 +159,7 @@ const getRecentYoutubePosts = atomItems({
 const getRecentZennPosts = rssItems({
     uri: "https://zenn.dev/zk_phi/feed",
     source: "Zenn",
-    category: "技術",
+    category: "記事",
     extractContent: (item) => ({
         type: "summaries",
         summaries: [
