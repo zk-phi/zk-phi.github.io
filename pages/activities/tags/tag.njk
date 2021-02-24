@@ -18,19 +18,25 @@ inlineStyles:
   直近１年の間に公開したフリーソフト・文書などをまとめました。
 </p>
 
-{% if tag !== "" %}
 <p>
+  {% if tag !== "" %}
   カテゴリ：
-  <a class="link activity-tag" href="/activities/{{ activityTagUrls[tag] }}/">
-    {{- tag -}}
+  <a class="link activity-tag" href="/activities/">
+    {{- tag -}}✓
   </a>
+  {% else %}
+  {% for t in activityTags %}{% if t !== "" %}
+  <a class="link activity-tag" href="/activities/{{ activityTagUrls[t] }}/">
+    {{- t -}}
+  </a>
+  {% endif %}{% endfor %}
+  {% endif %}
 </p>
-{% endif %}
 
 <hr />
 
 <p>
-  <a class="link" href="/{{ "activities/" if tag !=="" }}">&lt; 戻る</a>
+  <a class="link" href="/">&lt; 戻る</a>
 </p>
 
 {% for m in recentActivities | filterActivities(tag) | groupActivityByMonth %}
@@ -42,14 +48,10 @@ inlineStyles:
   <ul class="list">
     {% for i in m.items %}
     <li class="item">
-      <div class="activity-meta">
-        <a class="link activity-tag" href="/activities/{{ activityTagUrls[i.category] }}/">
-          {{- i.category -}}
-        </a>
-        {{- i.source -}}
-      </div>
-      <a class="link" href="/activities/items/{{ i | activitySlug }}/">
-        {{ i.title | safe }}
+      <a class="link activity-tag" href="/activities/{{ activityTagUrls[i.category] }}/">
+        {{- i.category -}}
+      </a><a class="link" href="/activities/items/{{ i | activitySlug }}/">
+        {{- i.title | safe -}}
       </a>
     </li>
     {% endfor %}
@@ -60,5 +62,5 @@ inlineStyles:
 <hr />
 
 <p>
-  <a class="link" href="/{{ "activities/" if tag !=="" }}">&lt; 戻る</a>
+  <a class="link" href="/">&lt; 戻る</a>
 </p>
