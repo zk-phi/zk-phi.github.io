@@ -47,13 +47,13 @@ pip install fonttools brotli zopfli
 - index.njk のクリティカルな css をすべてインラインに展開
   - それ以外のページはキャッシュに期待して普通に配置
 
-- index.njk のフォントをほんのり遅延ロード
+- index.njk のフォントを preload
    - css 側で `font-display: swap` な fontface を定義
-   - 呼び出し (`font-family: ...`) をクラスで囲んでおいて、 js で遅れてトリガー
-     - 初回レンダーをブロックしないのを狙っている、数字見るといちおう意味ありそう
-   - Font Loading API を使った方が丁寧っぽい https://dev.opera.com/articles/better-font-face/
-   - initial rendering vs FOUT 時間はトレードオフっぽい？
-     - 前者を取ってあえて preload しないでみた (多分いけてない)
+   <!-- - 呼び出し (`font-family: ...`) をクラスで囲んでおいて、 js で遅れてトリガー -->
+   <!--   - 初回レンダーをブロックしないのを狙っている、数字見るといちおう意味ありそう -->
+   <!-- - Font Loading API を使った方が丁寧っぽい https://dev.opera.com/articles/better-font-face/ -->
+   <!-- - initial rendering vs FOUT 時間はトレードオフっぽい？ -->
+   <!--   - 前者を取ってあえて preload しないでみた (多分いけてない) -->
 
 - 追加の css, js をすべて遅延ロード
    - 各種インタラクションなど、初回のレンダリングに必要のないもの
