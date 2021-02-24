@@ -19,7 +19,12 @@ inlineStyles:
 </p>
 
 {% if tag !== "" %}
-<p>カテゴリ: {{ tag }}</p>
+<p>
+  カテゴリ：
+  <a class="link activity-tag" href="/activities/{{ activityTagUrls[tag] }}/">
+    {{- tag -}}
+  </a>
+</p>
 {% endif %}
 
 <hr />
