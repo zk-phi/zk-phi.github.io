@@ -32,7 +32,7 @@
         "patch-package": "^6.2.2",
         "replace": "^1.2.0",
         "slugify": "^1.4.7",
-        "svgo": "^2.0.3",
+        "svgo": "^2.1.0",
         "uglifyjs-folder": "^2.0.0"
     }
 }
