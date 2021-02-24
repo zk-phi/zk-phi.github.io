@@ -36,13 +36,12 @@ inlineStyles:
   </h2>
   <ul class="list">
     {% for i in m.items %}
-    <li class="item">
+    <li class="item activity">
       <div class="activity-meta">
         <a class="link activity-tag" href="/activities/{{ activityTagUrls[i.category] }}/">
           {{- i.category -}}
-        </a><span class="activity-source">
-          {{- i.source -}}
-        </span>
+        </a>
+        {{- i.source -}}
       </div>
       <a class="link" href="/activities/items/{{ i | activitySlug }}/">
         {{ i.title | safe }}

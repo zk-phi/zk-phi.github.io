@@ -2,19 +2,18 @@
   margin-bottom: 4px;
 }
 
-.activity-source {
-  color: var(--fg);
+.activity {
+  padding: 8px;
+  background-color: rgb(255, 255, 255, 0.4);
 }
 
 .link.activity-tag, .link.activity-tag:visited {
-  display: inline-block;
   color: var(--fg);
-  font-size: 0.7em;
+  font-size: 0.8em;
   border-radius: 4px;
   border: 1px dotted;
-  padding: 0 4px;
-  line-height: 1.9em;
+  padding: 1px 3px 1px 1px;
   margin-right: 6px;
   text-decoration: none;
-  vertical-align: bottom;
+  vertical-align: 0.1em; /* ideographic baseline */
 }

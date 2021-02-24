@@ -1,6 +1,7 @@
 /* ---- classic buttons */
 
 .btn {
+  cursor: pointer;
   user-select: none;
 }
 
