@@ -19,7 +19,6 @@
   text-align: center;
   color: var(--fg);
   background-color: var(--bg);
-  line-height: 1.5em;
   background-image: var(--bgImg);
   background-size: var(--bgImgSize);
   background-position: var(--bgImgPos);
@@ -27,7 +26,6 @@
 }
 
 #title {
-  line-height: 1;
   color: var(--accent2);
   text-align: center;
   text-shadow: -4px -4px 0px var(--accent1);
@@ -36,10 +34,6 @@
 
 .left {
   text-align: left;
-}
-
-.header {
-  line-height: 1;
 }
 
 .list {
