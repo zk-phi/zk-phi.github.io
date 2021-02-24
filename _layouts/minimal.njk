@@ -9,6 +9,9 @@
     {% if noindex %}
     <meta name="robots" content="noindex" />
     {% endif %}
+    {% for s in preloads %}
+    <link rel="preload" href="/{{ s.href }}" as="{{ s.type }}">
+    {% endfor %}
     {% for s in styles %}
     <link rel="stylesheet" href="/{{ s }}">
     {% endfor %}
