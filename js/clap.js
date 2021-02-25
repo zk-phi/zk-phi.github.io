@@ -1,13 +1,22 @@
+function normalRand (n) {
+    let res = 0;
+    for (let i = 0; i < n; i++) {
+        res += Math.random();
+    }
+    return res / n;
+}
+
 function makeKira (pos, speed) {
     const el = document.createElement("div");
-    el.innerHTML = "⭐️";
+    el.innerHTML = "💮";
     el.classList.add("kira");
     el.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
     document.body.appendChild(el);
     return { pos, speed, el };
 }
 
-const gravity = 0.05;
+const gravity = window.innerHeight / 10000;
+const resistance = 0.99
 
 function moveKira (kira) {
     const newPos = {
@@ -24,7 +33,10 @@ function moveKira (kira) {
 
     return {
         pos: newPos,
-        speed: { x: kira.speed.x, y: kira.speed.y - gravity },
+        speed: {
+            x: kira.speed.x * resistance,
+            y: kira.speed.y * resistance - gravity
+        },
         el: kira.el,
     };
 }
@@ -35,14 +47,14 @@ document.getElementById("JS_clap").onclick = function (e) {
 
     let kiras = [];
 
-    for (let i = 0; i < 400; i++) {
-        const fromLeft = i < 200;
+    for (let i = 0; i < 500; i++) {
+        const fromLeft = i % 2 == 0;
         kiras.push(makeKira({
             x: fromLeft ? 0 : window.innerWidth,
             y: window.innerHeight
         }, {
-            x: (fromLeft ? -1 : 1) * (Math.random()) * (window.innerWidth / 400),
-            y: (Math.random() / 2 + 0.5) * (window.innerHeight / 40)
+            x: (fromLeft ? -1 : 1) * normalRand(1) * (window.innerWidth / 100),
+            y: normalRand(4) * (window.innerHeight / 10)
         }));
     }
 
