@@ -55,3 +55,16 @@
 .new {
   animation: blink 1s linear infinite;
 }
+
+/* ---- kirakira */
+
+.kira {
+  display: inline-block;
+  position: fixed;
+  width: 1em;
+  line-height: 1;
+  top: -0.5em;
+  left: -0.5em;
+  pointer-events: none;
+  z-index: -1;
+}
