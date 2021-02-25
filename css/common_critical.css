@@ -23,6 +23,7 @@
   background-size: var(--bgImgSize);
   background-position: var(--bgImgPos);
   margin: 16px;
+  line-height: 1.5em;
 }
 
 #title {
