@@ -1,6 +1,6 @@
 function makeKira (pos, speed) {
     const el = document.createElement("div");
-    el.innerHTML = "🌸";
+    el.innerHTML = "⭐️";
     el.classList.add("kira");
     el.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
     document.body.appendChild(el);
