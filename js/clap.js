@@ -47,7 +47,7 @@ document.getElementById("JS_clap").onclick = function (e) {
 
     let kiras = [];
 
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < 100; i++) {
         const fromLeft = i % 2 == 0;
         kiras.push(makeKira({
             x: fromLeft ? 0 : window.innerWidth,
