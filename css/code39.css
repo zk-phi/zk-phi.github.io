@@ -1,5 +1,6 @@
 .code39-scroll-container {
   backdrop-filter: grayscale(1);
+  -webkit-backdrop-filter: grayscale(1);
   position: absolute;
   left: 0;
   bottom: 0;
