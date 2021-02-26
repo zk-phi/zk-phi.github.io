@@ -20,8 +20,10 @@ inlineStyles:
 
 <p>
   {%- for t in activityTags %}{% if t !== "" -%}
-  <a class="link activity-tag" href="/activities/{{ "" if selected else activityTagUrls[t] }}">
-    {{- t -}}{%- if t === tag %}✓{% endif -%}
+  {% set selected = t === tag %}
+  <a class="link activity-tag{{ " selected" if selected }}"
+     href="/activities/{{ "" if selected else activityTagUrls[t] }}">
+    {{- t -}}{{ "✓" if selected -}}
   </a>
   {%- endif %}{% endfor -%}
 </p>
