@@ -10,6 +10,7 @@
 /* ---- classic buttons */
 
 .btn {
+  font-family: "DotGothic";
   position: relative;
   border: 0;
   font-size: 0.9em;
