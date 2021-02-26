@@ -20,7 +20,7 @@ inlineStyles:
 
 <p>
   {%- for t in activityTags %}{% if t !== "" -%}
-  <a class="link activity-tag" href="/activities/{{ "/" if t === tag else activityTagUrls[t] }}/">
+  <a class="link activity-tag" href="/activities/{{ "" if selected else activityTagUrls[t] }}">
     {{- t -}}{%- if t === tag %}✓{% endif -%}
   </a>
   {%- endif %}{% endfor -%}
