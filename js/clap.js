@@ -15,8 +15,10 @@ function makeKira (pos, speed) {
     return { pos, speed, el };
 }
 
-const gravity = window.innerHeight / 10000;
-const resistance = 0.99
+const gravity = window.innerHeight / 20000;
+const resistance = 0.995;
+const aveSpdX = window.innerWidth / 70;
+const aveSpdY = window.innerHeight / 20;
 
 function moveKira (kira) {
     const newPos = {
@@ -35,7 +37,7 @@ function moveKira (kira) {
         pos: newPos,
         speed: {
             x: kira.speed.x * resistance,
-            y: kira.speed.y * resistance - gravity
+            y: kira.speed.y * resistance - gravity,
         },
         el: kira.el,
     };
@@ -53,8 +55,8 @@ document.getElementById("JS_clap").onclick = function (e) {
             x: fromLeft ? 0 : window.innerWidth,
             y: window.innerHeight
         }, {
-            x: (fromLeft ? -1 : 1) * normalRand(1) * (window.innerWidth / 100),
-            y: normalRand(4) * (window.innerHeight / 10)
+            x: (fromLeft ? -1 : 1) * normalRand(2) * aveSpdX / 2,
+            y: normalRand(4) * aveSpdY / 2
         }));
     }
 
