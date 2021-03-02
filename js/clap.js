@@ -43,8 +43,12 @@ function moveKira (kira) {
     };
 }
 
+document.getElementById("JS_close").onclick = function (e) {
+    document.getElementById("dialog-container").classList.remove("open");
+}
+
 document.getElementById("JS_clap").onclick = function (e) {
-    window.alert("応援ありがとうございます!!");
+    document.getElementById("dialog-container").classList.add("open");
     e.target.disabled = true;
 
     let kiras = [];

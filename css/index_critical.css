@@ -36,3 +36,9 @@
   color: #f00;
   font-style: italic;
 }
+
+/* --- dialogue */
+
+#dialog-container {
+  display: none;
+}
