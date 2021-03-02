@@ -7,14 +7,12 @@
 
 .btn:focus, .btn:active {
   outline: dotted 1px #555; /* replace chrome outline with win95-ish dotted line */
-  outline-offset: -4px;
+  outline-offset: -6px;
 }
 
 .btn:active {
   color: #333;
-  box-shadow:
-    0 0 0 1px #000,
-    0 0 1px 0 #000 inset;
+  box-shadow: 0 0 1px 1px #000 inset;
 }
 
 .btn:disabled {
@@ -25,11 +23,6 @@
     0px 0px 1px #aaa,
     1px 1px 0px #fff,
     1px 1px 1px #fff;
-  box-shadow:
-    -2px 0 0 0 #eaeaea,
-    0 -2px 0 0 #eaeaea,
-    -2px -2px 0 0 #eaeaea,
-    0 0 1px 2px #717171;
 }
 
 /* --- strong texts */
