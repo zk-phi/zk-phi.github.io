@@ -1,8 +1,13 @@
+/* --- block */
+
+.ui {
+  user-select: none;
+}
+
 /* ---- classic buttons */
 
 .btn {
   cursor: pointer;
-  user-select: none;
 }
 
 .btn:focus, .btn:active {
@@ -69,8 +74,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.4);
-  user-select: none;
+  pointer-events: none;
   z-index: 1;
 }
 
@@ -84,6 +88,7 @@
   max-width: 320px;
   margin: 30vh auto 0;
   padding: 4px;
+  pointer-events: auto;
 }
 
 #dialog-title {
