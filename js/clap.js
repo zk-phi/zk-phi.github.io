@@ -15,10 +15,10 @@ function makeKira (pos, speed) {
     return { pos, speed, el };
 }
 
-const gravity = window.innerHeight / 20000;
-const resistance = 0.995;
-const aveSpdX = window.innerWidth / 70;
-const aveSpdY = window.innerHeight / 20;
+const gravity = window.innerHeight / 10000;
+const resistance = 0.99;
+const aveSpdX = window.innerWidth / 30;
+const aveSpdY = window.innerHeight / 10;
 
 function moveKira (kira) {
     const newPos = {
@@ -59,17 +59,22 @@ document.getElementById("JS_clap").onclick = function (e) {
             x: fromLeft ? 0 : window.innerWidth,
             y: window.innerHeight
         }, {
-            x: (fromLeft ? -1 : 1) * normalRand(2) * aveSpdX / 2,
+            x: (fromLeft ? -1 : 1) * normalRand(3) * aveSpdX / 2,
             y: normalRand(4) * aveSpdY / 2
         }));
     }
 
+    let throttle = false;
     const nextFrame = () => {
-        kiras = kiras.reduce((l, r) => {
-            const newKira = moveKira(r);
-            if (newKira) l.push(newKira);
-            return l;
-        }, []);
+        if (throttle) {
+            kiras = kiras.reduce((l, r) => {
+                const newKira = moveKira(r);
+                if (newKira) l.push(newKira);
+                return l;
+            }, []);
+        }
+        throttle = !throttle;
+
         if (kiras.length) {
             window.requestAnimationFrame(nextFrame);
         }
