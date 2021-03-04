@@ -1,3 +1,8 @@
+const gravity = window.innerHeight / 10000;
+const resistance = 0.99;
+const aveSpdX = window.innerWidth / 30;
+const aveSpdY = window.innerHeight / 10;
+
 function normalRand (n) {
     let res = 0;
     for (let i = 0; i < n; i++) {
@@ -14,11 +19,6 @@ function makeKira (pos, speed) {
     document.body.appendChild(el);
     return { pos, speed, el };
 }
-
-const gravity = window.innerHeight / 10000;
-const resistance = 0.99;
-const aveSpdX = window.innerWidth / 30;
-const aveSpdY = window.innerHeight / 10;
 
 function moveKira (kira) {
     const newPos = {
@@ -43,14 +43,7 @@ function moveKira (kira) {
     };
 }
 
-document.getElementById("JS_close").onclick = function (e) {
-    document.getElementById("dialog-container").classList.remove("open");
-}
-
-document.getElementById("JS_clap").onclick = function (e) {
-    document.getElementById("dialog-container").classList.add("open");
-    e.target.disabled = true;
-
+function kirakira () {
     let kiras = [];
 
     for (let i = 0; i < 100; i++) {
@@ -81,4 +74,30 @@ document.getElementById("JS_clap").onclick = function (e) {
     };
 
     nextFrame();
+}
+
+let closeDialog;
+function renderDialog () {
+    const dom = document.createElement("div");
+    closeDialog = () => dom.remove();
+    dom.id = "dialog-container";
+    dom.innerHTML = `
+<div id="dialog" class="ui">
+  <div id="dialog-title">
+    謝辞
+  </div>
+  <div id="dialog-body">
+    応援ありがとうございます！
+    <div id="dialog-btns">
+      <button class="btn ui" onclick="closeDialog()">ほい(Y)</button>
+    </div>
+  </div>
+</div>`;
+    document.body.appendChild(dom);
+}
+
+document.getElementById("JS_clap").onclick = function (e) {
+    e.target.disabled = true;
+    renderDialog();
+    kirakira();
 };

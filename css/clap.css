@@ -1,0 +1,48 @@
+/* ---- kirakira */
+
+.kira {
+  display: inline-block;
+  position: fixed;
+  width: 1em;
+  line-height: 1;
+  top: -0.5em;
+  left: -0.5em;
+  pointer-events: none;
+}
+
+/* ---- dialogue */
+
+#dialog-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#dialog {
+  display: inline-block;
+  text-align: left;
+  max-width: 320px;
+  margin: 30vh auto 0;
+  padding: 4px;
+  pointer-events: auto;
+}
+
+#dialog-title {
+  padding: 4px 8px;
+  line-height: 1;
+  color: var(--bg);
+  background: linear-gradient(to right, var(--accent1) 0, var(--accent2) 100%);
+}
+
+#dialog-body {
+  padding: 12px;
+}
+
+#dialog-btns {
+  text-align: center;
+  margin-top: 12px;
+}
