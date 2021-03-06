@@ -12,17 +12,9 @@ https://zk-phi.github.io
 - `master` に push するとビルドが走って `gh-pages` に発射される
 - 毎早朝にビルドが走る
 
-# 環境構築
-
-`npm install && npx patch-package`
-
-本当は `postinstall` で `patch-package` を走らせたいけど、なぜか GitHub Actions 上で `npm ci` にコケるので手で実行します。
-
-当てるパッチはこれ https://github.com/filamentgroup/glyphhanger/pull/85 なのでマージされたら不要です。
-
 ## develop
 
-`npm run develop` で開発用サーバー立ち上げ
+`npm install` して `npm run develop` で開発用サーバー立ち上げ
 
 ## build
 
