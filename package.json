@@ -1,5 +1,7 @@
 {
+    "name": "zk-phi.github.io",
     "scripts": {
+        "postinstall": "patch-package",
         "clean": "rm -r _site",
         "develop": "eleventy --serve",
         "build": "eleventy",
