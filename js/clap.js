@@ -84,7 +84,7 @@ function renderDialog () {
     dom.innerHTML = `
 <div id="dialog" class="ui">
   <div id="dialog-title">
-    謝辞
+    謝謝茄子
   </div>
   <div id="dialog-body">
     応援ありがとうございます！
