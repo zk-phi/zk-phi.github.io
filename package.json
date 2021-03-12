@@ -26,7 +26,7 @@
         "@lhci/cli": "^0.7.0",
         "clean-css-cli": "^5.2.1",
         "fast-xml-parser": "^3.18.0",
-        "glyphhanger": "^3.2.0",
+        "glyphhanger": "^4.0.0",
         "html-minifier": "^4.0.0",
         "http-server": "^0.12.3",
         "kuroshiro-analyzer-kuromoji": "^1.1.0",
