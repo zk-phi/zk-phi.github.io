@@ -1,0 +1,31 @@
+.profile-card {
+  display: inline-block;
+}
+
+.profile-icon {
+  display: inline-block;
+  vertical-align: top;
+  margin: 8px;
+}
+
+.profile-body {
+  text-align: left;
+  display: inline-block;
+  margin: 8px;
+  max-width: 420px;
+  vertical-align: top;
+}
+
+.profile-name {
+  font-size: 1.75em;
+  line-height: 1.5em;
+  font-weight: bold;
+}
+
+.profile-section {
+  margin-bottom: 16px;
+}
+
+.profile-title {
+  font-weight: bold;
+}
