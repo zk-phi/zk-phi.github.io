@@ -1,19 +1,16 @@
 .profile-card {
-  display: inline-block;
+  margin: 20px 0;
 }
 
 .profile-icon {
   display: inline-block;
   vertical-align: top;
-  margin: 8px;
+  margin-right: 8px;
 }
 
 .profile-body {
-  text-align: left;
   display: inline-block;
-  margin: 8px;
-  max-width: 420px;
-  vertical-align: top;
+  max-width: 460px;
 }
 
 .profile-name {
