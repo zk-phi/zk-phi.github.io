@@ -2,6 +2,7 @@ const Image = require("@11ty/eleventy-img");
 const Kuroshiro = require("@dsquare-gbu/kuroshiro");
 const KuromojiAnalyzer = require("kuroshiro-analyzer-kuromoji");
 const Slugify = require('slugify');
+const HTMLMin = require('html-minifier');
 
 const kuroshiro = new Kuroshiro();
 const kuroshiroInitialized = kuroshiro.init(new KuromojiAnalyzer());
@@ -22,6 +23,31 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addWatchTarget("js");
     eleventyConfig.addWatchTarget("css");
     eleventyConfig.addWatchTarget("favicon.ico");
+
+    // minify HTML with html-minifier
+    eleventyConfig.addTransform('htmlmin', function(content, outputPath) {
+        if (outputPath.endsWith('.html')) {
+            return HTMLMin.minify(content, {
+                collapseBooleanAttributes: true,
+                collapseWhitespace: true,
+                collapseInlineTagWhitespace: true,
+                removeComments: true,
+                minifyCSS: {
+                    level: 2
+                },
+                minifyJS: true,
+                removeEmptyAttributes: true,
+                removeOptionalTags: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                removeTagWhitespace: true,
+                useShortDoctype: true
+            })
+        } else {
+            return content;
+        }
+    });
 
     // format date obj
     eleventyConfig.addNunjucksFilter("formatDate", (date) => (
