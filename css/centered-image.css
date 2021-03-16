@@ -14,10 +14,12 @@
   vertical-align: middle;
 }
 
-.centered-img {
+.centered-image {
+  display:inline-block;
+  vertical-align: middle;
   width: auto;
   height: auto;
   max-width: 90vw;
   max-height: 90vh;
-  filter: drop-shadow(10px 10px 10px #888);
+  filter: drop-shadow(10px 10px 10px #555);
 }
