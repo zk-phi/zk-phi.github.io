@@ -13,12 +13,14 @@ module.exports = (eleventyConfig) => {
 
     // they are simply copied (later optimized with subfont)
     eleventyConfig.addPassthroughCopy("fonts");
+    eleventyConfig.addPassthroughCopy("img");
     eleventyConfig.addPassthroughCopy("svg");
     eleventyConfig.addPassthroughCopy("js");
     eleventyConfig.addPassthroughCopy("css");
     eleventyConfig.addPassthroughCopy("favicon.ico");
     // ... and watched too
     eleventyConfig.addWatchTarget("fonts");
+    eleventyConfig.addWatchTarget("img");
     eleventyConfig.addWatchTarget("svg");
     eleventyConfig.addWatchTarget("js");
     eleventyConfig.addWatchTarget("css");
