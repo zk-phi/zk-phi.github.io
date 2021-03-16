@@ -5,20 +5,21 @@ noindex: true
 layout: common.njk
 inlineStyles:
   - css/meishi.css
+  - css/centered-image.css
 lazyScripts:
   - js/meishi.js
 ---
 
-<div class="meishi-wrapper" id="meishi-upside">
-  <div class="meishi-spacer"></div>
+<div class="centered-wrapper" id="meishi-upside">
+  <div class="centered-spacer"></div>
   <button class="meishi-btn" onclick="flip()">
-    {% image "img/meishi_f.png", "meishi-omote", { class: "meishi-img" } %}
+    {% image "img/meishi_f.png", "meishi-omote", { class: "centered-img" } %}
   </button>
 </div>
 
-<div class="meishi-wrapper" id="meishi-downside">
-  <div class="meishi-spacer"></div>
+<div class="centered-wrapper" id="meishi-downside">
+  <div class="centered-spacer"></div>
   <button class="meishi-btn" onclick="flip()">
-    {% image "img/meishi_b.png", "meishi-ura", { class: "meishi-img" } %}
+    {% image "img/meishi_b.png", "meishi-ura", { class: "centered-img" } %}
   </button>
 </div>
