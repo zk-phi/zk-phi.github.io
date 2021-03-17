@@ -15,7 +15,6 @@
         "ss:generate:index": "glyphhanger --formats woff2 --subset fonts/* --output _site/fonts/ --suffix '_subset' _site/index.html",
         "ss:apply:index": "replace '\\.woff2' '_subset.woff2' _site/index.html"
     },
-    "dependencies": {},
     "devDependencies": {
         "@11ty/eleventy": "^0.11.1",
         "@11ty/eleventy-cache-assets": "^2.1.0",
@@ -32,7 +31,6 @@
         "patch-package": "^6.4.5",
         "replace": "^1.2.0",
         "slugify": "^1.4.7",
-        "svgo": "^2.2.0",
         "uglifyjs-folder": "^2.0.0"
     }
 }
