@@ -38,3 +38,9 @@
   color: #f00;
   font-style: italic;
 }
+
+/* ---- secret link */
+
+.link.secret {
+  color: var(--bg);
+}
