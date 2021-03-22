@@ -21,7 +21,7 @@
         "@11ty/eleventy-img": "^0.8.2",
         "@dsquare-gbu/kuroshiro": "^1.1.2-iedev-1",
         "@lhci/cli": "^0.7.0",
-        "clean-css-cli": "^5.2.1",
+        "clean-css-cli": "^5.2.2",
         "fast-xml-parser": "^3.19.0",
         "glyphhanger": "^4.0.1",
         "html-minifier": "^4.0.0",
