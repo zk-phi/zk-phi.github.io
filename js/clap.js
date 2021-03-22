@@ -1,7 +1,7 @@
-const gravity = window.innerHeight / 10000;
-const resistance = 0.99;
-const aveSpdX = window.innerWidth / 30;
-const aveSpdY = window.innerHeight / 10;
+const gravity = window.innerHeight / 20000;
+const resistance = 0.995;
+const aveSpdX = window.innerWidth / 70;
+const aveSpdY = window.innerHeight / 20;
 
 function normalRand (n) {
     let res = 0;
@@ -22,7 +22,7 @@ function kirakira () {
                 y: window.innerHeight
             },
             speed: {
-                x: (fromLeft ? -1 : 1) * normalRand(3) * aveSpdX / 2,
+                x: (fromLeft ? -1 : 1) * normalRand(2) * aveSpdX / 2,
                 y: normalRand(4) * aveSpdY / 2
             }
         });
@@ -37,33 +37,30 @@ function kirakira () {
     ctx.fillStyle = 'rgba(255, 0, 0)';
     ctx.font = 'normal 1em sans-serif';
 
-    let throttle = false;
     const nextFrame = () => {
-        if (!throttle) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < kiras.length;) {
-                // render
-                ctx.fillText('💮', kiras[i].pos.x, kiras[i].pos.y);
-                // update position
-                kiras[i] = {
-                    pos: {
-                        x: kiras[i].pos.x - kiras[i].speed.x,
-                        y: kiras[i].pos.y - kiras[i].speed.y
-                    },
-                    speed: {
-                        x: kiras[i].speed.x * resistance,
-                        y: kiras[i].speed.y * resistance - gravity,
-                    }
-                };
-                if (kiras[i].pos.y > window.innerHeight ||
-                    kiras[i].pos.x < 0 || kiras[i].pos.x > window.innerWidth) {
-                    kiras.splice(i, 1);
-                } else {
-                    i++;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < kiras.length;) {
+            // render
+            ctx.fillText('💮', kiras[i].pos.x, kiras[i].pos.y);
+            // update position
+            kiras[i] = {
+                pos: {
+                    x: kiras[i].pos.x - kiras[i].speed.x,
+                    y: kiras[i].pos.y - kiras[i].speed.y
+                },
+                speed: {
+                    x: kiras[i].speed.x * resistance,
+                    y: kiras[i].speed.y * resistance - gravity,
                 }
+            };
+            if (kiras[i].pos.y > window.innerHeight ||
+                kiras[i].pos.x < 0 || kiras[i].pos.x > window.innerWidth) {
+                kiras.splice(i, 1);
+            } else {
+                i++;
             }
         }
-        throttle = !throttle;
 
         if (kiras.length) {
             window.requestAnimationFrame(nextFrame);
