@@ -30,7 +30,7 @@
         "markdown-it": "^12.0.4",
         "patch-package": "^6.4.7",
         "replace": "^1.2.0",
-        "slugify": "^1.4.7",
+        "slugify": "^1.5.0",
         "uglifyjs-folder": "^2.0.0"
     }
 }
