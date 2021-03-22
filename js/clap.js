@@ -11,65 +11,64 @@ function normalRand (n) {
     return res / n;
 }
 
-function makeKira (pos, speed) {
-    const el = document.createElement("div");
-    el.innerHTML = "💮";
-    el.classList.add("kira");
-    el.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
-    document.body.appendChild(el);
-    return { pos, speed, el };
-}
-
-function moveKira (kira) {
-    const newPos = {
-        x: kira.pos.x - kira.speed.x,
-        y: kira.pos.y - kira.speed.y
-    };
-
-    if (newPos.y > window.innerHeight || newPos.x < 0 || newPos.x > window.innerWidth) {
-        kira.el.remove();
-        return null;
-    }
-
-    kira.el.style.transform = `translate(${newPos.x}px, ${newPos.y}px)`;
-
-    return {
-        pos: newPos,
-        speed: {
-            x: kira.speed.x * resistance,
-            y: kira.speed.y * resistance - gravity,
-        },
-        el: kira.el,
-    };
-}
-
 function kirakira () {
-    let kiras = [];
+    const kiras = [];
 
     for (let i = 0; i < 100; i++) {
         const fromLeft = i % 2 == 0;
-        kiras.push(makeKira({
-            x: fromLeft ? 0 : window.innerWidth,
-            y: window.innerHeight
-        }, {
-            x: (fromLeft ? -1 : 1) * normalRand(3) * aveSpdX / 2,
-            y: normalRand(4) * aveSpdY / 2
-        }));
+        kiras.push({
+            pos: {
+                x: fromLeft ? 0 : window.innerWidth,
+                y: window.innerHeight
+            },
+            speed: {
+                x: (fromLeft ? -1 : 1) * normalRand(3) * aveSpdX / 2,
+                y: normalRand(4) * aveSpdY / 2
+            }
+        });
     }
+
+    const canvas = document.createElement('canvas');
+    canvas.id = "kira";
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'rgba(255, 0, 0)';
+    ctx.font = 'normal 1em sans-serif';
 
     let throttle = false;
     const nextFrame = () => {
-        if (throttle) {
-            kiras = kiras.reduce((l, r) => {
-                const newKira = moveKira(r);
-                if (newKira) l.push(newKira);
-                return l;
-            }, []);
+        if (!throttle) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < kiras.length;) {
+                // render
+                ctx.fillText('💮', kiras[i].pos.x, kiras[i].pos.y);
+                // update position
+                kiras[i] = {
+                    pos: {
+                        x: kiras[i].pos.x - kiras[i].speed.x,
+                        y: kiras[i].pos.y - kiras[i].speed.y
+                    },
+                    speed: {
+                        x: kiras[i].speed.x * resistance,
+                        y: kiras[i].speed.y * resistance - gravity,
+                    }
+                };
+                if (kiras[i].pos.y > window.innerHeight ||
+                    kiras[i].pos.x < 0 || kiras[i].pos.x > window.innerWidth) {
+                    kiras.splice(i, 1);
+                } else {
+                    i++;
+                }
+            }
         }
         throttle = !throttle;
 
         if (kiras.length) {
             window.requestAnimationFrame(nextFrame);
+        } else {
+            body.removeChild(canvas);
         }
     };
 
