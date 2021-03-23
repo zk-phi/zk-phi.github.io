@@ -19,7 +19,7 @@
   );
   background-size: 400px 1px;
   animation: rainbow 4s linear infinite;
-  box-shadow: var(--shadowBase);
+  text-shadow: var(--textShadowBase);
 }
 
 .link:focus, .link:active {
