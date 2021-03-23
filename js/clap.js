@@ -1,7 +1,7 @@
 const gravity = window.innerHeight / 20000;
-const resistance = 0.995;
-const aveSpdX = window.innerWidth / 70;
-const aveSpdY = window.innerHeight / 20;
+const resistance = 0.99;
+const aveSpdX = window.innerWidth / 40;
+const aveSpdY = window.innerHeight / 15;
 
 function normalRand (n) {
     let res = 0;
