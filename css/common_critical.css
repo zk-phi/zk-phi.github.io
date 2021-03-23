@@ -13,7 +13,7 @@
     linear-gradient(60deg, #edebff 25%, transparent 25.1%, transparent 75%, #edebff 75%, #edebff);
   --bgImgSize: 50px 100px;
   --bgImgPos: 0 0, 0 0, 25px 50px, 25px 50px, 0 0, 25px 50px;
-  --shadowBase: 1px 0 rgba(255, 0, 0, 0.15), -1px 0 rgba(0, 0, 255, 0.15);
+  --shadowBase: 1px 0 rgba(0, 255, 0, 0.2), -1px 0 rgba(0, 0, 255, 0.2);
 }
 
 #body {
