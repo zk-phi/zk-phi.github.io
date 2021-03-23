@@ -16,7 +16,9 @@
     0 0 2px 0 #c0c0c0 inset,
     1px 1px 1px 1px #fff inset,
     -1px -1px 1px 1px #000 inset,
-    -1px -1px 1px 0 #000 inset;
+    -1px -1px 1px 0 #000 inset,
+    var(--shadowBase);
+  text-shadow: var(--shadowBase);
 }
 
 /* ---- classic buttons */
