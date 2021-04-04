@@ -1,0 +1,61 @@
+---
+title: "zk-phi の部屋 :: その他"
+permalink: /etc/index.html
+layout: common.njk
+links:
+  - header: すぐ遊べるもの
+    items:
+      - title: 早押しクイズ検定 (PC のみ)
+        href: /etc/quiz/
+        sameorigin: true
+      - title: <small>クソ絵文字メーカー・</small>MEGAMOJI
+        href: http://zk-phi.github.io/MEGAMOJI/
+      - title: <small>クソコラ支援・</small>背景抜き太郎
+        href: https://zk-phi.github.io/kusocolla-republic/
+      - title: ネガポジスライサー
+        href: https://zk-phi.github.io/negaposi-slicer/
+      - title: いい感じの初手率計算機
+        href: https://zk-phi.github.io/handanalyze/
+      - title: クソデカ画像生成侍
+        href: https://zk-phi.github.io/KUSODEKAIMG/
+      - title: OLED Designer for Helix-like keybords
+        href: https://zk-phi.github.io/oled-designer/
+      - title: purupuru
+        href: https://zk-phi.github.io/purupuru/
+---
+
+<h1 id="title">
+  <span class="rot">🍺</span>その他<span class="rot">🍺</span>
+</h1>
+
+<p>
+  その他の活動・公開物です。
+</p>
+
+<p>
+  <a class="link" href="/">&lt; 戻る</a>
+</p>
+
+<hr />
+
+{% for category in links %}
+<h2 class="header"><span class="puni">🌟</span>{{ category.header }}</h2>
+<ul class="list">
+  {% for item in category.items %}
+  <li class="item">
+    <a class="link"
+       {% if not item.sameorigin %}target="_blank" rel="noreferrer"{% endif %}
+       href="{{ item.href }}">
+      {{- item.title | safe -}}
+    </a>
+    {{- item.icon | safe }}
+  </li>
+  {% endfor %}
+</ul>
+{% endfor %}
+
+<hr />
+
+<p>
+  <a class="link" href="/">&lt; 戻る</a>
+</p>
