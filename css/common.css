@@ -10,12 +10,12 @@
 }
 
 .link:hover, .link:focus {
-  color: var(--bg) !important;
+  color: var(--selectedFg) !important;
   background: linear-gradient(
     to right,
-    var(--accent1) 0,
-    var(--accent2) 50%,
-    var(--accent1) 100%
+    var(--grad1) 0,
+    var(--grad2) 50%,
+    var(--grad1) 100%
   );
   background-size: 400px 1px;
   animation: rainbow 4s linear infinite;

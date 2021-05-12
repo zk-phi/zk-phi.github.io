@@ -1,9 +1,16 @@
 :root {
   --fg: #4c4c4c;
+  --selectedFg: #fff;
   --bg: #ffffff;
+  --overlay: rgba(255, 255, 255, 0.3);
+  --shadow: rgba(128, 128, 128, 0.1);
+  --deepShadow: #555;
   --accent1: #8a7fff;
   --accent2: #fd7fff;
+  --grad1: #8a7fff;
+  --grad2: #fd7fff;
   --link: #5b4cff;
+  --strong: #ff4c4c;
   --bgImg:
     linear-gradient(30deg, #ebfcff 12%, transparent 12.1%, transparent 87%, #ebfcff 87.1%, #ebfcff),
     linear-gradient(150deg, #ebfcff 12%, transparent 12.1%, transparent 87%, #ebfcff 87.1%, #ebfcff),

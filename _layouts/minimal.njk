@@ -11,10 +11,9 @@
     {% for s in preloads %}
     <link rel="preload" href="/{{ s.href }}" as="{{ s.type }}"{{ " crossorigin" if s.cors }}>
     {% endfor %}
-    {% for s in styles %}
-    <link rel="stylesheet" href="/{{ s }}">
-    {% endfor %}
+    {% for s in styles %}<link rel="stylesheet" href="/{{ s }}">{% endfor %}
     <script defer src="/js/loader.js"></script>
+    {% for s in scripts %}<script defer src="/{{ s }}"></script>{% endfor %}
     <style>
 {% for s in inlineStyles %}{% include s %}{% endfor %}
     </style>
@@ -22,6 +21,7 @@
   <body id="body">
     {{ content | safe }}
     <script>
+{% for s in inlineScripts %}{% include s %}{% endfor %}
 const lazyScripts = ["/js/prefetch.js", {% for s in lazyScripts %}"/{{ s }}",{% endfor %}];
 const lazyStyles = [{% for s in lazyStyles %}"/{{ s }}",{% endfor %}];
     </script>

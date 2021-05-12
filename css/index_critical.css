@@ -35,6 +35,6 @@
 
 .new {
   margin-left: 6px;
-  color: #f00;
+  color: var(--strong);
   font-style: italic;
 }
