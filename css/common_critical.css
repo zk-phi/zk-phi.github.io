@@ -1,34 +1,31 @@
 :root {
-  --fg: #4c4c4c;
-  --selectedFg: #fff;
-  --bg: #ffffff;
-  --overlay: rgba(255, 255, 255, 0.3);
-  --shadow: rgba(128, 128, 128, 0.1);
-  --deepShadow: #555;
-  --accent1: #8a7fff;
-  --accent2: #fd7fff;
-  --grad1: #8a7fff;
-  --grad2: #fd7fff;
-  --link: #5b4cff;
-  --strong: #ff4c4c;
-  --bgImg:
-    linear-gradient(30deg, #ebfcff 12%, transparent 12.1%, transparent 87%, #ebfcff 87.1%, #ebfcff),
-    linear-gradient(150deg, #ebfcff 12%, transparent 12.1%, transparent 87%, #ebfcff 87.1%, #ebfcff),
-    linear-gradient(30deg, #ebfcff 12%, transparent 12.1%, transparent 87%, #ebfcff 87.1%, #ebfcff),
-    linear-gradient(150deg, #ebfcff 12%, transparent 12.1%, transparent 87%, #ebfcff 87.1%, #ebfcff),
-    linear-gradient(60deg, #edebff 25%, transparent 25.1%, transparent 75%, #edebff 75%, #edebff),
-    linear-gradient(60deg, #edebff 25%, transparent 25.1%, transparent 75%, #edebff 75%, #edebff);
-  --bgImgSize: 50px 100px;
-  --bgImgPos: 0 0, 0 0, 25px 50px, 25px 50px, 0 0, 25px 50px;
+  --fg: #d6d3f7;
+  --selectedFg: #d6d3f7;
+  --bg: linear-gradient(150deg, #1a136c 0%, #6a136c 110%);
+  --overlay: rgba(128, 128, 128, 0.2);
+  --shadow: rgba(255, 255, 255, 0.1);
+  --deepShadow: rgba(255, 255, 255, 0.2);
+  --accent1: #5a4cfe;
+  --accent2: #fb4cfe;
+  --grad1: rgba(90, 76, 254, 0.6);
+  --grad2: rgba(251, 76, 254, 0.6);
+  --link: #f46df7;
+  --strong: #fe4c97;
+}
+
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: var(--bg);
 }
 
 #body {
   text-align: center;
   color: var(--fg);
-  background-color: var(--bg);
-  background-image: var(--bgImg);
-  background-size: var(--bgImgSize);
-  background-position: var(--bgImgPos);
   margin: 16px;
   line-height: 1.5em;
 }
@@ -36,7 +33,9 @@
 #title {
   color: var(--accent2);
   text-align: center;
-  text-shadow: -4px -4px 0px var(--accent1);
+  text-shadow:
+    -1px -1px 0px var(--accent1),
+    -2px -2px 0px var(--accent1);
   font-style: italic;
 }
 

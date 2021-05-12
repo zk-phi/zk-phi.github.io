@@ -3,6 +3,8 @@ layout: minimal.njk
 inlineStyles:
   - css/font.css
   - css/common_critical.css
+inlineScripts:
+  - js/bg.js
 preloads:
   - { href: "fonts/DotGothic16-Regular.woff2", type: "font", cors: true }
 lazyScripts:
@@ -11,6 +13,8 @@ lazyStyles:
   - css/common.css
   - css/stalker.css
 ---
+
+<canvas id="bg"></canvas>
 
 <div id="content">
   {{ content | safe }}

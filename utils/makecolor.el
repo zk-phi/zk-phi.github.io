@@ -1,8 +1,14 @@
-(mapcar (lambda (hsl) (apply 'color-rgb-to-hex (apply 'color-hsl-to-rgb hsl)))
-        '((0.00 0.00 0.30) (0.00 0.00 1.00)
-          (0.68 1.00 0.75) (0.83 1.00 0.75)
-          (0.68 1.00 0.65)
-          (0.53 1.00 0.96) (0.68 1.00 0.96)))
+(mapcar (lambda (hsl)
+          (if (symbolp hsl) hsl
+            (cl-destructuring-bind (h s l &optional a) hsl
+              (cl-destructuring-bind (r g b) (color-hsl-to-rgb h s l)
+                (if a
+                    (format "rgba(%d, %d, %d, %.1f)"
+                            (floor (* r 255)) (floor (* g 255)) (floor (* b 255)) a)
+                  (color-rgb-to-hex r g b 2))))))
+        '(:bg (0.68 0.70 0.25) (0.83 0.70 0.25) :fg (0.68 0.70 0.95)
+              :acc (0.68 1.00 0.65) (0.83 1.00 0.65) (0.83 0.90 0.70) (0.93 1.00 0.65)
+              :grad (0.68 1.00 0.65 0.6) (0.83 1.00 0.65 0.6)))
 
 ;; (let (lst)
 ;;   (dotimes (n 40)
