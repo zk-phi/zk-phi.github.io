@@ -1,10 +1,9 @@
 :root {
-  --fg: #d6d3f7;
-  --selectedFg: #d6d3f7;
+  --fg: #eae9fb;
+  --selectedFg: #eae9fb;
   --bg: linear-gradient(150deg, #1a136c 0%, #6a136c 110%);
-  --overlay: rgba(128, 128, 128, 0.2);
-  --shadow: rgba(255, 255, 255, 0.1);
-  --deepShadow: rgba(255, 255, 255, 0.2);
+  --overlay: rgba(192, 192, 192, 0.1);
+  --shadow: rgba(255, 255, 255, 0.2);
   --accent1: #5a4cfe;
   --accent2: #fb4cfe;
   --grad1: rgba(90, 76, 254, 0.6);
