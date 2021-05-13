@@ -2,7 +2,7 @@
 
 ::selection {
   color: var(--selectedFg);
-  background-color: var(--grad1);
+  background-color: var(--dark1);
 }
 
 /* ---- yumekawa links */
@@ -20,9 +20,9 @@
   color: var(--selectedFg) !important;
   background: linear-gradient(
     to right,
-    var(--grad1) 0,
-    var(--grad2) 50%,
-    var(--grad1) 100%
+    var(--dark1) 0,
+    var(--dark2) 50%,
+    var(--dark1) 100%
   );
   background-size: 400px 1px;
   animation: rainbow 4s linear infinite;

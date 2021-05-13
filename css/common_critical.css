@@ -4,11 +4,11 @@
   --bg: linear-gradient(150deg, #1a136c 0%, #6a136c 110%);
   --overlay: rgba(192, 192, 192, 0.1);
   --shadow: rgba(255, 255, 255, 0.2);
-  --accent1: #5a4cfe;
-  --accent2: #fb4cfe;
-  --grad1: rgba(90, 76, 254, 0.6);
-  --grad2: rgba(251, 76, 254, 0.6);
-  --link: #f46df7;
+  --accent1: #7265ff;
+  --accent2: #fb65ff;
+  --dark1: rgba(90, 76, 254, 0.6);
+  --dark2: rgba(251, 76, 254, 0.6);
+  --link: #fb65ff;
   --strong: #fe4c97;
 }
 
@@ -33,8 +33,10 @@
   color: var(--accent2);
   text-align: center;
   text-shadow:
-    -1px -1px 0px var(--accent1),
-    -2px -2px 0px var(--accent1);
+    -1px -1px 0px var(--dark1),
+    -2px -2px 0px var(--dark1),
+    -3px -3px 0px var(--dark1),
+    -4px -4px 0px var(--dark1);
   font-style: italic;
 }
 
