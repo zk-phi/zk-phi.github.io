@@ -1,11 +1,11 @@
 !(function () {
   const ANGLE = 150 / 180 * Math.PI;
   const LAYERS = [
-    { speed: 0.1, radius: 2 * (0.3 + 0.1), count: 3 * 3 * 3 * 3 * 3 },
-    { speed: 0.2, radius: 2 * (0.3 + 0.2), count: 3 * 3 * 3 * 3 },
-    { speed: 0.4, radius: 2 * (0.3 + 0.4), count: 3 * 3 * 3 },
-    { speed: 0.8, radius: 2 * (0.3 + 0.8), count: 3 * 3 },
-    { speed: 1.6, radius: 2 * (0.3 + 1.6), count: 3 }
+    { speed: 0.05 * 1,  radius: 0.7 + 0.2 * 1,  count: 3 * 3 * 3 * 3 * 3 },
+    { speed: 0.05 * 2,  radius: 0.7 + 0.2 * 2,  count: 3 * 3 * 3 * 3 },
+    { speed: 0.05 * 4,  radius: 0.7 + 0.2 * 4,  count: 3 * 3 * 3 },
+    { speed: 0.05 * 8,  radius: 0.7 + 0.2 * 8,  count: 3 * 3 },
+    { speed: 0.05 * 16, radius: 0.7 + 0.2 * 16, count: 3 }
   ];
 
   const canvas = document.getElementById("bg");
