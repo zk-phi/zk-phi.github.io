@@ -81,7 +81,7 @@ module.exports = (eleventyConfig) => {
     // filter activities by category
     eleventyConfig.addNunjucksFilter("filterActivities", (data, tag) => {
         if (!tag) {
-            return data.filter((item) => item.category !== "メモ");
+            return data;
         } else {
             return data.filter((item) => item.category === tag);
         }

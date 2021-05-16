@@ -116,16 +116,6 @@ const getRecentQiitaPosts = jsonItems({
     }),
 });
 
-const getRecentScrapboxNotes = rssItems({
-    uri: "https://scrapbox.io/api/feed/zkphi",
-    source: "Scrapbox",
-    category: "メモ",
-    extractContent: (item) => ({
-        type: "html",
-        body: item.description
-    })
-});
-
 const getRecentSoundcloudPosts = rssItems({
     uri: "https://feeds.soundcloud.com/users/soundcloud:users:6471748/sounds.rss",
     source: "Soundcloud",
@@ -193,7 +183,6 @@ module.exports = async () => {
     const recentGithubRepos = await getRecentGithubRepos();
     const recentNotePosts = await getRecentNotePosts();
     const recentQiitaPosts = await getRecentQiitaPosts();
-    const recentScrapboxNotes = await getRecentScrapboxNotes();
     const recentSoundcloudPosts = await getRecentSoundcloudPosts();
     const recentSpeakerdeckSlides = await getRecentSpeakerdeckSlides();
     const recentYoutubePosts = await getRecentYoutubePosts();
@@ -207,7 +196,6 @@ module.exports = async () => {
         ...recentGithubRepos,
         ...recentNotePosts,
         ...recentQiitaPosts,
-        ...recentScrapboxNotes,
         ...recentSoundcloudPosts,
         ...recentSpeakerdeckSlides,
         ...recentYoutubePosts,
