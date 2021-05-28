@@ -18,9 +18,9 @@
     "devDependencies": {
         "@11ty/eleventy": "^0.12.1",
         "@11ty/eleventy-cache-assets": "^2.1.0",
-        "@11ty/eleventy-img": "^0.8.3",
+        "@11ty/eleventy-img": "^0.9.0",
         "@dsquare-gbu/kuroshiro": "^1.1.2-iedev-1",
-        "@lhci/cli": "^0.7.0",
+        "@lhci/cli": "^0.7.2",
         "clean-css-cli": "^5.2.2",
         "fast-xml-parser": "^3.19.0",
         "glyphhanger": "^4.0.1",
