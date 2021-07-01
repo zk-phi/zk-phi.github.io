@@ -23,7 +23,6 @@ jobs:
           git config --global url."https://github.com/".insteadOf
           ssh://git@github.com/
       - run: npm ci
-      - run: npx patch-package
       - run: npm run build
       - run: npm run opt
       - uses: peaceiris/actions-gh-pages@v3.8.0

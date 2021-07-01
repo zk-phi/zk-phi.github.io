@@ -18,5 +18,4 @@ jobs:
           git config --global url."https://github.com/".insteadOf
           ssh://git@github.com/
       - run: npm ci
-      - run: npx patch-package
       - run: npm run lighthouse
