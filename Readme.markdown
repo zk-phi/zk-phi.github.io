@@ -23,7 +23,7 @@ https://zk-phi.github.io
 web フォントのサブセット化に必要なツール
 
 ```
-pip install fonttools brotli zopfli
+pip install fonttools
 ```
 
 を入れてから `npm run opt` すると、生成された静的ページがもろもろ最適化される。

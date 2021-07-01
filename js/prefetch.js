@@ -24,7 +24,7 @@
 
     link("/css/font.css", "prefetch");
     link("/css/common_critical.css", "prefetch");
-    link("/fonts/DotGothic16-Regular.woff2", "prefetch");
+    link("/fonts/DotGothic16-Regular.woff", "prefetch");
     document.documentElement.addEventListener("mousedown", prerender, { passive: true });
     document.documentElement.addEventListener("touchstart", prerender, { passive: true });
 })();
