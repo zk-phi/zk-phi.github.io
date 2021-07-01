@@ -13,9 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@v2.2.2
       - run: pip install fonttools
       - uses: actions/setup-node@v2
+      - name: Reconfigure git to use HTTP authentication (actions/setup-node#214)
+        run: >
+          git config --global url."https://github.com/".insteadOf
+          ssh://git@github.com/
       - run: npm ci
       - run: npx patch-package
       - run: npm run build
