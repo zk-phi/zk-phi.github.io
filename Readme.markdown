@@ -102,4 +102,3 @@ pip install fonttools brotli zopfli
 - `js` ... js
 - `pages` ... 各ページ (のテンプレート)
 - `svg` ... SVG
-- `patches` ... node のパッケージに当てるパッチ (本家 merge 待ち)
