@@ -26,7 +26,7 @@
         "html-minifier": "^4.0.0",
         "http-server": "^0.12.3",
         "kuroshiro-analyzer-kuromoji": "^1.1.0",
-        "markdown-it": "^12.1.0",
+        "markdown-it": "^12.3.2",
         "replace": "^1.2.1",
         "slugify": "^1.6.0",
         "uglifyjs-folder": "^3.0.0"
