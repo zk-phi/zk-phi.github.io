@@ -24,7 +24,7 @@
         "fast-xml-parser": "^3.19.0",
         "glyphhanger": "zk-phi/glyphhanger",
         "html-minifier": "^4.0.0",
-        "http-server": "^0.12.3",
+        "http-server": "^14.1.0",
         "kuroshiro-analyzer-kuromoji": "^1.1.0",
         "markdown-it": "^12.1.0",
         "replace": "^1.2.1",
