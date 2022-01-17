@@ -29,7 +29,7 @@
 }
 
 .link:focus, .link:active {
-  outline: dotted 1px #555; /* replace chrome outline with win95-ish dotted line */
+  outline: dotted 1px var(--fg); /* replace chrome outline with win95-ish dotted line */
 }
 
 /* ---- emoji animations */
