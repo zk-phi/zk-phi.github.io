@@ -1,7 +1,7 @@
 :root {
   --fg: #eae9fb;
   --selectedFg: var(--fg);
-  --bg: #440088;
+  --bg: #330066;
   --overlay: rgba(192, 192, 192, 0.1);
   --shadow: rgba(255, 255, 255, 0.2);
   --accent1: #7265ff;
