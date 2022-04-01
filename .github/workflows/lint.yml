@@ -12,7 +12,7 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-python@v2.2.2
       - run: pip install fonttools
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3.1.0
       - name: Reconfigure git to use HTTP authentication (actions/setup-node#214)
         run: >
           git config --global url."https://github.com/".insteadOf
