@@ -3,6 +3,7 @@ const Kuroshiro = require("@dsquare-gbu/kuroshiro");
 const KuromojiAnalyzer = require("kuroshiro-analyzer-kuromoji");
 const Slugify = require('slugify');
 const HTMLMin = require('html-minifier');
+const DateFns = require("date-fns");
 
 const kuroshiro = new Kuroshiro();
 const kuroshiroInitialized = kuroshiro.init(new KuromojiAnalyzer());
@@ -74,7 +75,8 @@ module.exports = (eleventyConfig) => {
         kuroshiroInitialized.then(() =>
             kuroshiro.convert(activity.source + "-" + activity.title, { to: "romaji" })
         ).then((res) => {
-            callback(null, Slugify(res, { lower: true, strict: true, locale: "ja" }));
+            const slug = Slugify(res, { lower: true, strict: true, locale: "ja" });
+            callback(null, DateFns.format(activity.pubDate, "yyyyMMdd-") + slug);
         });
     });
 
