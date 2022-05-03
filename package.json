@@ -30,5 +30,8 @@
         "replace": "^1.2.1",
         "slugify": "^1.6.0",
         "uglifyjs-folder": "^3.0.0"
+    },
+    "dependencies": {
+        "date-fns": "^2.28.0"
     }
 }
