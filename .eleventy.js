@@ -91,7 +91,7 @@ module.exports = (eleventyConfig) => {
 
     // group activities by month
     eleventyConfig.addNunjucksFilter("groupActivityByMonth", (data) => {
-        if (!data) {
+        if (!data.length) {
             return [];
         }
 
