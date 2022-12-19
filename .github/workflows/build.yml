@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v2
@@ -25,10 +25,7 @@ jobs:
           ssh://git@github.com/
       - run: npm ci
       - run: npm run build
-      - run: npm run ss:generate:index
-      - run: npm run ss:apply:index
-      - run: npm run o:js
-      - run: npm run o:css
+      - run: npm run opt
       - uses: peaceiris/actions-gh-pages@v3.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
