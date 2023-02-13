@@ -15,7 +15,7 @@
   outline-offset: -6px;
 }
 
-.btn:active {
+.btn:active:not(:disabled) {
   color: #333;
   box-shadow: 0 0 1px 1px #333 inset;
 }
