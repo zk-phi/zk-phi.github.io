@@ -36,10 +36,10 @@ inlineStyles:
 
 {% for m in recentActivities | filterActivities(tag) | groupActivityByMonth %}
 <div class="left">
-  <h2 class="header">
+  <div class="header">
     <span class="puni">{{ monthEmoji[m.month] }}</span>
     {{- m.month + 1 }}月<small>/{{ m.year }}</small>
-  </h2>
+  </div>
   <ul class="list">
     {% for i in m.items %}
     <li class="item">

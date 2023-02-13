@@ -48,6 +48,12 @@
   margin: 12px 0;
 }
 
+.header {
+  text-align: left;
+  font-style: italic;
+  background: var(--dark1);
+}
+
 #content {
   max-width: 640px;
   margin: auto;

@@ -54,21 +54,25 @@ links:
 
 <hr class="hr" />
 
-{% for category in links %}
-<h2><span class="puni">🌟</span>{{ category.header }}</h2>
-<ul class="list">
-  {% for item in category.items %}
-  <li class="item">
-    <a class="link"
-       {% if not item.sameorigin %}target="_blank" rel="noreferrer"{% endif %}
-       href="{{ item.href }}">
-      {{- item.title | safe -}}
-    </a>
-    {{- item.icon | safe }}
-  </li>
+<div class="left">
+
+  {% for category in links %}
+  <div class="header"><span class="puni">🌟</span>{{ category.header }}</div>
+  <ul class="list">
+    {% for item in category.items %}
+    <li class="item">
+      <a class="link"
+          {% if not item.sameorigin %}target="_blank" rel="noreferrer"{% endif %}
+          href="{{ item.href }}">
+        {{- item.title | safe -}}
+      </a>
+      {{- item.icon | safe }}
+    </li>
+    {% endfor %}
+  </ul>
   {% endfor %}
-</ul>
-{% endfor %}
+
+</div>
 
 <hr class="hr" />
 
