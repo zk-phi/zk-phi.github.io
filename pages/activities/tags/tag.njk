@@ -30,10 +30,6 @@ inlineStyles:
 
 <hr class="hr" />
 
-<p>
-  <a class="link" href="/">&lt; 戻る</a>
-</p>
-
 {% for m in recentActivities | filterActivities(tag) | groupActivityByMonth %}
 <div class="left">
   <div class="header">
