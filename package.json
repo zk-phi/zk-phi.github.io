@@ -15,7 +15,7 @@
         "ss:apply:index": "replace '\\.woff' '_subset.woff' _site/index.html"
     },
     "devDependencies": {
-        "@11ty/eleventy": "^0.12.1",
+        "@11ty/eleventy": "^1.0.2",
         "@11ty/eleventy-cache-assets": "^2.3.0",
         "@11ty/eleventy-img": "^0.9.0",
         "@dsquare-gbu/kuroshiro": "^1.1.2-iedev-1",
