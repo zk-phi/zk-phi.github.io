@@ -132,7 +132,7 @@ const getRecentSpeakerdeckSlides = atomItems({
     category: "発表",
     extractContent: (item) => ({
         type: "speakerdeck",
-        deckId: item.content['#text'].match("/presentations/([^/]+)/")[1]
+        deckId: item["media:thumbnail"].url.match("/presentations/([^/]+)/")[1]
     })
 });
 
