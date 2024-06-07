@@ -179,6 +179,8 @@ const factorSortedItemsByMonth = (items) => {
 };
 
 module.exports = async () => {
+    // API フォーマットが代わったり、そもそも廃止されたりしたものがあるので
+    // いったんナシ
     // const recentConnpassEvents = await getRecentConnpassEvents();
     // const recentGithubRepos = await getRecentGithubRepos();
     // const recentNotePosts = await getRecentNotePosts();
