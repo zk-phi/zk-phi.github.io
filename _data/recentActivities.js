@@ -179,27 +179,27 @@ const factorSortedItemsByMonth = (items) => {
 };
 
 module.exports = async () => {
-    const recentConnpassEvents = await getRecentConnpassEvents();
-    const recentGithubRepos = await getRecentGithubRepos();
-    const recentNotePosts = await getRecentNotePosts();
-    const recentQiitaPosts = await getRecentQiitaPosts();
-    const recentSoundcloudPosts = await getRecentSoundcloudPosts();
-    const recentSpeakerdeckSlides = await getRecentSpeakerdeckSlides();
-    const recentYoutubePosts = await getRecentYoutubePosts();
-    const recentZennPosts = await getRecentZennPosts();
+    // const recentConnpassEvents = await getRecentConnpassEvents();
+    // const recentGithubRepos = await getRecentGithubRepos();
+    // const recentNotePosts = await getRecentNotePosts();
+    // const recentQiitaPosts = await getRecentQiitaPosts();
+    // const recentSoundcloudPosts = await getRecentSoundcloudPosts();
+    // const recentSpeakerdeckSlides = await getRecentSpeakerdeckSlides();
+    // const recentYoutubePosts = await getRecentYoutubePosts();
+    // const recentZennPosts = await getRecentZennPosts();
 
     const now = new Date();
     const lim = new Date(now.getFullYear(), now.getMonth() - 11);
 
     const activities = [
-        ...recentConnpassEvents,
-        ...recentGithubRepos,
-        ...recentNotePosts,
-        ...recentQiitaPosts,
-        ...recentSoundcloudPosts,
-        ...recentSpeakerdeckSlides,
-        ...recentYoutubePosts,
-        ...recentZennPosts,
+        // ...recentConnpassEvents,
+        // ...recentGithubRepos,
+        // ...recentNotePosts,
+        // ...recentQiitaPosts,
+        // ...recentSoundcloudPosts,
+        // ...recentSpeakerdeckSlides,
+        // ...recentYoutubePosts,
+        // ...recentZennPosts,
     ].filter((item) => (
         item.pubDate >= lim
     )).sort((a, b) => a.pubDate < b.pubDate ? 1 : -1);
