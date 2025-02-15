@@ -5,7 +5,9 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    # Pinning to 22.04 due to:
+    # https://github.com/puppeteer/puppeteer/issues/12818#issuecomment-2415314103
+    runs-on: ubuntu-22.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v2
